@@ -19,3 +19,33 @@ s_inodes_per_group
 super->s_inodes_per_group = ((fs->inode_blocks_per_group *
 				      EXT2_BLOCK_SIZE(super)) /
 				     EXT2_INODE_SIZE(super));
+
+
+Analysis balloc.d function by function.
+
+1. num_clusters_in_group. num_clusters_in_group
+    s_blocks_per_group = usually(not bigalloc, not more than maxinum value) blocksize * 8
+    4k*8=32k
+
+ #define EXT4_NUM_B2C(sbi, blks) (((blks) + (sbi)->s_cluster_ratio - 1) >> \
+ 272                  (sbi)->s_cluster_bits)
+
+ s_cluster_ratio;   /* Number of blocks per cluster */
+
+s_cluster_bits;    /* log2 of s_cluster_ratio */
+
+
+2. init_block_bitmap
+
+3. ext4_valid_block_bitmap
+
+4. validte_block_bitmap,,, it calls valid_block_bitmap to check.
+
+abcb2947 (Aneesh Kumar K.V
+7a4c5de2 ted
+block_bitmap_nowait
+ext4_setup_next_flex_gd
+
+5 ??? should not check "ext4_validate_block_bitmap" in wait_block_bitmap for  EXT4_BG_BLOCK_UNINIT case
+
+wait and nowait functions handle Flex_bg situation differently.
