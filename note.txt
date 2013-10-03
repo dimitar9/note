@@ -1,9 +1,8 @@
-
 analysis: get_group_des  balloc.c
 
 1001 1001 1110  = 2526
 >>7  = 
-1001 1 = 19
+1001 1 = 19 group_descriptor
 
 offset
 offset = block_group & (EXT4_DESC_PER_BLOCK(sb) - 1);
@@ -12,7 +11,7 @@ offset = block_group & (EXT4_DESC_PER_BLOCK(sb) - 1);
 offset = 30
 1 1110
 
-ext4_get_group_descext4_get_group_descyw"
+ext4_get_group_desc
 block_group = (ino - 1) / EXT4_INODES_PER_GROUP(sb);
 
 s_inodes_per_group
