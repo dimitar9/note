@@ -49,3 +49,8 @@ ext4_setup_next_flex_gd
 5 ??? should not check "ext4_validate_block_bitmap" in wait_block_bitmap for  EXT4_BG_BLOCK_UNINIT case
 
 wait and nowait functions handle Flex_bg situation differently.
+
+
+6. use xfstests to test all patches before commit.
+
+7. use git format-patch to generate patch.
