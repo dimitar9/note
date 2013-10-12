@@ -1,0 +1,8 @@
+export TEST_DEV=/dev/sda9
+export TEST_DIR=/device9
+export SCRATCH_DEV=/dev/sda10
+export SCRATCH_MNT=/device10
+export FSTYP=ext4
+
+ sudo ../../e2fsprogs/build/misc/mke2fs -t ext4 /dev/sda9
+
