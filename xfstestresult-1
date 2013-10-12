@@ -1,0 +1,57 @@
+root@paul-Inspiron-620s:/home/paul/Documents/xfstest/xfstests# ./check -g autoFSTYP         -- ext4
+PLATFORM      -- Linux/x86_64 paul-Inspiron-620s 3.5.4
+MKFS_OPTIONS  -- /dev/sda10
+MOUNT_OPTIONS -- -o acl,user_xattr /dev/sda10 /device10
+
+ext4/271 1s ... [failed, exit status 1] - output mismatch (see /home/paul/Documents/xfstest/xfstests/results//ext4/271.out.bad)
+    --- tests/ext4/271.out	2013-06-11 22:50:29.013820259 -0400
+    +++ /home/paul/Documents/xfstest/xfstests/results//ext4/271.out.bad	2013-10-08 23:55:16.246865646 -0400
+    @@ -41,4 +41,7 @@
+     1+0 records out
+     1+0 records in
+     1+0 records out
+    -Check filesystem
+    +umount: /device10: device is busy.
+    +        (In some cases useful info about processes that use
+    +         the device is found by lsof(8) or fuser(1))
+     ...
+     (Run 'diff -u tests/ext4/271.out /home/paul/Documents/xfstest/xfstests/results//ext4/271.out.bad' to see the entire diff)
+ext4/305 182s ... - output mismatch (see /home/paul/Documents/xfstest/xfstests/results//ext4/305.out.bad)
+    --- tests/ext4/305.out	2013-06-11 22:50:29.013820259 -0400
+    +++ /home/paul/Documents/xfstest/xfstests/results//ext4/305.out.bad	2013-10-08 23:58:19.098872766 -0400
+    @@ -1,2 +1,122 @@
+     QA output created by 305
+     Silence is golden
+    +umount: /device10: device is busy.
+    +        (In some cases useful info about processes that use
+    +         the device is found by lsof(8) or fuser(1))
+    +mount: /dev/sda10 already mounted or /device10 busy
+    +mount: according to mtab, /dev/sda10 is already mounted on /device10
+     ...
+     (Run 'diff -u tests/ext4/305.out /home/paul/Documents/xfstest/xfstests/results//ext4/305.out.bad' to see the entire diff)
+generic/001 3s ... 3s
+generic/002 0s ... 0s
+generic/005 0s ... 1s
+generic/006 0s ... 0s
+generic/007 0s ... 0s
+generic/010	 [not run] dbtest was not built for this platform
+generic/011 0s ... 0s
+generic/013 75s ... [failed, exit status 1] - output mismatch (see /home/paul/Documents/xfstest/xfstests/results//generic/013.out.bad)
+    --- tests/generic/013.out	2013-06-11 22:50:29.013820259 -0400
+    +++ /home/paul/Documents/xfstest/xfstests/results//generic/013.out.bad	2013-10-08 23:58:36.906873461 -0400
+    @@ -4,11 +4,4 @@
+     -----------------------------------------------
+     fsstress.1 : -r
+     -----------------------------------------------
+    -
+    ------------------------------------------------
+    -fsstress.2 : -p 20 -r
+    ------------------------------------------------
+     ...
+     (Run 'diff -u tests/generic/013.out /home/paul/Documents/xfstest/xfstests/results//generic/013.out.bad' to see the entire diff)
+_check_generic_filesystem: filesystem on /dev/sda9 is inconsistent (see /home/paul/Documents/xfstest/xfstests/results//generic/013.full)
+Ran: ext4/271 ext4/305 generic/001 generic/002 generic/005 generic/006 generic/007 generic/011 generic/013
+Not run: generic/010
+Failures: ext4/271 ext4/305 generic/013
+Failed 3 of 9 tests
+
