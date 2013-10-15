@@ -54,3 +54,5 @@ wait and nowait functions handle Flex_bg situation differently.
 6. use xfstests to test all patches before commit.
 
 7. use git format-patch to generate patch.
+
+8. use "watch "dmesg | tail -20" to watch dmesg
