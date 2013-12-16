@@ -1,0 +1,19 @@
+Debug e2fsprog
+
+root@paul-Inspiron-620s:/home/paul/Documents/e2fsprogs/build/debugfs# sudo debugfs /dev/sda7
+
+get and set user extended attr on ext4 file.
+ 
+getfattr  -n user.lovenumber /mnt/sda7/t92.mp4
+ setfattr -n user.lovenumber -v 18 /mnt/sda7/t92.mp4 
+
+
+Debug e2fsprog.
+Use eclipse
+1 set up attached debugger. (point to binary, new built)
+
+2 Fire up command: sudo debugfs /dev/sda7
+
+3 go back eclipse.  Attach debugfs process.
+
+4. Go to debugfs: type command . For example. : stat t92.mp4
