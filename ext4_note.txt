@@ -60,3 +60,5 @@ wait and nowait functions handle Flex_bg situation differently.
 9. ext4 use inline_data option. mkfs：mke2fs -m 0 -C $CLUSTER_SIZE -I 4096 -O ^has_journal,^resize_inode,^uninit_bg,extent,meta_bg,flex_bg,bigalloc,inline_data $DEVICE
 
 10. in ext2/3/4 e2mkfs -i option is "bytes-per-inode" this is actually "inode-ratio", Kernel uses this to calculate how many inodes in block. the derault value of it sometimes is 16384, if we want more inodes. make this value smaller. such as 4096. 
+
+11. build kernel and install it on other hosts/computers. http://linuxplayer.org/2011/07/build-the-linux-kernel-for-other-host
