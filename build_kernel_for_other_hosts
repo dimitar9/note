@@ -1,0 +1,55 @@
+Build the Linux kernel for other host
+Posted on July 29, 2011 by Curu Wong
+Building the linux kernel is time and resource consuming, especially when you do this in a VM guest.
+
+fortunately, We can choose a fast Linux machine to take the burden of building, then install the kernel to the target Linux host
+
+This simple article assumes that you know how to config and compile your custom kernel. so I will focus on building the kernel for other host.
+
+1. Download the linux kernel from kernel.org. extract, make xxxconfig, then make, assume that the directory you build your kernel is called KERNEL_BUILD_DIR
+
+2. create a directory to holding things that will be transfered to the target host and install.
+
+cd KERNEL_BUILD_DIR
+ kversion=$(make -s kernelrelease)
+ mkdir $HOME/$kversion
+3. Install modules to that directory
+
+make INSTALL_MOD_PATH=$HOME/$kversion modules_install
+4. Install the kernel image to that directory
+
+make INSTALL_PATH=$HOME/$kversion install
+5. Install kernel-dev files for build other module (this is optional)
+
+Do you need things like kernel-devel package(fedora) linux-headers(Ubuntu)? if yes, download my install-kernel-dev.sh from google code. then run: (you can save this script anywhere, but you must run it from the kernel build dir)
+
+INSTALL_PATH=$HOME/$kversion
+./install-kernel-dev.sh
+6. archive the resulting files
+
+cd $HOME
+tar -cjf $kversion.tar.bz2 $kversion
+Copy the xxx.tar.bz2 to your target machine
+
+
+7. Install on the target host
+1) Install modules and headers
+
+tar -xjf 2.6.xxx.xx.tar.bz2 # (replace  xxx with your kernel version string)
+cd 2.6.xxx.xx
+sudo chown root:root *
+sudo cp -a lib/modules/* /lib/modules/
+sudo cp -a usr/src/* /usr/src/
+2) Install the kernel
+On Ubuntu
+
+sudo cp System.map-* /boot/
+sudo cp vmlinuz-* /boot/
+sudo update-initramfs -c -k 2.6.xxx.xxx   # (replace  xxx with your kernel version string)
+sudo update-grub2
+On CentOS/Fedora
+
+installkernel 2.6.xxx.xxx  vmlinuz-*  System.map-*
+edit /boot/grub/menu.lst, change default=1 to default=0.
+
+That’s all.
