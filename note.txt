@@ -56,3 +56,8 @@ wait and nowait functions handle Flex_bg situation differently.
 7. use git format-patch to generate patch.
 
 8. use "watch "dmesg | tail -20" to watch dmesg
+
+9.Initialized and Uninitialized extents have different
+maximum size.
+So we can not convert initialized extent of a maximum size to a
+uninitialized extent right away. We have to split.
