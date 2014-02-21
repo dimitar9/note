@@ -66,3 +66,22 @@ uninitialized extent right away. We have to split.
 11. in ext2/3/4 e2mkfs -i option is "bytes-per-inode" this is actually "inode-ratio", Kernel uses this to calculate how many inodes in block. the derault value of it sometimes is 16384, if we want more inodes. make this value smaller. such as 4096. 
 
 12. build kernel and install it on other hosts/computers. http://linuxplayer.org/2011/07/build-the-linux-kernel-for-other-host
+
+13. Fallocate zero-range feature. Debugging note:
+4282             if ((!ext4_ext_is_uninitialized(ex)) &&
+4283                 (flags & EXT4_GET_BLOCKS_CONVERT_UNWRITTEN)) {
+4284                 allocated = ext4_ext_convert_initialized_extent(
+4285                         handle, inode, map, path, flags,
+4286                         allocated, newblock);
+4287                 goto out3;
+4288             } else if (!ext4_ext_is_uninitialized(ex))
+4289                 goto out;
+4290 
+4291             allocated = ext4_ext_handle_uninitialized_extents(
+4292                 handle, inode, map, path, flags,
+4293                 allocated, newblock);
+4294             goto out3;
+
+This part is supicious.
+Add debug output and trace it.
+
