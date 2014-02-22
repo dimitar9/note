@@ -101,3 +101,13 @@ uninitialized extent right away. We have to split.
 This part is supicious.
 Add debug output and trace it.
 
+how to use ext4 trace: example:
+http://www.spinics.net/lists/linux-ext4/msg41588.html
+
+TODO:
+1 compile kernel with Lukas's patch.
+2 test :fallocate -z -l 1G file2, check traces to undrestand routes.
+3. test with -l 2G and see where it stop
+
+
+
