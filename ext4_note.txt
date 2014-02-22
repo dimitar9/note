@@ -68,19 +68,35 @@ uninitialized extent right away. We have to split.
 12. build kernel and install it on other hosts/computers. http://linuxplayer.org/2011/07/build-the-linux-kernel-for-other-host
 
 13. Fallocate zero-range feature. Debugging note:
+4270         /* if found extent covers block, simply return it */
+4271         if (in_range(map->m_lblk, ee_block, ee_len)) {
+4272             newblock = map->m_lblk - ee_block + ee_start;
+4273             /* number of remaining blocks in the extent */
+4274             allocated = ee_len - (map->m_lblk - ee_block);
+4275             ext_debug("DEBUG:!!! %u fit into %u:%d -> %llu. flag is: %d\n", map->m_lblk,
+4276                   ee_block, ee_len, newblock,flags);
+4277 
+4278             /*
+4279              * If the extent is initialized check whether the
+4280              * caller wants to convert it to unwritten.
+4281              */
 4282             if ((!ext4_ext_is_uninitialized(ex)) &&
 4283                 (flags & EXT4_GET_BLOCKS_CONVERT_UNWRITTEN)) {
-4284                 allocated = ext4_ext_convert_initialized_extent(
-4285                         handle, inode, map, path, flags,
-4286                         allocated, newblock);
-4287                 goto out3;
-4288             } else if (!ext4_ext_is_uninitialized(ex))
-4289                 goto out;
-4290 
-4291             allocated = ext4_ext_handle_uninitialized_extents(
-4292                 handle, inode, map, path, flags,
-4293                 allocated, newblock);
-4294             goto out3;
+4284 
+4285                 ext_debug("DEBUG!!!: ex is initialized and ext4_get_blocks_convet_unwritten. \n");
+4286                 allocated = ext4_ext_convert_initialized_extent(
+4287                         handle, inode, map, path, flags,
+4288                         allocated, newblock);
+4289                 goto out3;
+4290             } else if (!ext4_ext_is_uninitialized(ex))
+4291                 goto out;
+4292 
+4293             allocated = ext4_ext_handle_uninitialized_extents(
+4294                 handle, inode, map, path, flags,
+4295                 allocated, newblock);
+4296             goto out3;
+4297         }
+     goto out3;
 
 This part is supicious.
 Add debug output and trace it.
