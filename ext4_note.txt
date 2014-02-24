@@ -112,5 +112,5 @@ TODO:
 
 14. build util-linux.  : get git, clone git, install dependencies: libtool etc., run autogen.sh script; configure; make
 
-15. Use xfs_io to test ext4 , # xfs_io -f -c "truncate 20k" -c "fcollapse 4k 8k" -c "fiemap -v" testfile1 
+15. Use xfs_io to test ext4 , # xfs_io -F -c "truncate 20k" -c "fcollapse 4k 8k" -c "fiemap -v" testfile1 
    xfstest patch for fallocate collapse:	http://article.gmane.org/gmane.comp.file-systems.xfs.general/60479
