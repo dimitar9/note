@@ -98,19 +98,22 @@ uninitialized extent right away. We have to split.
 4297         }
      goto out3;
 
-This part is supicious.
-Add debug output and trace it.
+	This part is supicious.
+	Add debug output and trace it.
 
-how to use ext4 trace: example:
-http://www.spinics.net/lists/linux-ext4/msg41588.html
+	how to use ext4 trace: example:
+	http://www.spinics.net/lists/linux-ext4/msg41588.html
 
-TODO:
-1 compile kernel with Lukas's patch.
-2 test :fallocate -z -l 1G file2, check traces to undrestand routes.
-3. test with -l 2G and see where it stop
+	TODO:
+  	1 compile kernel with Lukas's patch.
+	2 test :fallocate -z -l 1G file2, check traces to undrestand routes.
+	3. test with -l 2G and see where it stop
 
 
 14. build util-linux.  : get git, clone git, install dependencies: libtool etc., run autogen.sh script; configure; make
 
 15. Use xfs_io to test ext4 , # xfs_io -F -c "truncate 20k" -c "fcollapse 4k 8k" -c "fiemap -v" testfile1 
-   xfstest patch for fallocate collapse:	http://article.gmane.org/gmane.comp.file-systems.xfs.general/60479
+    xfstest patch for fallocate collapse:	http://article.gmane.org/gmane.comp.file-systems.xfs.general/60479
+   
+16. difference between punch hole and fcollapse.
+    http://comments.gmane.org/gmane.comp.file-systems.ext4/39290
