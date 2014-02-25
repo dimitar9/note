@@ -121,3 +121,4 @@ uninitialized extent right away. We have to split.
 17. __user in kernel code: I think __user marks user space pointers and tells the developer/system not to trust it. If user gives you "invalid" pointer, then kernel tries to reference it (note that kernel can reference everywhere) and it can corrupt it's own space.
 
 	For example in "read"(in you usbdevice_fs.h) should provide you a (__user) buffer to write the result to. So you have to use copy_to_user, but not memcopy, strcpy or anything like this.
+18. fallocate 2 new options ,consider inline_data?
