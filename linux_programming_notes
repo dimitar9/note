@@ -1,0 +1,43 @@
+1. Linux使用prctl API, 在父进程退出后，让子进程也退出 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/prctl.h>
+
+void my_system(void)
+{
+    pid_t pid;
+    pid = fork();
+    if (pid == 0)
+    {
+　　　　 // 设置当父进程退出时，子进程也退出
+     prctl(PR_SET_PDEATHSIG, SIGHUP);
+        while (1)
+        {
+            printf("child running...\n");
+            sleep(1);
+        }
+        exit(0);
+    }
+    else if (pid < 0)
+    {
+        printf("create failed\n");
+    }
+}
+
+int main (int argc, char *argv[])
+{
+    int i = 0;
+    my_system();
+
+    while (i++ < 6)
+    {
+        printf("father running...\n");
+        sleep(1);
+    }
+
+    printf("Main exit()\n");
+
+    return 0;
+}
