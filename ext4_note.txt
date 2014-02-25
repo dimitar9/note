@@ -122,3 +122,15 @@ uninitialized extent right away. We have to split.
 
 	For example in "read"(in you usbdevice_fs.h) should provide you a (__user) buffer to write the result to. So you have to use copy_to_user, but not memcopy, strcpy or anything like this.
 18. fallocate 2 new options ,consider inline_data?
+19. root@debian:/mnt/test# xfs_io -F -c "truncate 4k" -c "fiemap -v" -c "fcollapse 0k 4k" -c "fiemap -v" testfile2 
+testfile2:
+ EXT: FILE-OFFSET      BLOCK-RANGE      TOTAL FLAGS
+   0: [0..7]:          368..375             8 0x301
+fallocate: Operation not supported
+testfile2:
+ EXT: FILE-OFFSET      BLOCK-RANGE      TOTAL FLAGS
+   0: [0..7]:          368..375             8 0x301
+root@debian:/mnt/test# cat testfile3
+abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRST
+root@debian:/mnt/test# 
+
