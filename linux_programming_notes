@@ -42,4 +42,8 @@
             return 0;
         }
 2. GoogleTest gtest:  test private static function: use friend or move it to public.
+
+3. eclipse regex
+        8PSK2D16S-170bytes\s\s\((\d)\/(\d)\)_agc_modcod
+        gain_mod_2_170_$1\/$2
    
