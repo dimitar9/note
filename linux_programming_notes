@@ -46,4 +46,7 @@
 3. eclipse regex
         8PSK2D16S-170bytes\s\s\((\d)\/(\d)\)_agc_modcod
         gain_mod_2_170_$1\/$2
+4. Linux vs Solaris performance differences. 
+        http://www.slideshare.net/brendangregg/what-linux-can-learn-from-solaris-performance-and-viceversa
+
    
