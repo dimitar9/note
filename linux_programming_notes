@@ -41,3 +41,5 @@
         
             return 0;
         }
+2. GoogleTest gtest:  test private static function: use friend or move it to public.
+   
