@@ -136,3 +136,10 @@ root@debian:/mnt/test#
 
 
 20. kgdb, virtualbox debug :http://www.linuxforu.com/2011/03/kgdb-with-virtualbox-debug-live-kernel/ 
+
+ a) add "kgdboc=ttyS0,115200 kgdbwait " to boot options   (use e to edit grub)
+ b) on host, type:   socat -d -d /code/guest/serial PTY:
+ c) on host, another terminal: 
+    # gdb ./vmlinux    
+    (gdb) target remote /dev/pts/7     => use stp b to get this number, 11 or something else.
+    
