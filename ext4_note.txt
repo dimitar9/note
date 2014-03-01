@@ -134,3 +134,5 @@ root@debian:/mnt/test# cat testfile3
 abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRST
 root@debian:/mnt/test# 
 
+
+20. kgdb, virtualbox debug :http://www.linuxforu.com/2011/03/kgdb-with-virtualbox-debug-live-kernel/ 
