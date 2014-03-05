@@ -2,3 +2,4 @@ cmake http://www.cmake.org/cmake/help/v2.8.8/cmake.html
 
 1. include,   (command)   http://www.cmake.org/cmake/help/v2.8.8/cmake.html 
 2. find_files  note: use PATHS ${PROJECT_SOURCE_DIR}  ,dont forget about ${}. wasted time here.
+3. debug ,  add --trace to cmake command
