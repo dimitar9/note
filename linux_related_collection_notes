@@ -54,3 +54,5 @@
   http://lwn.net/Articles/588309/
   
 6. cmake http://www.cmake.org/cmake/help/v2.8.8/cmake.html 
+
+7. get branch name:  git    :   git rev-parse --abbrev-ref HEAD
