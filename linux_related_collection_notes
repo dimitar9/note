@@ -56,3 +56,5 @@
 6. cmake http://www.cmake.org/cmake/help/v2.8.8/cmake.html 
 
 7. get branch name:  git    :   git rev-parse --abbrev-ref HEAD
+
+8. readelf: is a linux command to output binary meta information. very useful to compare binary files
