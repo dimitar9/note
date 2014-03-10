@@ -58,3 +58,5 @@
 7. get branch name:  git    :   git rev-parse --abbrev-ref HEAD
 
 8. readelf: is a linux command to output binary meta information. very useful to compare binary files
+    readelf documnet: https://sourceware.org/binutils/docs/binutils/readelf.html 
+    for example, --debug-dump =decodedline option will display the interpreted contents of a .debug_line section whereas the =rawline option dumps the contents in a raw format.
