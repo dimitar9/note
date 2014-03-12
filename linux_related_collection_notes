@@ -60,3 +60,4 @@
 8. readelf: is a linux command to output binary meta information. very useful to compare binary files
     readelf documnet: https://sourceware.org/binutils/docs/binutils/readelf.html 
     for example, --debug-dump =decodedline option will display the interpreted contents of a .debug_line section whereas the =rawline option dumps the contents in a raw format.
+9. is parallel programming hard? https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook-e1.pdf 
