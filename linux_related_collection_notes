@@ -63,3 +63,5 @@
 9. is parallel programming hard? https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook-e1.pdf 
 
 10. Leart __thread (gcc provided) from Chen SHuo book 4.5
+
+11. Learnt std::move  , it will get rvalue reference as return and expire old one.
