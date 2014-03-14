@@ -65,3 +65,5 @@
 10. Leart __thread (gcc provided) from Chen SHuo book 4.5
 
 11. Learnt std::move  , it will get rvalue reference as return and expire old one.
+
+12. studied c++11 sizeof, constexpr, alignof.
