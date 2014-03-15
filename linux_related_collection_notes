@@ -72,16 +72,16 @@
 
 14. realloc() fail handling. http://www.mantidproject.org/How_to_fix_CppCheck_Errors
          double *new_data = static_cast<double *>(realloc (d_data, size*sizeof(double)));
- if (new_data == NULL)
- {
-   // could not realloc, but orig still valid
-   QMessageBox::critical(d_matrix, tr("MantidPlot") + " - " + tr("Memory Allocation Error"),
-     tr("Not enough memory, operation aborted!"));
- }
- else
- {
-     d_data = new_data;
- }
+    if (new_data == NULL)
+    {
+    // could not realloc, but orig still valid
+    QMessageBox::critical(d_matrix, tr("MantidPlot") + " - " + tr("Memory Allocation Error"),
+        tr("Not enough memory, operation aborted!"));
+    }
+    else
+    {
+        d_data = new_data;
+    }
  //Explanation If realloc fails, then the original memory allocation exists,
- but is leaked as it is no longer referred to by d_data. So you need to keep
- a handle on the original allocation until you have verified that the new allocation is valid.
+ //but is leaked as it is no longer referred to by d_data. So you need to keep
+ //a handle on the original allocation until you have verified that the new allocation is valid.
