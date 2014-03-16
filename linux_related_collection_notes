@@ -85,3 +85,6 @@
  //Explanation If realloc fails, then the original memory allocation exists,
  //but is leaked as it is no longer referred to by d_data. So you need to keep
  //a handle on the original allocation until you have verified that the new allocation is valid.
+ 
+ 15. Gustavo Duarte Blog, Journey to stack part1 http://duartes.org/gustavo/blog/post/journey-to-the-stack/
+     I have also backuped it in my skydrive.
