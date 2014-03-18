@@ -144,4 +144,9 @@ root@debian:/mnt/test#
     (gdb) target remote /dev/pts/7     => use stp b to get this number, 11 or something else.
     
 21. linux fallocate, systemcall will call ext4_fallocate in extents.c file. It has  3 options now. 
+
+22. Leart xfstest ext4/243. 
+23. To build xfstest, need to install acl and attr. 
+24. xfstest local config file is good to eliminate hassles. see local.config file in same folder as here.
+
     
