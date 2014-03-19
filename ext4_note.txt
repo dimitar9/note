@@ -149,4 +149,4 @@ root@debian:/mnt/test#
 23. To build xfstest, need to install acl and attr. 
 24. xfstest local config file is good to eliminate hassles. see local.config file in same folder as here.
 
-    
+25. ext4 good material, IBM docu. http://www.ibm.com/developerworks/cn/linux/l-cn-filesrc5/#icomments    
