@@ -1,4 +1,5 @@
 1. http://courses.cs.washington.edu/courses/cse552/07sp/ good material to study distributed system.
+  http://courses.cs.washington.edu/courses/cse552/13au/
 2.Have read <<J. Ousterhout, The Role of Distributed State, 1991.>>  
   "distributed state", stateful vs stateless. Both have advantages and disadvantages.
   distributed system introduces: 
