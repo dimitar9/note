@@ -1,1 +1,8 @@
 1. http://courses.cs.washington.edu/courses/cse552/07sp/ good material to study distributed system.
+2.Have read <<J. Ousterhout, The Role of Distributed State, 1991.>>  
+  "distributed state", stateful vs stateless. Both have advantages and disadvantages.
+  distributed system introduces: 
+  a. consistency problems,
+  b. crash sensitivity,
+  c. time and space overheads,
+  d. complexity.
