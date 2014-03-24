@@ -14,3 +14,7 @@ When you want to deploy to Heroku, you just need to run:
 
 rake assets:precompile RAILS_ENV=production
 This will precompile your styles, allowing you to keep them consistent on Heroku & locally
+
+
+5. wathed railcast http://railscasts.com/?page=12&view=list
+   1-8 finished.
