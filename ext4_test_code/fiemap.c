@@ -19,6 +19,7 @@
 
 /*
  *  Author Colin Ian King,  colin.king@canonical.com
+ *  modified by Dimi
  */
 
 
@@ -52,9 +53,17 @@ struct fiemap *read_fiemap(int fd)
 	}
 	memset(fiemap, 0, sizeof(struct fiemap));
 
+
 	fiemap->fm_start = 0;
 	fiemap->fm_length = ~0;		/* Lazy */
-	fiemap->fm_flags = 0;
+	fiemap->fm_flags = FIEMAP_FLAG_SYNC; //
+    /* FIEMAP_FLAG_SYNC
+        If this flag is set, the kernel will sync the file before mapping extents.
+        
+        * FIEMAP_FLAG_XATTR
+        If this flag is set, the extents returned will describe the inodes
+        extended attribute lookup tree, instead of its data tree.
+    */
 	fiemap->fm_extent_count = 0;
 	fiemap->fm_mapped_extents = 0;
 
@@ -93,14 +102,20 @@ void dump_fiemap(struct fiemap *fiemap, char *filename)
 
 	printf("File %s has %d extents:\n",filename, fiemap->fm_mapped_extents);
 
-	printf("#\tLogical          Physical         Length           Flags\n");
+	printf("#\tLogical          Physical         Length           Flags reserved64,1, reserved0 1 2\n");
 	for (i=0;i<fiemap->fm_mapped_extents;i++) {
-		printf("%d:\t%-16.16llx %-16.16llx %-16.16llx %-4.4x\n",
+		printf("%d:\t%-16.16llx %-16.16llx %-16.16llx %-4.4x %-16.16llx %-16.16llx %-4.4x %-4.4x %-4.4x\n",
 			i,
 			fiemap->fm_extents[i].fe_logical,
 			fiemap->fm_extents[i].fe_physical,
 			fiemap->fm_extents[i].fe_length,
-			fiemap->fm_extents[i].fe_flags);
+			fiemap->fm_extents[i].fe_flags,
+            fiemap->fm_extents[i].fe_reserved64[0],
+            fiemap->fm_extents[i].fe_reserved64[1],
+            fiemap->fm_extents[i].fe_reserved[0],
+            fiemap->fm_extents[i].fe_reserved[1],
+            fiemap->fm_extents[i].fe_reserved[2]
+            );
 	}
 	printf("\n");
 }
