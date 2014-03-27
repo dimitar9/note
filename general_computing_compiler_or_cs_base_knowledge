@@ -1,0 +1,9 @@
+1. floating-point addition and multiplication are both commutative (a + b = b + a and a×b = b×a), they are not necessarily associative.
+   Because Floating Point Math is not Associative. The way you group the operands in floating point multiplication has an effect on the numerical accuracy of the answer.
+
+   As a result, most compilers are very conservative about reordering floating point calculations unless they can be sure that the answer will stay the same, or unless you tell them you don't care about numerical accuracy. For example: the -ffast-math option of gcc.
+
+   
+   http://stackoverflow.com/questions/6430448/why-doesnt-gcc-optimize-aaaaaa-to-aaaaaa
+   http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems
+   
