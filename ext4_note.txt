@@ -160,4 +160,5 @@ root@debian:/mnt/test#
       such as: trap "rm -f /tmp/$$.; exit" 0 1 2 3 15
    3) shell command "basename": Returns the base file name of a string parameter.
    4) linux command 'bc' : command line calculator
+   5) learnt generic/002 , it tests hard link "ln" ,using sed to get link numbers and compare to iteration number.
 
