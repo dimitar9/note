@@ -149,4 +149,24 @@ root@debian:/mnt/test#
 23. To build xfstest, need to install acl and attr. 
 24. xfstest local config file is good to eliminate hassles. see local.config file in same folder as here.
 
-25. ext4 good material, IBM docu. http://www.ibm.com/developerworks/cn/linux/l-cn-filesrc5/#icomments    
+25. ext4 good material, IBM docu. http://www.ibm.com/developerworks/cn/linux/l-cn-filesrc5/#icomments  
+
+26. Feh / nocache userspace utility. To minimize filesystem caching effects 
+    https://github.com/Feh/nocache
+    
+27. Study xfstest.
+   1) shell  "." dot: means Run a shell file in the current environment
+   2) shell keyword "trap:: he trap command allows you to execute a command when a signal is received by your script.
+      such as: trap "rm -f /tmp/$$.; exit" 0 1 2 3 15
+   3) shell command "basename": Returns the base file name of a string parameter.
+   4) linux command 'bc' : command line calculator
+   5) learnt generic/002 , it tests hard link "ln" ,using sed to get link numbers and compare to iteration number.
+   6) shell $? is used to find the error code of the last executed command. 
+	Positional parameters $1,$2,$3… and their corresponding array representation, count and IFS expansion $@, $#, and $*.
+	$- current options set for the shell.
+	$$ pid of the current shell (not subshell)
+	$_ most recent parameter (or the abs path of the command to start the current shell immediately after startup)
+	$IFS the (input) field separator
+	$? most recent foreground pipeline exit status
+	$! PID of the most recent background command
+	$0 name of the shell or shell script

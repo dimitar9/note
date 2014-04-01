@@ -1,0 +1,99 @@
+Ext4 Workshop 2014
+
+March 31, 2014 by 刘, 铮 1 个评论
+2014年3月26日，Napa Valley, CA.  今年LSF/MM Summit 2014会议就在这里举行，因此Ext4 Workshop相应的也就在这里了。会议内容主要是讨论后续一年Ext4文件系统的开发问题。
+
+今年讨论的内容如下：
+
+Data Block Checksums
+Reflink
+Encryption
+Extent Cache Shrinker
+Buffer_head Removal
+SMR/Flash Device Optimization
+Multi-block Allocation
+Testing
+Mount Options Restrict
+与会人员：
+
+Ted Ts'o (Google, Ext4/Jbd2 Maintainer)
+Jan Kara (SUSE, Ext3/Jbd Maintainer)
+Ric Wheeler (Redhat)
+Eric Sandeen (Redhat)
+Lukas Cerner (Redhat)
+Carlos Maiolino (Redhat)
+Darrick Wong (Oracle)
+Zheng Liu (Alibaba)
+Michael Halcrow (Google)
+Eric Whitney
+两位来自Western Digital的工程师
+1. Data Block Checksums
+
+目前Ext4已经具备对元数据进行校验的能力。如果需要对文件系统元数据做校验，仅需通过如下命令即可：
+
+# mkfs.ext4 -O metadata_csum ${DEV}
+
+目前Redhat计划让文件系统支持数据的校验和，来保证数据的正确。由于需要在文件系统中保存每个数据的校验和信息，因此需要在文件系统中创建相应的数据结构来保存信息。目前有两个方案：
+
+静态方案
+动态方案
+静态方案比较简单，类似于metadata checksums，预先在格式化文件系统时直接在每个block group中创建出需要的数据结构。这样的好处是简单，对文件系统的改动比较小，同时很容易根据block group直接找到对应的校验和的位置。缺点则是不太灵活，对一些不需要做校验的block也需要分配出相对应的空间（比如extent tree）。
+
+动态方案则直接在inode或者block group的描述符中直接创建一个B+tree，所有的校验和均保存在其中。这样在查找/创建校验和的时候时间复杂度会有所上升。特别是在block group中分配的方案，由于多个文件可能同时修改同一个block group中的B+tree，所以会有锁争用的开销。
+
+Ted指出静态的方法比较简单直接，可以一点点的改进。如果采用动态方案，则比较复杂。当然，理想情况下，Ted比较喜欢动态的方案。毕竟通过动态方案的实现，不仅仅是data block checksums的问题，连reflink的实现也会简单很多。另外就是一些细节的讨论，比如fsck的时候对data block checksums的检查、df显示磁盘空间时候的计算等等。
+
+2. reflink
+
+由于Mingming Cao没有出席今年的Ext4 Workshop，目前为止reflink的设计方案也没有任何邮件，同时Darrick也不太了解目前reflink的可能实现，因此reflink的讨论就变得极其有限了。reflink(2)调用的目的是创建一个新的inode，但是该inode指向的内容均为另外一个已经存在的文件。这个新创建的文件是COW的，对它的所有修改都不会反应在此前的文件上。正如上面介绍data block checksums时所说，reflink的实现需要创建一个B+tree来记录那些没有修改过的block，而如果有了data block checksums的动态B+tree，则问题迎刃而解，只需要在该B+tree中进行记录就解决了。具体reflink的实现，还是需要等相关的邮件才能揭晓。
+
+3. Encryption
+
+文件数据加密这个之前并不在讨论范围，是开会当天加上的，而且鉴于是Google需要的需求，所以排的位置十分靠前。文件系统的数据加密功能很容易理解，就是将写入文件的内容先进行加密再保存在磁盘上。在Ext4上加这个功能的原因是因为Android操作系统。印象中从Android 2.4之后的版本（我不是Android用户，不太了解 ^ ^）开始，默认的文件系统变成了Ext4。由于用户会在手机上登录各种网站，所以Chromium浏览器会将一些个人用户信息以文件形式保存在手机上。这当然没啥问题，除非您哪天手机丢了。那么这些用户的信息就存在被获取的可能。各位当然也不用担心太担心，因为目前Android系统上会在Ext4上再使用eCryptfs对文件数据进行加密保存。所以您的个人数据还是安全的。但是用Michael Halcrow的原话来讲就是，这完全是个错误。
+
+所以为了纠正这个错误，目前Google的想法是让Ext4原生支持数据加密。关于具体的加解密理论我也不太了解，可说的不多。但是鉴于Google的原因，估计这个特性很快就会加到Ext4上。
+
+4. Extent Cache Shrinker
+
+再提这个问题的原因是在与PostgreSQL开发人员的交流过程中（这次LSF/MM邀请了几位PostgreSQL的开发者来分享一些他们对Linux Kernel开发的希望）发现他们也遇到了Shrinker回收过程过长的问题。这个问题很早就被报告给了社区，不过我一直没有时间去改进，对不起各位了。
+
+目前Extent Cache Shrinker的问题主要是在RB-tree中保存了所有对象的信息。而有些对象由于需要被delayed allocation、seek data/hole功能使用，是不能被回收的，所以在某些情况下，会出现Shrinker扫描很长时间却扫描不到可以回收的对象的情况。对于这一问题，目前有两种改进方案：
+
+添加一个list专门保存可以回收的对象
+完全放弃LRU-list算法
+方案1让Shrinker快速找到可以回收的对象，从而减少等待时间。但是仍然保留了目前的LRU算法，因此还是存在维护LRU的时间开销。另外，由于添加了另外一个list，内存开销会增加近1/3；方案2则完全放弃目前的LRU算法，通过指针记录上次扫描的位置，从该位置继续扫描可回收的对象。这样做可以避免维护LRU算法的开销，减少锁争用。由于目前Shrinker在回收对象时还要考虑inode的PRECACHE标志，因此较为复杂。Ted介绍目前Google内部的做法是完全不回收带有PRECACHE标记的inode，而对其他的则一概回收。当然这样做完全是出于Google自己的需要，PRECACHE的应用都是Google底层的核心应用。因此upstream kernel上不能这样做。同时由于Google大量direct IO的使用，产生delayed allocation对象的机会较少（不能被回收），所以问题也并不严重。
+
+下一步的计划就是同时实现两个方案并比较结果。此外，对于Extent Status Tree，我还在考虑用skip list替代rb-tree的方案以减小锁争用的开销。
+
+5. Buffer_head Removal
+
+目前在Linux Kernel中，buffer_head结构的核心作用尽管已经被bio取代，但是仍然有大量文件系统的代码在使用buffer_head结构来记录文件系统的元数据信息。Ext4就是其中一个。当然，这也是没有办法的事情，毕竟VFS层的很多地方都还需要使用buffer_head结构。Ted提出这个想法的目前是在Ext4中，除了direct IO路径和data=journalled模式外，将所有使用buffer_head的路径中将这一结构干掉。这样做的目的如果是简单重构，其实意义并不大。Ted的想法是通过干掉bufferred IO路径上的buffer_head，从而避免使用buffer_head中的Delayed标记。这样就可以避免在blocksize与pagesize不同时处理的麻烦。随之而来的计划便是将dioread_nolock特性默认打开，从而提高高速设备上direct IO的性能（此特性可以解决目前Ext4中direct IO路径上的扩展性问题）。
+
+尽管前景美好，但是Ted和Jan表示没时间搞。所以哪位有兴趣的可以试试看，做完这个，对整个Ext4的读写流程会非常熟悉的。
+
+6. SMR/Flash Device Optimization
+
+这块主要的改进思路其实已经体现在Ted发的RFC中了（http://lwn.net/Articles/579564/）。主要是两方面的改进，一方面是针对日志的改进，尽量减少对日志的频繁刷新，从而避免由于SMR随机写性能影响文件系统，造成性能下降。另一方面是对mballoc算法的改进，做到对SMR友好。鉴于目前大家基本都没有拿到可以测试的SMR硬盘，所以大家并没有什么意见提出。
+
+7. Multi-block Allocation
+
+对于mballoc算法的改进源于Lukas对使用thin-provision的Ext4文件系统进行测试时发现的问题。问题是mballoc目前的算法总是倾向于在整个块设备上分配磁盘空间，即便块设备的开头有空闲空间，mballoc也经常会分配块设备后面的空间来进行使用。这在传统磁盘上当然没有问题（其实还是有问题的，因为越往后磁盘性能越差），但是对于thinp设备就要命了，因为thinp设备根本就没有宣称的那么大的空间，所以文件系统总是分配后面的磁盘空间thinp设备自然受不了。Lukas目前有补丁来解决这个问题。但是从长远来看，还是需要改进mballoc的分配算法。目前最大的问题是很多mballoc中的代码除了Andreas Digler（mballoc的作者）就没人知道为啥要这么写了。。。
+
+另外谈到的一个关键问题是如何测试来确保分配算法确实有改进和不是造成性能的下降。大家还是给了些意见的，包括用一些成熟的测试工具，用已有的磁盘使用情况的Tracer等等，总之目前对于mballoc的改进还没有具体方案，只是有这个想法。
+
+8. Testing
+
+Ted介绍了自己的测试方法，再次强调了测试的重要性并希望大家多测试。同时感谢了Eric Whitney的测试工作。Ted也提出了对于xfstests测试框架的改进意见，希望Redhat的同学能进行改进。
+
+9. Mount Options Restrict
+
+这个话题去年就聊过了，但是还是没有彻底解决。主要问题是去年Redhat主要在弄RHEL7，没空搭理这个小问题。但是今年RHEL7大问题都解决了，所以这个小问题又提上桌面了。主要问题还是发行版希望使用Ext4内核模块来挂在Ext2、Ext3文件系统。但是这样就存在到底这么多特性哪些特性可以用在哪些文件系统上。今年这件事情从Lukas转到Carlos身上了。
+
+今年预计Ext4会开发的新特性如下：
+
+Data Block Checksums
+reflink
+Project Quota
+mballoc优化
+Ecryption
+Extent Cache Shrink优化
