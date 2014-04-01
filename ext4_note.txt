@@ -161,4 +161,5 @@ root@debian:/mnt/test#
    3) shell command "basename": Returns the base file name of a string parameter.
    4) linux command 'bc' : command line calculator
    5) learnt generic/002 , it tests hard link "ln" ,using sed to get link numbers and compare to iteration number.
+   6) shell $? is used to find the error code of the last executed command. 
 
