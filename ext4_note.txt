@@ -162,4 +162,11 @@ root@debian:/mnt/test#
    4) linux command 'bc' : command line calculator
    5) learnt generic/002 , it tests hard link "ln" ,using sed to get link numbers and compare to iteration number.
    6) shell $? is used to find the error code of the last executed command. 
-
+	Positional parameters $1,$2,$3… and their corresponding array representation, count and IFS expansion $@, $#, and $*.
+	$- current options set for the shell.
+	$$ pid of the current shell (not subshell)
+	$_ most recent parameter (or the abs path of the command to start the current shell immediately after startup)
+	$IFS the (input) field separator
+	$? most recent foreground pipeline exit status
+	$! PID of the most recent background command
+	$0 name of the shell or shell script
