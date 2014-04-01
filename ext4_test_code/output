@@ -1,0 +1,246 @@
+ext4_init_es
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:67:extern int __init ext4_init_es(void);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:153:int __init ext4_init_es(void)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:5498:	err = ext4_init_es();
+
+
+ext4_exit_es
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:68:extern void ext4_exit_es(void);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:163:void ext4_exit_es(void)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:5556:	ext4_exit_es();
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:5575:	ext4_exit_es();
+
+
+ext4_es_init_tree
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:69:extern void ext4_es_init_tree(struct ext4_es_tree *tree);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:169:void ext4_es_init_tree(struct ext4_es_tree *tree)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:879:	ext4_es_init_tree(&ei->i_es_tree);
+
+
+ext4_es_print_tree
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:176:static void ext4_es_print_tree(struct inode *inode)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:195:#define ext4_es_print_tree(inode)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:681:	ext4_es_print_tree(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:901:	ext4_es_print_tree(inode);
+
+
+ext4_es_end
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:198:static inline ext4_lblk_t ext4_es_end(struct extent_status *es)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:218:		else if (lblk > ext4_es_end(es))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:227:	if (es && lblk > ext4_es_end(es)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:612:		} else if (newes->es_lblk > ext4_es_end(es)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:755:		else if (lblk > ext4_es_end(es1))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:804:	len2 = ext4_es_end(es) > end ? ext4_es_end(es) - end : 0;
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:850:	while (es && ext4_es_end(es) <= end) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:864:		len1 = ext4_es_end(es) - end;
+
+
+__es_tree_search
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:208:static struct extent_status *__es_tree_search(struct rb_root *root,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:272:	es1 = __es_tree_search(&tree->root, lblk);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:711:	es = __es_tree_search(&EXT4_I(inode)->i_es_tree.root, lblk);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:790:	es = __es_tree_search(&tree->root, lblk);
+
+
+ext4_es_find_delayed_extent_range
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:79:extern void ext4_es_find_delayed_extent_range(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3850:	ext4_es_find_delayed_extent_range(inode, lblk_start, lblk_end, &es);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5029:		ext4_es_find_delayed_extent_range(inode, newes->es_lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5051:	ext4_es_find_delayed_extent_range(inode, block, EXT_MAX_BLOCKS, &es);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:237: * ext4_es_find_delayed_extent_range: find the 1st delayed extent covering
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:245:void ext4_es_find_delayed_extent_range(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:255:	trace_ext4_es_find_delayed_extent_range_enter(inode, lblk);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:296:	trace_ext4_es_find_delayed_extent_range_exit(inode, es);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/file.c:455:		ext4_es_find_delayed_extent_range(inode, last, last, &es);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/file.c:528:		ext4_es_find_delayed_extent_range(inode, last, last, &es);
+
+
+ext4_es_alloc_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:300:ext4_es_alloc_extent(struct inode *inode, ext4_lblk_t lblk, ext4_lblk_t len,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:625:	es = ext4_es_alloc_extent(inode, newes->es_lblk, newes->es_len,
+
+
+ext4_es_free_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:322:static void ext4_es_free_extent(struct inode *inode, struct extent_status *es)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:382:		ext4_es_free_extent(inode, es);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:404:		ext4_es_free_extent(inode, es1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:853:		ext4_es_free_extent(inode, es);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1113:			ext4_es_free_extent(inode, es);
+
+
+ext4_es_can_be_merged
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:341:static int ext4_es_can_be_merged(struct extent_status *es1,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:379:	if (ext4_es_can_be_merged(es1, es)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:401:	if (ext4_es_can_be_merged(es, es1)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:597:			if (ext4_es_can_be_merged(newes, es)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:613:			if (ext4_es_can_be_merged(es, newes)) {
+
+
+ext4_es_try_to_merge_left
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:368:ext4_es_try_to_merge_left(struct inode *inode, struct extent_status *es)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:608:				es = ext4_es_try_to_merge_left(inode, es);
+
+
+ext4_es_try_to_merge_right
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:390:ext4_es_try_to_merge_right(struct inode *inode, struct extent_status *es)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:615:				es = ext4_es_try_to_merge_right(inode, es);
+
+
+ext4_es_insert_extent_ext_check
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:413:static void ext4_es_insert_extent_ext_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:574:		ext4_es_insert_extent_ext_check(inode, es);
+
+
+ext4_es_insert_extent_ind_check
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:502:static void ext4_es_insert_extent_ind_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:576:		ext4_es_insert_extent_ind_check(inode, es);
+
+
+ext4_es_insert_extent_check
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:565:static inline void ext4_es_insert_extent_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:579:static inline void ext4_es_insert_extent_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:664:	ext4_es_insert_extent_check(inode, &newes);
+
+
+ext4_es_insert_extent_check
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:565:static inline void ext4_es_insert_extent_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:579:static inline void ext4_es_insert_extent_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:664:	ext4_es_insert_extent_check(inode, &newes);
+
+
+__es_insert_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:145:static int __es_insert_extent(struct inode *inode, struct extent_status *newes);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:585:static int __es_insert_extent(struct inode *inode, struct extent_status *newes)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:671:	err = __es_insert_extent(inode, &newes);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:713:		__es_insert_extent(inode, &newes);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:820:			err = __es_insert_extent(inode, &newes);
+
+
+ext4_es_insert_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:71:extern int ext4_es_insert_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2304:			ext4_es_insert_extent(inode, lblock, len, ~0,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2320:			ext4_es_insert_extent(inode, lblock, len, ~0,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3082:	return ext4_es_insert_extent(inode, ee_block, ee_len, ee_pblock,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:578:		ret = ext4_es_insert_extent(inode, map->m_lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:692:		ret = ext4_es_insert_extent(inode, map->m_lblk, map->m_len,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:1623:		ret = ext4_es_insert_extent(inode, map->m_lblk, map->m_len,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:1652:		ret = ext4_es_insert_extent(inode, map->m_lblk, map->m_len,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:413:static void ext4_es_insert_extent_ext_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:502:static void ext4_es_insert_extent_ind_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:565:static inline void ext4_es_insert_extent_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:574:		ext4_es_insert_extent_ext_check(inode, es);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:576:		ext4_es_insert_extent_ind_check(inode, es);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:579:static inline void ext4_es_insert_extent_check(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:638: * ext4_es_insert_extent() adds information to an inodes extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:643:int ext4_es_insert_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:662:	trace_ext4_es_insert_extent(inode, &newes);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:664:	ext4_es_insert_extent_check(inode, &newes);
+
+
+ext4_es_cache_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:74:extern void ext4_es_cache_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:523:				ext4_es_cache_extent(inode, prev,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:529:			ext4_es_cache_extent(inode, lblk, len,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:687: * ext4_es_cache_extent() inserts information into the extent status
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:691:void ext4_es_cache_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:702:	trace_ext4_es_cache_extent(inode, &newes);
+
+
+ext4_es_lookup_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:82:extern int ext4_es_lookup_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:525:	if (ext4_es_lookup_extent(inode, map->m_lblk, &es)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:682:		    ext4_es_lookup_extent(inode, map->m_lblk, &es)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:1534:	if (ext4_es_lookup_extent(inode, iblock, &es)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:718: * ext4_es_lookup_extent() looks up an extent in extent status tree.
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:720: * ext4_es_lookup_extent is called by ext4_map_blocks/ext4_da_map_blocks.
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:724:int ext4_es_lookup_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:732:	trace_ext4_es_lookup_extent_enter(inode, lblk);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:773:	trace_ext4_es_lookup_extent_exit(inode, es, found);
+
+
+__es_remove_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:146:static int __es_remove_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:667:	err = __es_remove_extent(inode, lblk, end);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:777:static int __es_remove_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:899:	err = __es_remove_extent(inode, lblk, end);
+
+
+ext4_es_remove_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:77:extern int ext4_es_remove_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4641:	err = ext4_es_remove_extent(inode, last_block,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4803:		ret = ext4_es_remove_extent(inode, lblk, max_blocks);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5407:	ret = ext4_es_remove_extent(inode, punch_start,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/indirect.c:1216:	ext4_es_remove_extent(inode, last_block, EXT_MAX_BLOCKS - last_block);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ioctl.c:79:	ext4_es_remove_extent(inode1, 0, EXT_MAX_BLOCKS);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ioctl.c:80:	ext4_es_remove_extent(inode2, 0, EXT_MAX_BLOCKS);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:1394:		ext4_es_remove_extent(inode, lblk, to_release);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:1450:		ext4_es_remove_extent(inode, start, last - start + 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:3604:	ret = ext4_es_remove_extent(inode, first_block,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:878: * ext4_es_remove_extent() removes a space from a extent status tree.
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:882:int ext4_es_remove_extent(struct inode *inode, ext4_lblk_t lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:888:	trace_ext4_es_remove_extent(inode, lblk, len);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:971:	ext4_es_remove_extent(inode, 0, EXT_MAX_BLOCKS);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:663:	*err = ext4_es_remove_extent(orig_inode, from, count);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:667:	*err = ext4_es_remove_extent(donor_inode, from, count);
+
+
+ext4_inode_touch_time_cmp
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:905:static int ext4_inode_touch_time_cmp(void *priv, struct list_head *a,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:988:		list_sort(NULL, &sbi->s_es_lru, ext4_inode_touch_time_cmp);
+
+
+__ext4_es_shrink
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:150:static int __ext4_es_shrink(struct ext4_sb_info *sbi, int nr_to_scan,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:672:	if (err == -ENOMEM && __ext4_es_shrink(EXT4_SB(inode->i_sb), 1,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:825:				    __ext4_es_shrink(EXT4_SB(inode->i_sb), 1,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:926:static int __ext4_es_shrink(struct ext4_sb_info *sbi, int nr_to_scan,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1036:	nr_shrunk = __ext4_es_shrink(sbi, nr_to_scan, NULL);
+
+
+ext4_es_count
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1010:static unsigned long ext4_es_count(struct shrinker *shrink,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1048:	sbi->s_es_shrinker.count_objects = ext4_es_count;
+
+
+ext4_es_scan
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1022:static unsigned long ext4_es_scan(struct shrinker *shrink,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1047:	sbi->s_es_shrinker.scan_objects = ext4_es_scan;
+
+
+ext4_es_register_shrinker
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:141:extern void ext4_es_register_shrinker(struct ext4_sb_info *sbi);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1042:void ext4_es_register_shrinker(struct ext4_sb_info *sbi)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:3878:	ext4_es_register_shrinker(sbi);
+
+
+ext4_es_unregister_shrinker
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:142:extern void ext4_es_unregister_shrinker(struct ext4_sb_info *sbi);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1053:void ext4_es_unregister_shrinker(struct ext4_sb_info *sbi)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:794:	ext4_es_unregister_shrinker(sbi);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:4201:	ext4_es_unregister_shrinker(sbi);
+
+
+ext4_es_lru_add
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:143:extern void ext4_es_lru_add(struct inode *inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4618:	ext4_es_lru_add(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5145:	ext4_es_lru_add(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:526:		ext4_es_lru_add(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:1535:		ext4_es_lru_add(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1058:void ext4_es_lru_add(struct inode *inode)
+
+
+ext4_es_lru_del
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.h:144:extern void ext4_es_lru_del(struct inode *inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ioctl.c:81:	ext4_es_lru_del(inode1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ioctl.c:82:	ext4_es_lru_del(inode2);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1074:void ext4_es_lru_del(struct inode *inode)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:972:	ext4_es_lru_del(inode);
+
+
+__es_try_to_reclaim_extents
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:148:static int __es_try_to_reclaim_extents(struct ext4_inode_info *ei,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:967:		shrunk = __es_try_to_reclaim_extents(ei, nr_to_scan);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1005:		nr_shrunk = __es_try_to_reclaim_extents(locked_ei, nr_to_scan);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:1085:static int __es_try_to_reclaim_extents(struct ext4_inode_info *ei,
+
+
