@@ -6,3 +6,14 @@ export FSTYP=ext4
 
  sudo ../e2fsprogs/build/misc/mke2fs -t ext4 /dev/sda3
 
+
+
+
+Alternative:
+ 
+         git://git.kernel.org/pub/scm/fs/ext2/xfstests-bld.git
+
+It finds these sorts of problems very quickly.  After you build a
+kernel, running "kvm-xfstests -g quick" would have found the problem
+very quickly.  The fastest reproducer for the bug that I found is:
+"kvm-xfstests -c nojournal shared/001".
