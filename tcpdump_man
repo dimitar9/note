@@ -1,0 +1,154 @@
+NOTES ABOUT TCPDUMP FILTERS
+===========================
+
+Expression	Meaning
+==========	=======
+[x:y]		start at offset x from the beginning of packet and read y bytes
+[x]		abbreviation for [x:1]
+proto[x:y]	start at offset x into the proto header and read y bytes
+
+p[x:y] & z = 0	p[x:y] has none of the bits selected by z
+p[x:y] & z != 0	p[x:y] has any  of the bits selected by z
+p[x:y] & z = z	p[x:y] has all  of the bits selected by z
+p[x:y] = z	p[x:y] has only    the bits selected by z
+
+the usual rules about operator precedence apply; nesting things inside brackets
+is probably a good plan. you'll probably want to put the filter into a file or
+at least single-quote it on the commandline to stop the shell from interpreting
+the metacharacters. !([:])&
+
+Interesting Parts of a Packet
+=============================
+ip[0] & 0xf0		high nibble: IP version. almost always 4
+ip[0] & 0x0f		low nibble: header length in 4octet words. should be 5
+ip[1]			type of service/QoS/DiffServ
+ip[2:2]			total length of datagram in octets
+ip[4:2]			IP ID number
+ip[6] & 0x80		reserved bit (possibly used for ECN)
+ip[6] & 0x40		DF bit
+ip[6] & 0x20		MF bit
+ip[6:2] & 0x1fff	fragment offset (number of 8octet blocks)
+ip[8]			ttl
+ip[9]			protocol
+ip[10:2]		header checksum
+ip[12:4]		source IP
+ip[16:4]		destination IP
+ip[20..60]		there better not be any options in here...
+
+Interesting Parts of an ICMP Message
+====================================
+icmp[0]			type
+icmp[1]			code
+icmp[2:2]		checksum
+icmp[4...]		payload
+
+Interesting Parts of a UDP header
+=================================
+udp[0:2]		source port
+udp[2:2]		destination port
+udp[4:2]		datagram length
+udp[6:2]		UDP checksum
+
+Interesting Parts of a TCP header
+=================================
+tcp[0:2]		source port
+tcp[2:2]		destination port
+tcp[4:4]		sequence number
+tcp[8:4]		acknowledgement number
+tcp[12]			header length
+tcp[13]			tcp flags
+tcp[14:2]		window size
+tcp[16:2]		checksum
+tcp[18:2]		urgent pointer
+tcp[20..60]		options or data
+
+Flags		Numerically	   Meaning
+=====		===========	   =======
+---- --S-	0000 0010 = 0x02   normal syn
+---A --S-	0001 0010 = 0x12   normal syn-ack
+---A ----	0001 0000 = 0x10   normal ack
+--UA P---	0011 1000 = 0x38   psh-urg-ack. interactive stuff like ssh
+---A -R--	0001 0100 = 0x14   rst-ack. it happens.
+---- --SF	0000 0011 = 0x03   syn-fin scan
+--U- P--F	0010 1001 = 0x29   urg-psh-fin. nmap fingerprint packet
+-Y-- ----	0100 0000 = 0x40   anything >= 0x40 has a reserved bit set
+XY-- ----	1100 0000 = 0xC0   both reserved bits set
+XYUA PRSF	1111 1111 = 0xFF   FULL_XMAS scan
+
+ICMP Types and Codes
+====================
+0	ECHOREPLY
+3	UNREACHABLE
+3:0	NET
+3:1	HOST
+3:2	PROTOCOL
+3:3	PORT
+3:4	NEEDFRAG
+3:5	SRC_ROUTE_FAILED	
+3:6	NET_UNKNOWN
+3:7	HOST_UNKNOWN
+3:8	SRC_HOST_ISOLATED
+3:9	NET_PROHIB
+3:10	HOST_PROHIB
+3:11	BAD_TOS_FOR_NET
+3:12	BAD_TOS_FOR_HOST
+3:13	FILTER_PROHIB
+3:14	HOST_PRECEDENCE_VIOLATION
+3:15	PRECEDENCE_CUTOFF
+4	SOURCEQUENCH
+5	REDIRECT
+5:0	NET
+5:1	HOST
+5:2	TOSNET
+5:3	TOSHOST
+8	ECHO
+9	ROUTERADVERT
+10	ROUTERSOLICIT
+11	TIME_EXCEEDED
+11:0	IN_TRANSIT
+11:1	DURING_FRAG_REASSEMBLY
+12	PARAMETER_PROBLEM
+12:1	MISSING_OPT_FOR_REQUEST
+13	TSTAMP_REQ
+14	TSTAMP_REPLY
+15	INFO_REQ
+16	INFO_REPLY
+17	NETMASK_REQ	
+18	NETMASK_REPLY
+
+
+Examples
+--------
+is SYN. nothing else.
+	tcp[13] = 0x02
+
+contains SYN. we don't care what else...
+	(tcp[13] & 0x02) != 0
+
+is some kind of SYN-FIN. Bad news
+	(tcp[13] & 0x03) = 3
+
+land attack
+	ip[12:4] = ip[16:4]
+
+winnuke
+	(tcp[2:2] = 139) && (tcp[13] & 0x20 != 0) && (tcp[19] & 0x01 = 1)
+
+things other than ACK/PSH
+	(tcp[13] & 0xe7) != 0
+
+initial fragments
+	(ip[6] & 0x20 != 0) && (ip[6:2] & 0x1fff = 0)
+
+intervening fragments
+	(ip[6] & 0x20 != 0) && (ip[6:2] & 0x1fff != 0)
+
+terminal fragments
+	(ip[6] & 0x20 = 0) && (ip[6:2] & 0x1fff != 0)
+
+has ip options (or is truncated, or is just some sort of freak...)
+	(ip[0] & 0x0f) != 5
+
+ping o' death and its ilk (any oversized IP-transported data...)
+	((ip[6] & 0x20 = 0) && (ip[6:2] & 0x1fff != 0)) && \
+	((65535 < (ip[2:2] + 8*(ip[6:2] & 0x1fff))
