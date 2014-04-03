@@ -17,3 +17,46 @@ It finds these sorts of problems very quickly.  After you build a
 kernel, running "kvm-xfstests -g quick" would have found the problem
 very quickly.  The fastest reproducer for the bug that I found is:
 "kvm-xfstests -c nojournal shared/001".
+
+
+new xfstests-bld readme:
+ 
+  1 
+  2 The xfstests-bld package makes it easy to build xfstests in a hermetic
+  3 build environment (so it is not dependent on possibly out-of-date
+  4 distro versions of libaio, xfsprogs, etc.).  It also contains scripts
+  5 which make it easy to run xfstests in a KVM guest.  It is currently
+  6 optimized for ext4 testing, but it should be fairly simple to
+  7 generalize this for testing other file systems.
+  8 
+  9 If you are using debian testing, it is pretty simple to generate your
+ 10 own test appliance which uses kvm to run xfstests.  If you are using a
+ 11 different distribution, you can fetch a copy of root_fs.img from
+ 12 https://www.kernel.org/pub/linux/kernel/people/tytso/kvm-xfstests.
+ 13 
+ 14 Or you can take a look at the kvm-xfstests/test-appliance/gen-image
+ 15 and create something which works for your distribution.  Please let me
+ 16 know if create something which works well for other distributions.
+ 17 
+ 18 1.  "make ; make tarball" to generate the xfstests.tar.gz file.
+ 19 2.  cd to kvm-xfststs/test-appliance, and run as root the shell script
+ 20     "gen-image".  This will create the root_fs.img file.
+ 21 3.  build a kernel which does not use modules (at least for all of the
+ 22     device drivers required for running under kvm).  There are sample
+ 23     kernel configs found in the top-level kernel-configs directory.
+ 24     Note that if you build a 32-bit i386 kernel, you will need to make
+ 25     to build the root_fs.img file in 32-bit build chroot.  You can use
+ 26     a 32-bit userspace with a 64-bit kernel; in fact, this is a good
+ 27     way to sanity check the ioctl compatibility code.
+ 28 4.  Adjust the KERNEL= line in kvm-xfststs/config to point at your
+ 29     kernel's bzImage file.
+ 30 5.  cd to kvm-xfstests, and run "kvm-xfstests smoke".  More details of
+ 31     how to run kvm-xfstests can be found in kvm-xfstests/README.  If
+ 32     you adjust the DIR= line in kvm-xfstests, it will not be
+ 33     necessary to be cd'ed into the kvm-xfstests directory before
+ 34     kicking off the shell script.
+ 35 
+ 36 When the kvm-xfstests is done, it will print a summary of which tests
+ 37 passed and failed.  It will also save the output of the test in a
+ 38 log.YYYYMMDDHHSS file.  The "get-results" script will parse the log
+ 39 file and generate the test summary.
