@@ -152,3 +152,36 @@ has ip options (or is truncated, or is just some sort of freak...)
 ping o' death and its ilk (any oversized IP-transported data...)
 	((ip[6] & 0x20 = 0) && (ip[6:2] & 0x1fff != 0)) && \
 	((65535 < (ip[2:2] + 8*(ip[6:2] & 0x1fff))
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+example:
+~ # tcpdump -i eth0  -XXns0 -v  'udp[0xA:2] == 0x709'
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+22:49:57.818297 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto UDP (17), length 44)
+    192.168.3.65.48945 > 192.168.3.69.1392: UDP, length 16
+        0x0000:  0060 4308 3b88 001b 21ca 029c 0800 4500  .`C.;...!.....E.
+        0x0010:  002c 0000 4000 4011 b2ea c0a8 0341 c0a8  .,..@.@......A..
+        0x0020:  0345 bf31 0570 0018 37a5 0000 0709 0000  .E.1.p..7.......
+        0x0030:  0169 940b df22 0000 0000 0000            .i..."......
+22:49:58.818288 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto UDP (17), length 44)
+    192.168.3.65.48945 > 192.168.3.69.1392: UDP, length 16
+        0x0000:  0060 4308 3b88 001b 21ca 029c 0800 4500  .`C.;...!.....E.
+        0x0010:  002c 0000 4000 4011 b2ea c0a8 0341 c0a8  .,..@.@......A..
+        0x0020:  0345 bf31 0570 0018 14e6 0000 0709 0000  .E.1.p..........
+        0x0030:  0169 96ca ff22 0000 0000 0000            .i..."......
+
