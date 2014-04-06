@@ -60,3 +60,6 @@ new xfstests-bld readme:
  37 passed and failed.  It will also save the output of the test in a
  38 log.YYYYMMDDHHSS file.  The "get-results" script will parse the log
  39 file and generate the test summary.
+ 
+ 
+ https://git.kernel.org/cgit/fs/ext2/xfstests-bld.git/ 
