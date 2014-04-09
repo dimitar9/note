@@ -1,0 +1,17 @@
+1. Make sure to set up env vars:
+root@paul-Inspiron-620s:~# env
+TERM=vt100
+SHELL=/bin/bash
+HUSHLOGIN=FALSE
+***!!! FSTESTSET=generic/018
+USER=root
+***!!! FSTESTCFG=4k
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MAIL=/var/mail/root
+PWD=/root
+HOME=/root
+SHLVL=2
+LOGNAME=root
+_=/usr/bin/env
+OLDPWD=/vdb
+
