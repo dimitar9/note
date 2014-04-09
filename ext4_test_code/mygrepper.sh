@@ -2,7 +2,7 @@
 
 if [ $# -lt 1 ]
 then
-    echo "Usage: $0 <output>" 
+    echo "Usage: $0 <output> <input>" 
     exit 1
 fi
 
@@ -12,7 +12,7 @@ fi
 
 
 touch $1
-file="funcs_in_extents_status.data"
+file=$2
 while IFS= read -r line
 do
     echo -n "$line\n" >> $1    

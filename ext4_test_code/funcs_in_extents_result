@@ -1,0 +1,730 @@
+ext4_extent_block_csum
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:59:static __le32 ext4_extent_block_csum(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:71:static int ext4_extent_block_csum_verify(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:81:	if (et->et_checksum != ext4_extent_block_csum(inode, eh))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:86:static void ext4_extent_block_csum_set(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:96:	et->et_checksum = ext4_extent_block_csum(inode, eh);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:164:		ext4_extent_block_csum_set(inode, ext_block_hdr(path->p_bh));
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:458:	    !ext4_extent_block_csum_verify(inode, eh)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1101:	ext4_extent_block_csum_set(inode, neh);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1180:		ext4_extent_block_csum_set(inode, neh);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1275:	ext4_extent_block_csum_set(inode, neh);
+
+
+ext4_extent_block_csum_verify
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:71:static int ext4_extent_block_csum_verify(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:458:	    !ext4_extent_block_csum_verify(inode, eh)) {
+
+
+ext4_extent_block_csum_set
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:86:static void ext4_extent_block_csum_set(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:164:		ext4_extent_block_csum_set(inode, ext_block_hdr(path->p_bh));
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1101:	ext4_extent_block_csum_set(inode, neh);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1180:		ext4_extent_block_csum_set(inode, neh);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1275:	ext4_extent_block_csum_set(inode, neh);
+
+
+ext4_ext_truncate_extend_restart
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:116:static int ext4_ext_truncate_extend_restart(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2685:		err = ext4_ext_truncate_extend_restart(handle, inode, credits);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5189:		err = ext4_ext_truncate_extend_restart(handle, inode, credits);
+
+
+ext4_ext_get_access
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:141:static int ext4_ext_get_access(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:927:	err = ext4_ext_get_access(handle, inode, curp);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1113:		err = ext4_ext_get_access(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1192:			err = ext4_ext_get_access(handle, inode, path + i);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1657:	err = ext4_ext_get_access(handle, inode, path + k);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1669:		err = ext4_ext_get_access(handle, inode, path + k);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1952:			err = ext4_ext_get_access(handle, inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1978:			err = ext4_ext_get_access(handle, inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2040:	err = ext4_ext_get_access(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2347:	err = ext4_ext_get_access(handle, inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2371:		err = ext4_ext_get_access(handle, inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2689:		err = ext4_ext_get_access(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3003:		err = ext4_ext_get_access(handle, inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3163:	err = ext4_ext_get_access(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3439:			err = ext4_ext_get_access(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3485:			err = ext4_ext_get_access(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3535:		err = ext4_ext_get_access(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3699:	err = ext4_ext_get_access(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3765:	err = ext4_ext_get_access(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5195:	err = ext4_ext_get_access(handle, inode, path);
+
+
+__ext4_ext_dirty
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:159:int __ext4_ext_dirty(const char *where, unsigned int line, handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4_extents.h:268:		__ext4_ext_dirty(__func__, __LINE__, (handle), (inode), (path))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4_extents.h:269:int __ext4_ext_dirty(const char *where, unsigned int line, handle_t *handle,
+
+
+ext4_ext_find_goal
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:175:static ext4_fsblk_t ext4_ext_find_goal(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:231:	goal = ext4_ext_find_goal(inode, path, le32_to_cpu(ex->ee_block));
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4422:	ar.goal = ext4_ext_find_goal(inode, path, map->m_lblk);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ialloc.c:465:		 * ext4_ext_find_goal() and ext4_find_near().
+
+
+ext4_ext_new_meta_block
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:225:ext4_ext_new_meta_block(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1051:		newblock = ext4_ext_new_meta_block(handle, inode, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1246:	newblock = ext4_ext_new_meta_block(handle, inode, NULL,
+
+
+ext4_ext_space_block
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:237:static inline int ext4_ext_space_block(struct inode *inode, int check)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:250:static inline int ext4_ext_space_block_idx(struct inode *inode, int check)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:350:			max = ext4_ext_space_block(inode, 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:352:			max = ext4_ext_space_block_idx(inode, 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1078:	neh->eh_max = cpu_to_le16(ext4_ext_space_block(inode, 0));
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1152:		neh->eh_max = cpu_to_le16(ext4_ext_space_block_idx(inode, 0));
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1271:		neh->eh_max = cpu_to_le16(ext4_ext_space_block_idx(inode, 0));
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1273:		neh->eh_max = cpu_to_le16(ext4_ext_space_block(inode, 0));
+
+
+ext4_ext_space_block_idx
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:250:static inline int ext4_ext_space_block_idx(struct inode *inode, int check)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:352:			max = ext4_ext_space_block_idx(inode, 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1152:		neh->eh_max = cpu_to_le16(ext4_ext_space_block_idx(inode, 0));
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1271:		neh->eh_max = cpu_to_le16(ext4_ext_space_block_idx(inode, 0));
+
+
+ext4_ext_space_root
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:263:static inline int ext4_ext_space_root(struct inode *inode, int check)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:277:static inline int ext4_ext_space_root_idx(struct inode *inode, int check)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:345:			max = ext4_ext_space_root(inode, 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:347:			max = ext4_ext_space_root_idx(inode, 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:835:	eh->eh_max = cpu_to_le16(ext4_ext_space_root(inode, 0));
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1289:		neh->eh_max = cpu_to_le16(ext4_ext_space_root_idx(inode, 0));
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1778:	unsigned max_root = ext4_ext_space_root(inode, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3007:				cpu_to_le16(ext4_ext_space_root(inode, 0));
+
+
+ext4_ext_space_root_idx
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:277:static inline int ext4_ext_space_root_idx(struct inode *inode, int check)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:347:			max = ext4_ext_space_root_idx(inode, 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1289:		neh->eh_max = cpu_to_le16(ext4_ext_space_root_idx(inode, 0));
+
+
+ext4_ext_calc_metadata_amount
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:296:int ext4_ext_calc_metadata_amount(struct inode *inode, ext4_lblk_t lblock)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:330:		return ext4_ext_calc_metadata_amount(inode, lblock);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2740:extern int ext4_ext_calc_metadata_amount(struct inode *inode,
+
+
+ext4_ext_max_entries
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:339:ext4_ext_max_entries(struct inode *inode, int depth)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:443:	max = ext4_ext_max_entries(inode, depth);
+
+
+ext4_valid_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:358:static int ext4_valid_extent(struct inode *inode, struct ext4_extent *ext)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:370:static int ext4_valid_extent_idx(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:378:static int ext4_valid_extent_entries(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:397:			if (!ext4_valid_extent(inode, ext))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:415:			if (!ext4_valid_extent_idx(inode, ext_idx))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:452:	if (!ext4_valid_extent_entries(inode, eh, depth)) {
+
+
+ext4_valid_extent_idx
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:370:static int ext4_valid_extent_idx(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:415:			if (!ext4_valid_extent_idx(inode, ext_idx))
+
+
+ext4_valid_extent_entries
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:378:static int ext4_valid_extent_entries(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:452:	if (!ext4_valid_extent_entries(inode, eh, depth)) {
+
+
+__ext4_ext_check
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:424:static int __ext4_ext_check(const char *function, unsigned int line,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:476:	__ext4_ext_check(__func__, __LINE__, (inode), (eh), (depth), (pblk))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:503:	err = __ext4_ext_check(function, line, inode,
+
+
+ext4_ext_check_inode
+/home/paul/Documents/linuxwork/ext4/fs/ext4/migrate.c:637:	ret = ext4_ext_check_inode(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:478:int ext4_ext_check_inode(struct inode *inode)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:4195:				ret = ext4_ext_check_inode(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2756:extern int ext4_ext_check_inode(struct inode *inode);
+
+
+__read_extent_tree_block
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:484:__read_extent_tree_block(const char *function, unsigned int line,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:542:	__read_extent_tree_block(__func__, __LINE__, (inode), (pblk),   \
+
+
+ext4_ext_precache
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:549:int ext4_ext_precache(struct inode *inode)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5130:		error = ext4_ext_precache(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ioctl.c:612:		return ext4_ext_precache(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2763:extern int ext4_ext_precache(struct inode *inode);
+
+
+ext4_ext_show_path
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:611:static void ext4_ext_show_path(struct inode *inode, struct ext4_ext_path *path)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:688:#define ext4_ext_show_path(inode, path)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:904:	ext4_ext_show_path(inode, path);
+
+
+ext4_ext_show_leaf
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:632:static void ext4_ext_show_leaf(struct inode *inode, struct ext4_ext_path *path)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:689:#define ext4_ext_show_leaf(inode, path)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3149:	ext4_ext_show_leaf(inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3250:	ext4_ext_show_leaf(inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3332:	ext4_ext_show_leaf(inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3713:	ext4_ext_show_leaf(inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3779:	ext4_ext_show_leaf(inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3998:	ext4_ext_show_leaf(inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4123:	ext4_ext_show_leaf(inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4608:	ext4_ext_show_leaf(inode, path);
+
+
+ext4_ext_show_move
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:655:static void ext4_ext_show_move(struct inode *inode, struct ext4_ext_path *path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:690:#define ext4_ext_show_move(inode, path, newblock, level)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1093:	ext4_ext_show_move(inode, path, newblock, depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1174:		ext4_ext_show_move(inode, path, newblock, i);
+
+
+ext4_ext_drop_refs
+/home/paul/Documents/linuxwork/ext4/fs/ext4/migrate.c:81:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:605:	ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:693:void ext4_ext_drop_refs(struct ext4_ext_path *path)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:909:	ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1340:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1353:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2110:		ext4_ext_drop_refs(npath);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2157:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2268:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3012:	ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3310:	ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3689:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3755:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4614:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5298:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5304:	ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5320:	ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5339:				ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5348:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:497:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:286:		ext4_ext_drop_refs(orig_path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:617:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:622:		ext4_ext_drop_refs(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:737:			ext4_ext_drop_refs(orig_path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:746:			ext4_ext_drop_refs(donor_path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:762:		ext4_ext_drop_refs(orig_path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:766:		ext4_ext_drop_refs(donor_path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:1466:			ext4_ext_drop_refs(holecheck_path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:1474:			ext4_ext_drop_refs(orig_path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:1491:		ext4_ext_drop_refs(orig_path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:1495:		ext4_ext_drop_refs(holecheck_path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2755:extern void ext4_ext_drop_refs(struct ext4_ext_path *);
+
+
+ext4_ext_binsearch_idx
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:706: * ext4_ext_binsearch_idx:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:711:ext4_ext_binsearch_idx(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:869:		ext4_ext_binsearch_idx(inode, path + ppos, block);
+
+
+ext4_ext_binsearch
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:706: * ext4_ext_binsearch_idx:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:711:ext4_ext_binsearch_idx(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:766: * ext4_ext_binsearch:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:771:ext4_ext_binsearch(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:869:		ext4_ext_binsearch_idx(inode, path + ppos, block);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:899:	ext4_ext_binsearch(inode, path + ppos, block);
+
+
+ext4_ext_tree_init
+/home/paul/Documents/linuxwork/ext4/fs/ext4/migrate.c:488:	ext4_ext_tree_init(handle, tmp_inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/migrate.c:580:	/* We mark the tmp_inode dirty via ext4_ext_tree_init. */
+/home/paul/Documents/linuxwork/ext4/fs/ext4/migrate.c:600:	ext4_ext_tree_init(handle, tmp_inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:827:int ext4_ext_tree_init(handle_t *handle, struct inode *inode)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ioctl.c:156:			ext4_ext_tree_init(handle, inode_bl);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inline.c:443:			ext4_ext_tree_init(handle, inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ialloc.c:1028:			ext4_ext_tree_init(handle, inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2724:extern int ext4_ext_tree_init(handle_t *handle, struct inode *);
+
+
+ext4_ext_find_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/migrate.c:42:	path = ext4_ext_find_extent(inode, lb->first_block, NULL, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:841:ext4_ext_find_extent(struct inode *inode, ext4_lblk_t block,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1341:		path = ext4_ext_find_extent(inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1354:		path = ext4_ext_find_extent(inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1926:		 * ext4_ext_find_extent() can return either extent on the
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2009:		npath = ext4_ext_find_extent(inode, next, NULL, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2140:		path = ext4_ext_find_extent(inode, block, path, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2827:		path = ext4_ext_find_extent(inode, end, NULL, EXT4_EX_NOCACHE);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3311:	path = ext4_ext_find_extent(inode, map->m_lblk, path, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3690:		path = ext4_ext_find_extent(inode, map->m_lblk, path, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3756:		path = ext4_ext_find_extent(inode, map->m_lblk, path, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4271:	path = ext4_ext_find_extent(inode, map->m_lblk, NULL, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4283:	 * this is why assert can't be put in ext4_ext_find_extent()
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4368:	 * by ext4_ext_find_extent() implies a cluster we can use.
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5291:	path = ext4_ext_find_extent(inode, EXT_MAX_BLOCKS - 1, NULL, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5315:	path = ext4_ext_find_extent(inode, start - 1, NULL, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5329:		path = ext4_ext_find_extent(inode, start, NULL, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents_status.c:423:	path = ext4_ext_find_extent(inode, es->es_lblk, NULL, EXT4_EX_NOCACHE);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:30: * ext4_ext_find_extent wrapper. Return 0 on success, or a negative error value
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:40:	path = ext4_ext_find_extent(inode, lblock, *orig_path, EXT4_EX_NOCACHE);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:576: * EXT4_GET_BLOCKS_*.  They are used by ext4_ext_find_extent(),
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2752:extern struct ext4_ext_path *ext4_ext_find_extent(struct inode *, ext4_lblk_t,
+
+
+ext4_ext_insert_index
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:916: * ext4_ext_insert_index:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:920:static int ext4_ext_insert_index(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1205:	err = ext4_ext_insert_index(handle, inode, path + at,
+
+
+ext4_ext_split
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:987: * ext4_ext_split:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:996:static int ext4_ext_split(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1335:		err = ext4_ext_split(handle, inode, mb_flags, path, newext, i);
+
+
+ext4_ext_grow_indepth
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1230: * ext4_ext_grow_indepth:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1237:static int ext4_ext_grow_indepth(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1348:		err = ext4_ext_grow_indepth(handle, inode, mb_flags, newext);
+
+
+ext4_ext_create_new_leaf
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1307: * ext4_ext_create_new_leaf:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1311:static int ext4_ext_create_new_leaf(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2030:	err = ext4_ext_create_new_leaf(handle, inode, mb_flags, gb_flags,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:578: * ext4_ext_insert_extent(), and ext4_ext_create_new_leaf().
+
+
+ext4_ext_search_left
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1384:static int ext4_ext_search_left(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4380:	err = ext4_ext_search_left(inode, path, &ar.lleft, &ar.pleft);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/mballoc.c:40: *   - test ext4_ext_search_left() and ext4_ext_search_right()
+
+
+ext4_ext_search_right
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1449:static int ext4_ext_search_right(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4385:	err = ext4_ext_search_right(inode, path, &ar.lright, &ar.pright, &ex2);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/mballoc.c:40: *   - test ext4_ext_search_left() and ext4_ext_search_right()
+
+
+ext4_ext_next_allocated_block
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1553: * ext4_ext_next_allocated_block:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1560:ext4_ext_next_allocated_block(struct ext4_ext_path *path)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1868:		b2 = ext4_ext_next_allocated_block(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2156:		next = ext4_ext_next_allocated_block(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2312:		next = ext4_ext_next_allocated_block(path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4220:			ext4_lblk_t next = ext4_ext_next_allocated_block(path);
+
+
+ext4_ext_next_leaf_block
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1590: * ext4_ext_next_leaf_block:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1593:static ext4_lblk_t ext4_ext_next_leaf_block(struct ext4_ext_path *path)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2005:		next = ext4_ext_next_leaf_block(path);
+
+
+ext4_ext_correct_indexes
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1619: * ext4_ext_correct_indexes:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1624:static int ext4_ext_correct_indexes(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2102:	err = ext4_ext_correct_indexes(handle, inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2743:		err = ext4_ext_correct_indexes(handle, inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3705:	/* note: ext4_ext_correct_indexes() isn't needed here because
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3771:	/* note: ext4_ext_correct_indexes() isn't needed here because
+
+
+ext4_can_extents_be_merged
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1682:ext4_can_extents_be_merged(struct inode *inode, struct ext4_extent *ex1,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1745:		if (!ext4_can_extents_be_merged(inode, ex, ex + 1))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1943:		if (ext4_can_extents_be_merged(inode, ex, newext)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1968:		if (ext4_can_extents_be_merged(inode, newext, ex)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:474:		if (ext4_can_extents_be_merged(orig_inode, prev_ext,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:1388:		if (ext4_can_extents_be_merged(orig_inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2746:extern int ext4_can_extents_be_merged(struct inode *inode,
+
+
+ext4_ext_try_to_merge_right
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1732:static int ext4_ext_try_to_merge_right(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1831:		merge_done = ext4_ext_try_to_merge_right(inode, path, ex - 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1834:		(void) ext4_ext_try_to_merge_right(inode, path, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5239:					if (ext4_ext_try_to_merge_right(inode,
+
+
+ext4_ext_try_to_merge_up
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1773:static void ext4_ext_try_to_merge_up(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1836:	ext4_ext_try_to_merge_up(handle, inode, path);
+
+
+ext4_ext_try_to_merge
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1732:static int ext4_ext_try_to_merge_right(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1773:static void ext4_ext_try_to_merge_up(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1818:static void ext4_ext_try_to_merge(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1831:		merge_done = ext4_ext_try_to_merge_right(inode, path, ex - 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1834:		(void) ext4_ext_try_to_merge_right(inode, path, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1836:	ext4_ext_try_to_merge_up(handle, inode, path);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2098:		ext4_ext_try_to_merge(handle, inode, path, nearex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3179:			ext4_ext_try_to_merge(handle, inode, path, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3237:		ext4_ext_try_to_merge(handle, inode, path, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3539:		ext4_ext_try_to_merge(handle, inode, path, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3708:	ext4_ext_try_to_merge(handle, inode, path, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3774:	ext4_ext_try_to_merge(handle, inode, path, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5239:					if (ext4_ext_try_to_merge_right(inode,
+
+
+ext4_ext_check_overlap
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1847:static unsigned int ext4_ext_check_overlap(struct ext4_sb_info *sbi,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4414:	err = ext4_ext_check_overlap(sbi, inode, &newex, path);
+
+
+ext4_ext_insert_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/migrate.c:78:	retval = ext4_ext_insert_extent(handle, inode, path, &newext, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1891: * ext4_ext_insert_extent:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:1896:int ext4_ext_insert_extent(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3193:	 * after ext4_ext_insert_extent() returns,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3206:	err = ext4_ext_insert_extent(handle, inode, path, &newex, flags);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4480:		err = ext4_ext_insert_extent(handle, inode, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:269:		if (ext4_ext_insert_extent(handle, orig_inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/move_extent.c:280:		if (ext4_ext_insert_extent(handle, orig_inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:578: * ext4_ext_insert_extent(), and ext4_ext_create_new_leaf().
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2749:extern int ext4_ext_insert_extent(handle_t *, struct inode *,
+
+
+ext4_fill_fiemap_extents
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2116:static int ext4_fill_fiemap_extents(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5159:		error = ext4_fill_fiemap_extents(inode, start_blk,
+
+
+ext4_ext_put_gap_in_cache
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2276: * ext4_ext_put_gap_in_cache:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2281:ext4_ext_put_gap_in_cache(struct inode *inode, struct ext4_ext_path *path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4355:			ext4_ext_put_gap_in_cache(inode, path, map->m_lblk);
+
+
+ext4_ext_rm_idx
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2330: * ext4_ext_rm_idx:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2333:static int ext4_ext_rm_idx(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2362:	trace_ext4_ext_rm_idx(inode, leaf);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2768:		err = ext4_ext_rm_idx(handle, inode, path, depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2972:				err = ext4_ext_rm_idx(handle, inode, path, i);
+
+
+ext4_ext_calc_credits_for_single_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/migrate.c:56:	needed = ext4_ext_calc_credits_for_single_extent(inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2383: * ext4_ext_calc_credits_for_single_extent:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2389:int ext4_ext_calc_credits_for_single_extent(struct inode *inode, int nrblocks,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2743:extern int ext4_ext_calc_credits_for_single_extent(struct inode *inode,
+
+
+ext4_ext_index_trans_blocks
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2426:int ext4_ext_index_trans_blocks(struct inode *inode, int extents)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:4745:	return ext4_ext_index_trans_blocks(inode, pextents);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2726:extern int ext4_ext_index_trans_blocks(struct inode *inode, int extents);
+
+
+get_default_free_blocks_flags
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2445:static inline int get_default_free_blocks_flags(struct inode *inode)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2462:	int flags = get_default_free_blocks_flags(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2757:		int flags = get_default_free_blocks_flags(inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2989:		int flags = get_default_free_blocks_flags(inode);
+
+
+ext4_remove_blocks
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2454:static int ext4_remove_blocks(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2468:	 * need to free it on a subsequent call to ext4_remove_blocks,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2473:	trace_ext4_remove_blocks(inode, ex, from, to, *partial_cluster);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2693:		err = ext4_remove_blocks(handle, inode, ex, partial_cluster,
+
+
+ext4_ext_rm_leaf
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2552: * ext4_ext_rm_leaf() Removes the extents associated with the
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2566:ext4_ext_rm_leaf(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2621:	trace_ext4_ext_rm_leaf(inode, start, ex, *partial_cluster);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2820:	 * in ext4_ext_rm_leaf().
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2851:		 * ext4_ext_rm_leaf().
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2908:			err = ext4_ext_rm_leaf(handle, inode, path,
+
+
+ext4_ext_more_to_rm
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2775: * ext4_ext_more_to_rm:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2779:ext4_ext_more_to_rm(struct ext4_ext_path *path)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2939:		if (ext4_ext_more_to_rm(path + i)) {
+
+
+ext4_ext_remove_space
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2583:	/* the header must be checked already in ext4_ext_remove_space() */
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2795:int ext4_ext_remove_space(struct inode *inode, ext4_lblk_t start,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2813:	trace_ext4_ext_remove_space(inode, start, end, depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2982:	trace_ext4_ext_remove_space_done(inode, start, end, depth,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4654:	err = ext4_ext_remove_space(inode, last_block, EXT_MAX_BLOCKS - 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5434:	ret = ext4_ext_remove_space(inode, punch_start, punch_stop - 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:3612:		ret = ext4_ext_remove_space(inode, first_block,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2730:extern int ext4_ext_remove_space(struct inode *inode, ext4_lblk_t start,
+
+
+ext4_ext_init
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3026:void ext4_ext_init(struct super_block *sb)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:4126:	ext4_ext_init(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c.rej:19:+       ext4_ext_init(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c.rej:75:-       ext4_ext_init(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c.orig:4126:	ext4_ext_init(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2732:extern void ext4_ext_init(struct super_block *);
+
+
+ext4_ext_release
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3057:void ext4_ext_release(struct super_block *sb)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:799:	ext4_ext_release(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c:4209:	ext4_ext_release(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c.rej:89:-       ext4_ext_release(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c.rej:107:+       ext4_ext_release(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c.orig:799:	ext4_ext_release(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/super.c.orig:4209:	ext4_ext_release(sb);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2733:extern void ext4_ext_release(struct super_block *);
+
+
+ext4_zeroout_es
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3074:static int ext4_zeroout_es(struct inode *inode, struct ext4_extent *ex)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3243:		err = ext4_zeroout_es(inode, &zero_ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3594:		err = ext4_zeroout_es(inode, &zero_ex);
+
+
+ext4_ext_zeroout
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3092:static int ext4_ext_zeroout(struct inode *inode, struct ext4_extent *ex)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3210:				err = ext4_ext_zeroout(inode, ex2);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3217:				err = ext4_ext_zeroout(inode, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3225:			err = ext4_ext_zeroout(inode, &orig_ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3528:		err = ext4_ext_zeroout(inode, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3562:			err = ext4_ext_zeroout(inode, &zero_ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3575:				err = ext4_ext_zeroout(inode, &zero_ex);
+
+
+ext4_split_extent_at
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:106:static int ext4_split_extent_at(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2867:			err = ext4_split_extent_at(handle, inode, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3109: * ext4_split_extent_at() splits an extent at given block.
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3129:static int ext4_split_extent_at(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3299:		err = ext4_split_extent_at(handle, inode, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3307:	 * Update path is required because previous ext4_split_extent_at() may
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3326:		err = ext4_split_extent_at(handle, inode, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:577: * read_extent_tree_block(), ext4_split_extent_at(),
+
+
+ext4_split_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:99:static int ext4_split_extent(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:106:static int ext4_split_extent_at(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2867:			err = ext4_split_extent_at(handle, inode, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3109: * ext4_split_extent_at() splits an extent at given block.
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3129:static int ext4_split_extent_at(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3146:	ext_debug("ext4_split_extents_at: inode %lu, logical"
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3260: * ext4_split_extents() splits an extent and mark extent which is covered
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3270:static int ext4_split_extent(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3299:		err = ext4_split_extent_at(handle, inode, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3307:	 * Update path is required because previous ext4_split_extent_at() may
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3326:		err = ext4_split_extent_at(handle, inode, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3586:	allocated = ext4_split_extent(handle, inode, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3661:	return ext4_split_extent(handle, inode, path, map, split_flag, flags);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:577: * read_extent_tree_block(), ext4_split_extent_at(),
+
+
+ext4_ext_convert_to_initialized
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3357:static int ext4_ext_convert_to_initialized(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3374:	ext_debug("ext4_ext_convert_to_initialized: inode %lu, logical"
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3391:	trace_ext4_ext_convert_to_initialized_enter(inode, map, ex);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3443:			trace_ext4_ext_convert_to_initialized_fastpath(inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3489:			trace_ext4_ext_convert_to_initialized_fastpath(inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4070:	ret = ext4_ext_convert_to_initialized(handle, inode, map, path, flags);
+
+
+ext4_split_convert_extents
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3622:static int ext4_split_convert_extents(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3685:		err = ext4_split_convert_extents(handle, inode, map, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3751:		err = ext4_split_convert_extents(handle, inode, map, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4011:		ret = ext4_split_convert_extents(handle, inode, map,
+
+
+ext4_convert_initialized_extents
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3664:static int ext4_convert_initialized_extents(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3968:	ret = ext4_convert_initialized_extents(handle, inode, map,
+
+
+ext4_convert_unwritten_extents_endio
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3718:static int ext4_convert_unwritten_extents_endio(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3734:	ext_debug("ext4_convert_unwritten_extents_endio: inode %lu, logical"
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4031:		ret = ext4_convert_unwritten_extents_endio(handle, inode, map,
+
+
+unmap_underlying_metadata_blocks
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3783:static void unmap_underlying_metadata_blocks(struct block_device *bdev,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4088:		unmap_underlying_metadata_blocks(inode->i_sb->s_bdev,
+
+
+check_eofblocks_fl
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3794:static int check_eofblocks_fl(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3972:		err = check_eofblocks_fl(handle, inode, map->m_lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4035:			err = check_eofblocks_fl(handle, inode, map->m_lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4115:		err = check_eofblocks_fl(handle, inode, map->m_lblk, path,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4477:		err = check_eofblocks_fl(handle, inode, map->m_lblk,
+
+
+ext4_find_delalloc_range
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2303:		if (!ext4_find_delalloc_range(inode, lblock, lblock + len - 1))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2319:		if (!ext4_find_delalloc_range(inode, lblock, lblock + len - 1))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3845: * ext4_find_delalloc_range: find delayed allocated block in the given range.
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3849:int ext4_find_delalloc_range(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3874:	return ext4_find_delalloc_range(inode, lblk_start, lblk_end);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3910: * without ever calling ext4_find_delalloc_range.
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3935:		if (ext4_find_delalloc_range(inode, lblk_from, lblk_to))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3945:		if (ext4_find_delalloc_range(inode, lblk_from, lblk_to))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:575:		    ext4_find_delalloc_range(inode, map->m_lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:689:		    ext4_find_delalloc_range(inode, map->m_lblk,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2757:extern int ext4_find_delalloc_range(struct inode *inode,
+
+
+ext4_find_delalloc_cluster
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3867:int ext4_find_delalloc_cluster(struct inode *inode, ext4_lblk_t lblk)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4342:	    ext4_find_delalloc_cluster(inode, map->m_lblk))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:1404:		    !ext4_find_delalloc_cluster(inode, lblk))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:1585:		    ext4_find_delalloc_cluster(inode, map->m_lblk))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2760:extern int ext4_find_delalloc_cluster(struct inode *inode, ext4_lblk_t lblk);
+
+
+get_reserved_cluster_alloc
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3913:get_reserved_cluster_alloc(struct inode *inode, ext4_lblk_t lblk_start,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3927:	trace_ext4_get_reserved_cluster_alloc(inode, lblk_start, num_blks);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4104:		reserved_clusters = get_reserved_cluster_alloc(inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4519:		reserved_clusters = get_reserved_cluster_alloc(inode,
+
+
+ext4_ext_convert_initialized_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3953:ext4_ext_convert_initialized_extent(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4323:				allocated = ext4_ext_convert_initialized_extent(
+
+
+ext4_ext_handle_uninitialized_extents
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3985:ext4_ext_handle_uninitialized_extents(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3994:	ext_debug("ext4_ext_handle_uninitialized_extents: inode %lu, logical "
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4006:	trace_ext4_ext_handle_uninitialized_extents(inode, map, flags,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4330:			ret = ext4_ext_handle_uninitialized_extents(
+
+
+get_implied_cluster_alloc
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4131: * get_implied_cluster_alloc - check to see if the requested
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4171:static int get_implied_cluster_alloc(struct super_block *sb,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4224:		trace_ext4_get_implied_cluster_alloc_exit(sb, map, 1);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4228:	trace_ext4_get_implied_cluster_alloc_exit(sb, map, 0);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4371:	    get_implied_cluster_alloc(inode->i_sb, map, ex, path)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4392:	    get_implied_cluster_alloc(inode->i_sb, map, ex2, path)) {
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4429:	 * needed so that future calls to get_implied_cluster_alloc()
+
+
+ext4_ext_map_blocks
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3338: * This function is called by ext4_ext_map_blocks() if someone tries to write
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3599: * This function is called by ext4_ext_map_blocks() from
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4139: * This function is called by ext4_ext_map_blocks() after we failed to
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4166: * signal to ext4_ext_map_blocks() that map->m_pblk should be treated
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4168: * ext4_ext_map_blocks() will then allocate one or more new clusters
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4251:int ext4_ext_map_blocks(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4268:	trace_ext4_ext_map_blocks_enter(inode, map->m_lblk, map->m_len, flags);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4618:	trace_ext4_ext_map_blocks_exit(inode, flags, map,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4696:				   "ext4_ext_map_blocks returned %d",
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5016:				     "ext4_ext_map_blocks returned %d",
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:447:		retval = ext4_ext_map_blocks(handle, inode, map, flags &
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:487: * If file type is extents based, it will call ext4_ext_map_blocks(),
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:555:		retval = ext4_ext_map_blocks(handle, inode, map, flags &
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:608:		 * ext4_ext_map_blocks()
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:640:		retval = ext4_ext_map_blocks(handle, inode, map, flags);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:1589:		retval = ext4_ext_map_blocks(NULL, inode, map,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2727:extern int ext4_ext_map_blocks(handle_t *handle, struct inode *inode,
+
+
+ext4_ext_truncate
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:116:static int ext4_ext_truncate_extend_restart(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2685:		err = ext4_ext_truncate_extend_restart(handle, inode, credits);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4624:void ext4_ext_truncate(handle_t *handle, struct inode *inode)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5189:		err = ext4_ext_truncate_extend_restart(handle, inode, credits);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/page-io.c:144: * cannot get to ext4_ext_truncate() before all IOs overlapping that range are
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:266:	 * ext4_ext_truncate() doesn't reserve any slop when it
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:3761:		ext4_ext_truncate(handle, inode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2729:extern void ext4_ext_truncate(handle_t *, struct inode *);
+
+
+ext4_alloc_file_blocks
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4658:static int ext4_alloc_file_blocks(struct file *file, ext4_lblk_t offset,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4809:		ret = ext4_alloc_file_blocks(file, lblk, max_blocks, flags,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4921:	ret = ext4_alloc_file_blocks(file, lblk, max_blocks, flags, mode);
+
+
+ext4_zero_range
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4716:static long ext4_zero_range(struct file *file, loff_t offset,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4731:	trace_ext4_zero_range(inode, offset, len, mode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4896:		return ext4_zero_range(file, offset, len, mode);
+
+
+ext4_fallocate
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4861:long ext4_fallocate(struct file *file, int mode, loff_t offset, loff_t len)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4898:	trace_ext4_fallocate_enter(inode, offset, len, mode);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4953:	trace_ext4_fallocate_exit(inode, offset, max_blocks, ret);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/file.c:609:	.fallocate	= ext4_fallocate,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2734:extern long ext4_fallocate(struct file *file, int mode, loff_t offset,
+
+
+ext4_convert_unwritten_extents
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3618: * via ext4_convert_unwritten_extents().
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3718:static int ext4_convert_unwritten_extents_endio(handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:3734:	ext_debug("ext4_convert_unwritten_extents_endio: inode %lu, logical"
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4031:		ret = ext4_convert_unwritten_extents_endio(handle, inode, map,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4967:int ext4_convert_unwritten_extents(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/page-io.c:160:	ret = ext4_convert_unwritten_extents(handle, inode, offset, size);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/page-io.c:280:			err = ext4_convert_unwritten_extents(io_end->handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/inode.c:3190:		err = ext4_convert_unwritten_extents(NULL, inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2736:extern int ext4_convert_unwritten_extents(handle_t *handle, struct inode *inode,
+
+
+ext4_find_delayed_extent
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:113:static int ext4_find_delayed_extent(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:2212:		next_del = ext4_find_delayed_extent(inode, &es);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5039:static int ext4_find_delayed_extent(struct inode *inode,
+
+
+ext4_xattr_fiemap
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5079:static int ext4_xattr_fiemap(struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5144:		error = ext4_xattr_fiemap(inode, fieinfo);
+
+
+ext4_fiemap
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5077:#define EXT4_FIEMAP_FLAGS	(FIEMAP_FLAG_SYNC|FIEMAP_FLAG_XATTR)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5114:int ext4_fiemap(struct inode *inode, struct fiemap_extent_info *fieinfo,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5140:	if (fiemap_check_flags(fieinfo, EXT4_FIEMAP_FLAGS))
+/home/paul/Documents/linuxwork/ext4/fs/ext4/namei.c:3228:	.fiemap         = ext4_fiemap,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/file.c:621:	.fiemap		= ext4_fiemap,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2761:extern int ext4_fiemap(struct inode *inode, struct fiemap_extent_info *fieinfo,
+
+
+ext4_access_path
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5167: * ext4_access_path:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5173:ext4_access_path(handle_t *handle, struct inode *inode,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5225:			err = ext4_access_path(handle, inode, path + depth);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5254:		err = ext4_access_path(handle, inode, path + depth);
+
+
+ext4_ext_shift_path_extents
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5200: * ext4_ext_shift_path_extents:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5206:ext4_ext_shift_path_extents(struct ext4_ext_path *path, ext4_lblk_t shift,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5346:		ret = ext4_ext_shift_path_extents(path, shift, inode,
+
+
+ext4_ext_shift_extents
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5275: * ext4_ext_shift_extents:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5281:ext4_ext_shift_extents(struct inode *inode, handle_t *handle,
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5440:	ret = ext4_ext_shift_extents(inode, handle, punch_stop,
+
+
+ext4_collapse_range
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:4882:		return ext4_collapse_range(inode, offset, len);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5358: * ext4_collapse_range:
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5362:int ext4_collapse_range(struct inode *inode, loff_t offset, loff_t len)
+/home/paul/Documents/linuxwork/ext4/fs/ext4/extents.c:5381:	trace_ext4_collapse_range(inode, offset, len);
+/home/paul/Documents/linuxwork/ext4/fs/ext4/ext4.h:2764:extern int ext4_collapse_range(struct inode *inode, loff_t offset, loff_t len);
+
+
