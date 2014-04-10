@@ -15,3 +15,6 @@ LOGNAME=root
 _=/usr/bin/env
 OLDPWD=/vdb
 
+export FSTESTSET=generic/018
+
+export FSTESTCFG=4k
