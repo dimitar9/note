@@ -1,0 +1,12 @@
+1. setup ssh user
+
+首先vi编辑/etc/inetd.conf,去掉ssh前的#，保存退出
+编辑/etc/rc.conf
+最后加入:sshd_enable="yes"即可
+激活sshd服务：
+techo#/etc/rc.d/sshd start
+用下面命令检查服务是否启动，在22端口应该有监听。
+#netstat -an ## check port number 22
+最后
+vi /etc/ssh/sshd_config,
+修改下列一行PermitRootLogin yes #允许root登录 修改完配置文件后，重新启动sshd服务器(/etc/rc.d/sshd restart)即可
