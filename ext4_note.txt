@@ -172,3 +172,7 @@ root@debian:/mnt/test#
 	$0 name of the shell or shell script
 
   7) learnt generic/018 test defrag 
+  
+28. sparse check. tool that Linus wrote. static analysis code. 
+	$ make M=fs/ext4 C=2 CF=-D__CHECK_ENDIAN__
+
