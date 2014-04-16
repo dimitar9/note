@@ -1,0 +1,8 @@
+bug
+http://www.spinics.net/lists/linux-ext4/msg42869.html
+
+Try to "#define ES_DEBUG__" in extents_status.c file.
+then,
+1. build kerlnel
+2. run kvm instance.
+3. manually use xfs_io to test it. see if any printk output helps.
