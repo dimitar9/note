@@ -32,3 +32,7 @@ Namjae Jeon(3)
  ext4: fix COLLAPSE_RANGE failure issue on ext4 with 1KB block size.
  ext4: fix ZERO_RANGE test failure in data journalling mode.
  ext4: disable COLLAPSE_RANGE for bigalloc.
+
+
+3. mount -o data=journal. (091 is failed, ZERO RANGE issue.)
+fstress ? read fstress.
