@@ -18,3 +18,14 @@ OLDPWD=/vdb
 export FSTESTSET=generic/018
 
 export FSTESTCFG=4k
+
+export FSTESTAPI="1.0"    
+
+xfs_io -f -c "truncate 20k" -c "falloc 0 20k" -c "pwrite 8k 4k" -c "fiemap -v" testfile
+
+
+xfstests	linux-v3.8-355-gcf1ed54 (Fri, 4 Apr 2014 17:24:23 +1100)
+FSTESTCFG is "4k"
+FSTESTSET is "-g quick"
+FSTESTOPT is "aex"
+Enabling auto exclude
