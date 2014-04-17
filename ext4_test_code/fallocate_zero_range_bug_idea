@@ -6,3 +6,29 @@ then,
 1. build kerlnel
 2. run kvm instance.
 3. manually use xfs_io to test it. see if any printk output helps.
+
+
+Namjae Jeon namjae.jeon@samsung.com via vger.kernel.org 
+	
+6:27 PM (6 hours ago)
+		
+to Theodore, linux-ext4, Lukáš
+There are several failures while running xfstests-bld(generic/075 and 091).
+(reported by Ted)
+COLLAPSE RANGE issue are mixed with ZERO RANGE issue as per format and mount
+options.
+
+First, list up issues like the following.
+1. format with 1KB or 2KB block size.(075, 091 are failed, COLLAPSE RANGE issue).
+2. mount -o dioread_nolock. (091 is failed, ZERO RANGE issue.)
+   - As I know, Lukas is checking this issue.
+3. mount -o data=journal. (091 is failed, ZERO RANGE issue.)
+4. format with bigalloc. (075 and 091 are failed, COLLAPSE RANGE issue).
+   - Once I would like to be disable COLLAPSE RANGE on ext4 with bigalloc feature
+     till finding the root-cause. first, I need the time to understand bigalloc feature..
+5. testing more.
+
+Namjae Jeon(3)
+ ext4: fix COLLAPSE_RANGE failure issue on ext4 with 1KB block size.
+ ext4: fix ZERO_RANGE test failure in data journalling mode.
+ ext4: disable COLLAPSE_RANGE for bigalloc.
