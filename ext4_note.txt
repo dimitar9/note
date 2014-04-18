@@ -175,4 +175,5 @@ root@debian:/mnt/test#
   
 28. sparse check. tool that Linus wrote. static analysis code. 
 	$ make M=fs/ext4 C=2 CF=-D__CHECK_ENDIAN__
-
+29. Start to researth file read(), read->file-op->read()->generic_file_aio_read() [mm/filemap.c]
+    Todo: put prink inside this function to see how it works.
