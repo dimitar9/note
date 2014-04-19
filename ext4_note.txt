@@ -177,3 +177,9 @@ root@debian:/mnt/test#
 	$ make M=fs/ext4 C=2 CF=-D__CHECK_ENDIAN__
 29. Start to researth file read(), read->file-op->read()->generic_file_aio_read() [mm/filemap.c]
     Todo: put prink inside this function to see how it works.
+    
+    do_generic_file_read() ->
+    file_read_actor() :This is a generic file read routine, and uses the
+	 * mapping->a_ops->readpage() function for the actual low-level stuff. ->
+    ext4_readpages()
+    
