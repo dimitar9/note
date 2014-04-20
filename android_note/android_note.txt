@@ -1,0 +1,3 @@
+1. install ADT bundle
+2. XML layout: LinearLayout, TextView, Button.. parent-child relationship. It is a tree.
+3. string.xml defines string app uses. Can put string in other files too, as long as inside "res/values" folder
