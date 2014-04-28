@@ -1,0 +1,21 @@
+web scraping有啥方便的API或者框架不
+就是从一些网站抓link分析然后下载点东西。我目前只知道用java和apache的
+httpclient抓回网页然后分析文本,今天google到一个叫selenium的东西，好像能简化
+开发过程。不知道还有什么简单易用的？
+
+
+
+http://blogread.cn/it/article/874?f=hot1
+http://blogread.cn/it/article/3958?f=sa
+http://blogread.cn/it/article/4086?f=sa
+http://www.searchtb.com/2011/01/an-introduction-to-crawler.html
+
+htmlunit.
+
+https://github.com/cheeriojs/cheerio 很好用
+
+http://phantomjs.org/ 没用过，比较牛。
+
+
+scrapy + beautifulsoup4  in python
+
