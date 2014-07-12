@@ -4,3 +4,16 @@
 4.  on emacs 23.1, there is no speedbar, but it has sr-speedbar.
    1) add (add-to-list `load-path "/home/xcang/.emacs.d/") to .emacs file.
    2) follow this : http://www.emacswiki.org/emacs/SrSpeedbar
+
+
+
+Vi
+1. use cscope with vim. 
+
+   $>find . –type f > cscope.files
+   $>cscope -bq 
+   
+   use ":cs find c do_cscope" to find function calling this.
+2. NERtree is good.
+3. TlistOpen is good.
+
