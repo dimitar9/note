@@ -1,0 +1,86 @@
+标  题: Hadoop Spark 学习小结[2014版]
+关键字: Hadoop,Big Data,Spark
+发信站: BBS 未名空间站 (Sun Aug 17 12:28:34 2014, 美东)
+
+基于很多朋友希望更新这个学习资料，我就尽力按我的积累补充，are you ready, 享
+受技术饕餮大餐
+
+#Hadoop
+
+Hadoop社区依然发展迅速，2014年推出了2.3，2.4, 2.5 的社区版本，比如增强
+Resource Manager HA,
+YARN Rest API, ACL on HDFS...
+http://hadoop.apache.org/releases.html
+
+这个是Hadoop project member and committee, 里面好多来自Hortonworks，不过也有
+不少国人加入了，
+都是未来的希望啊。
+http://hadoop.apache.org/who.html
+
+# Spark
+Spark今年大放溢彩，Spark简单说就是内存计算（或者迭代式计算，DAG计算,流式计算
+）框架，
+MapReduce因效率低下大家经常嘲笑， Spark号称性能超Hadoop百倍，算法实现仅有其1
+/10或1/100
+Reynold 作为Spark核心开发者，介绍
+http://www.csdn.net/article/2013-04-26/2815057-Spark-Reynold
+http://www.csdn.net/article/2014-08-07/2821098-6-sparkling-feat
+
+起源于2010年Berkeley AMPLab，发表在hotcloud上
+https://www.usenix.org/legacy/events/hotcloud10/tech/full_papers/Zaharia.pdf
+BTW: 这个实验室非常厉害，做大数据，云计算，跟工业界结合很紧密，比如Twitter也
+Berkeley开了门课程
+http://blogs.ischool.berkeley.edu/i290-abdt-s12/
+还有个BDAS (Bad Ass)引以为傲: https://amplab.cs.berkeley.edu/software/
+
+在2013年，这些大牛出动把Berkeley AMPLab的人拉出去成立了Databricks，半年就做
+了2次summit
+参会1000人，根据CTO说 Spark新增代码量活跃度今年远远超过了Hadoop本身，马上要
+推出商业化产品Cloud
+
+Spark核心数据结构：
+Resilient Distributed Datasets: A Fault-Tolerant Abstraction for
+In-Memory Cluster Computing
+https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf
+Spark目前是1.0.2最新版本：https://spark.apache.org/docs/1.0.2/
+
+目前还有一些子项目，比如 Spark SQL, Spark Streaming, MLLib, Graphx
+如；http://spark.apache.org/streaming/
+工业界也引起广泛兴趣，国内Taobao, baidu也开始使用：
+https://cwiki.apache.org/confluence/display/SPARK/Powered+By+Spark
+
+还有一些第三方的项目基于Spark上面
+Shark - Hive and SQL on top of Spark
+MLbase - Machine Learning research project on top of Spark
+BlinkDB - a massively parallel, approximate query engine built on top of
+Shark and Spark
+GraphX - a graph processing & analytics framework on top of Spark (GraphX
+has been merged into Spark 0.9)
+Apache Mesos - Cluster management system that supports running Spark
+Tachyon - In memory storage system that supports running Spark
+Apache MRQL - A query processing and optimization system for large-scale,
+distributed data analysis, built on top of Apache Hadoop, Hama, and Spark
+OpenDL - A deep learning algorithm library based on Spark framework. Just
+kick off.
+SparkR - R frontend for Spark
+Spark Job Server - REST interface for managing and submitting Spark jobs on
+the same cluster
+
+Apache Spark支持4种分布式部署方式，分别是Amazon EC2, standalone、spark on
+mesos和 spark on YARN
+
+至于如何入门，还是得好好看官方文档，上面有入门，搭建环境，Summit上的视频也是
+http://spark-summit.org/2014/
+也有个training视频：
+http://spark-summit.org/2014/training
+
+今年的Summit 回顾
+http://www.csdn.net/article/2014-07-17/2820713
+今年最叫好的demo是Dtabricks Cloud, 把twitter上面实时收集的数据做作为machine
+learning素材，
+用类似IPython notebook，可视化呈现惊艳，而搭建整个sampling系统就花了20分钟！
+http://databricks.com/cloud
+
+最后CSDN上面也有个Spark专栏，大家可以多去看看
+spark.csdn.net
+--
