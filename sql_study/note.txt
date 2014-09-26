@@ -1,0 +1,1 @@
+1. Good postgre tutorial http://www.tutorialspoint.com/postgresql/postgresql_using_joins.htm
