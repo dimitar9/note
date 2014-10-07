@@ -1,0 +1,114 @@
+How do I learn Apache Spark?
+Write Question Details
+
+http://www.quora.com/How-do-I-learn-Apache-Spark
+
+Comment
+Share
+Downvote
+Gnacux PsGnacux Ps
+Edit Bio • Make Anonymous
+Write your answer, or answer later.
+2 Answers
+Ask to Answer
+Suman BharadwajSuman Bharadwaj
+12 upvotes by Gnacux Ps, Pavan Kulkarni, Harsh Patel, (more)
+Start learning core concept of Spark - Resilient Distributed Dataset (RDD) . For further information regarding RDDs, refer to the below links. It contains lot of information on how RDD works.
+
+    https://www.usenix.org/system/fi...
+    http://www.cs.berkeley.edu/~mate...
+
+
+Additionally, you can also watch this fantastic video on RDD by Matei Zaharia:
+
+    Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing
+
+
+To help you get started with Spark, screen-casts are available on the SPARK website. Play around with Spark for some time to get your self familiar with the spark shell
+
+    First Steps with Spark - Screencast #1
+    Spark Documentation Overview - Screencast #2
+    Transformations and Caching - Spark Screencast #3
+    A Standalone Job in Scala - Spark Screencast #4
+
+
+Although, Spark provides APIs for multiple languages, learning Scala will definitely help. A small introduction to Scala shell is available-
+
+    Introduction to the Scala Shel
+
+
+Once you are comfortable with above concepts and played with Spark for some time. Get into the internals of Spark. Matei Zaharia talks about the internals of SPARK in the below video. [ An excellent video, it helped me a lot ]
+
+
+
+Now it's time to learn optimization techniques:
+
+    Tuning Spark - Spark 1.0.0 Documentation
+    A powerful Big Data trio: Spark, Parquet and Avro
+
+
+Also, you can register to the Spark channel in Youtube. Spark summit, meetup and other videos are available in the Youtube Channel Apache Spark
+
+Other links which helped me are :
+
+    Differences at shuffle side between Hadoop and Spark- Page on berkeley.edu
+    Spark with Java 8 - Making Spark Easier to Use in Java with Java 8
+
+
+Spark is fantastic and easy to learn. You'll be amazed to see what 2-3 lines of Spark code can do.
+
+Happy coding and welcome to lightning fast analytics !
+  
+Written 25 Jun.
+Downvote
+Comment
+Share
+Bạch GiangBạch Giang, Data Analyst
+2 upvotes by Kien Cung and Darion Yaphet.
+Scala basic
+Scala School
+A Tour of Scala: Case Classes
+
+Spark basic
+4. Working with Key-Value Pairs
+Data Exploration Using Spark
+Page on latrobe.edu.au
+
+Python lambda, reduce, filter
+Python Tutorial: Lambda Operator, filter, reduce and map
+
+Simple Spark SQL - Try normal SQL and see magical things happen
+Spark SQL Programming Guide
+Spark 1.0.2 ScalaDoc
+Note that Spark SQL currently uses a very basic SQL parser. Users that want a more complete dialect of SQL should look at the HiveQL support provided by HiveContext.
+
+Nice hack with Spark
+Why Apache Spark is a Crossover Hit for Data Scientists
+Data Exploration Using BlinkDB
+
+Start with Python
+Page on ipython.org
+
+Some Python APIs  equivalent to Scala
+PySpark
+
+MLLib
+Linear Methods - MLlib - Spark 1.0.2 Documentation
+
+Recommender
+Building a food recommendation engine with Spark / MLlib and Play
+Crouching Data, Hidden Markov
+All-pairs similarity via DIMSUM | Twitter Blogs
+
+Spark + Mesos
+mesos/spark
+How to build Apache Mesos on Mac
+How to set up mesos for running spark on standalone OS/X
+Installing Mesos onto a Mac with Homebrew
+Cluster & Framework Mgmt
+Running Spark on Mesos
+Cloudera + Mesos + MapReduce + Spark + Chronos - is it possible? Are there similar alternatives?
+6 Tutorials for Apache Mesos: Hadoop, Spark, Chronos, and More
+
+Spark + CHD
+Running Spark Applications
