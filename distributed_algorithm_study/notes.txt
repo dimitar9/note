@@ -1,0 +1,31 @@
+Chapter2
+ Modelling I: synchronous network model
+ 
+ 2.1 synchronous network 
+ 
+ G(V,E)
+ n: numver of V, |V｜, number of notes in the network digrap.
+ out-nbrs_i : outgoing neighbors of i.
+ in-nbrs_i: incoming neigbors.
+ distance(i,j): shortest directed path from i to j in G.
+ diam: diameter, max distance(i,j) taken over all pairs.
+ M: fixed message.
+ 
+ each node i,contains following components:
+ 
+ states_i,
+ start_i,: a nonempty subset of states_i
+ msgs_i,  message-generation function.
+ tans_i
+ 
+ 
+ channel,(link): (i,j)
+ 
+ round: combination of two steps:(msg,trans)
+ 
+ process halting, halting state.
+ 
+ environment node:has connection to all nodes. can send wakeup msg.
+ 
+ undirected graph
+ 
