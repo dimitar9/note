@@ -29,3 +29,31 @@ Chapter2
  
  undirected graph
  
+ 2.2 failures
+ process failures
+ link(channel) failures.
+ 
+ three types:
+ stopping failure: it can stop anywhere.
+ byzantine failure: not follow rule to generate-message or transit-states
+ fail by loosing message.
+ 
+2.4 executions.
+
+state assignment,: C_r
+message assignment : assign message to each channel, M_r(send) N_r(receive)
+
+an execution of the system is defined to be an infinite sequence 
+C0, M1,N1,C1,M2,N2,C2
+
+distinguishable sequence.
+
+2.5 proof methods
+invariant assertion
+simulation
+
+2.6
+complexity measures:
+
+time complecity,  : how many rounds. more important than later one.
+communication complexity: network bandwith, congestion.
