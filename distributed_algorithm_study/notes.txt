@@ -1,3 +1,8 @@
+Reading:
+good ppt for this topic
+http://www.cs.rug.nl/~eirini/DS_slides/leader_election.pdf
+
+
 Chapter2
  Modelling I: synchronous network model
  
