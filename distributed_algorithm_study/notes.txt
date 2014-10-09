@@ -57,3 +57,14 @@ complexity measures:
 
 time complecity,  : how many rounds. more important than later one.
 communication complexity: network bandwith, congestion.
+
+chapter 3
+Leader election in a synchronous ring.
+
+3.1 problem
+Ring leader election. several variants. p2.6
+
+Processes should be identicla except UID. otherwise no solution for election. see theorem3.1
+
+3.3
+LCR algorithm.
