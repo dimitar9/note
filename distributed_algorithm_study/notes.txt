@@ -73,3 +73,7 @@ Processes should be identicla except UID. otherwise no solution for election. se
 
 3.3
 LCR algorithm.
+HS algorithm
+good pdf for summuraty complexity: 
+http://www.cs.utexas.edu/~lorenzo/corsi/cs380d/past/03F/notes/9-6.pdf
+
