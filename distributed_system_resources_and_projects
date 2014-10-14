@@ -19,3 +19,10 @@ go-Raft
 1. ben johnson- raft http://blog.gopheracademy.com/writing-a-distributed-system-library 
 2. go-raft github: https://github.com/goraft/raft
 3. https://github.com/goraft/raftd
+
+
+Raft-scala:
+ckite.
+
+RPC lib (scala): finagle.
+
