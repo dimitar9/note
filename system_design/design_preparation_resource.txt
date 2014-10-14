@@ -1,0 +1,8 @@
+http://www.quora.com/How-should-I-prepare-system-design-questions-for-Google-Facebook-Interview
+
+
+再给你几个入门级的材料吧，good luck
+
+http://www.infoq.com/presentations/Scale-at-Facebook
+https://www.youtube.com/watch?v=5RfFhMwRAic
+http://highscalability.com/blog/2013/10/28/design-decisions-for
