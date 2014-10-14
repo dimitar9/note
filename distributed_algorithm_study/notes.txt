@@ -79,4 +79,16 @@ http://www.cs.utexas.edu/~lorenzo/corsi/cs380d/past/03F/notes/9-6.pdf
 
 HS algorithm implementation done.
 
+Chpater 4 Algorithm in General Synchronous networks
+
+G(V,E) node 1...n
+4.1 leader election in general network
+
+4.1.1 the problem.
+UID
+4.1.2 a simple flodding algorithm.
+requirement : diam (diamiter)is known
+FloodMax algorithm.
+4.1.3 improvment of previous algorithm. OptFloodMax.
+
 
