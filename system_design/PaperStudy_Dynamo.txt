@@ -1,0 +1,6 @@
+Dynamo: Amazon's highly available key-value store.
+
+Abstract
+1. "always-on" expeirence. Dynamo sacrifices consisetnecy under certain failure senarios.
+2. Extenvise use of object versioning, application-assisted conflict resolution. 
+
