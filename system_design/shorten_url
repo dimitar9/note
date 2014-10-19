@@ -1,0 +1,85 @@
+http://www.tawheedkader.com/2012/03/how-to-hire-a-hacker-for-your-startup/
+
+
+Why a Link Shortener?
+
+It started off as my go-to-example because we built one ourselves here at Tout and got to know the interesting intricacies of it. But the more I thought about it, the more I loved the idea of it because it covers many fundamental concepts behind systems design, service oriented architecture, proper database design and optimizations and even job queues and caching around a very simple and easy to understand use case.
+
+Also, I never thought this would happen (but it did) — if a candidate had trouble grasping the concept around a link shortener, then he or she is definitely the wrong person for the job (instant filter).
+Step 1 – Set the Context
+
+The way this works best is to engage the candidate in a way so that he or she starts to draw out the overall architecture, database design, interactions and even certain parts of the code right on the whiteboard.
+
+So, to get things started, I start off the diagram on the whiteboard listing out the key use cases I want my link shortening service to support.
+
+    I want a Link Shortener with an API that I can call from my web-app. I want to pass in a URL and I want the Link Shortener to give back a shortened URL that I can present to my user
+    When the shortened URL is visited by my users, I want the Link Shortener to redirect to the original URL
+    I want an API where I can query stats around a particular shortened URL giving me details about the users that have visited that URL with as much information as you can give me about each person
+
+I want the candidate to be drawing the design, architecture and code on the whiteboard, so I always start off by drawing out a simple web-app box with two endpoints, one representing the request for a shortened URL and another representing the request for stats around a URL.
+Step 2 – Start Drawing
+
+At this point, you want to have the candidate pick up a marker and start talking through how he or she would go about designing the service. The key things you want him to write out are:
+
+    The routes your web-application should support
+    The models that you’d create for the web application and the database tables
+    The controllers (don’t get into pseudo code just yet)
+
+While he is drawing things out, I like to challenge his/her thinking on a few things:
+
+    I like to make sure they get detailed enough in terms of route names, url paths and model names. I’ve found that the way an engineer names objects and the conceptual model they create to organize their code base is a tremendous indicator of how good they are.
+    The other key thing I like to probe into is how they create their routes. Do they require a POST vs a GET when accepting a short URL request? Challenge their thinking around this, obviously you can go either way but the considerations they took to get to the decision will tell you how much they really know about the HTTP protocol and building a RESTful API.
+    Look out for the things you think are obvious. I had one candiate talk about how he would store the tracking data in the session and save on a database call (which made no sense). So even on the simple stuff, make sure you get them to explain how they’d handle the key aspects of the use cases.
+    Lastly, always link back to the three use cases you started by writing out. Those are three very loaded sentences — keep an eye to see if the candidate remembers to track the redirects, if he or she thinks about authenticating the API calls from your web service, and other things that aren’t obviously spelled out but an experienced hacker would know to think about.
+
+Step 3 – Get into some Pseudo-Code
+
+Although we’re primarily a Rails shop, we’ve interviewed people with backgrounds in Java and .NET as well. I figure that if they are truly strong programmers, they’ll be able to pick up Rails and Javascript fairly quickly. So at this point in the interview, I like to dig a little bit deeper into their coding abilities.
+
+I ask them to write the pseudo-code for the controller action that addresses Use Case #2 – the redirect.
+
+If  the candidate has trouble with Step 2, I always make sure I give them the benefit of doubt and help them along with the design to get them to this particular step. So at this point, assuming that he or she is not completely confused, they should be able to churn out some pseudo code like this:
+
+    def redirect
+    link = Links.find_by_short_url(params[:id])
+    visitor_information_from_header = parse_http_request_for_user_info(request)
+    LinkVisit.create(visitor_information_from_header)
+    redirect_to link.original_url
+    end
+
+By this step, you’ll really be able to figure out a candidate thats pretty much full of shit and a candidate that understands the basics of programming. If you want, you can make the example more concrete and have them write real code (e.g. in Rails) so that you can test their understanding on how a framework like Rails encapsulates query strings, http headers, and how ActiveRecord works.
+Step 4 – Test their knowledge on Architecture Patterns
+
+At this point, I like to throw them a curve ball. I go up to the white board, and start to mark up the calls in their pseud-code with how rough estimates on how long each call would take. I try to use a red marker so that it stands out, and it looks something like this:
+
+    def redirect
+    link = Links.find_by_short_url(params[:id])  [60ms]
+    visitor_information_from_header = parse_http_request_for_user_info(request) [1ms]
+    LinkVisit.create(visitor_information_from_header) [60ms]
+    redirect_to link.original_url
+    end
+
+I then say that user experience is of utmost importance to us, so we want to make sure that these redirect calls are done in under 20ms. I ask what he could do with this design so that we can accomplish that.
+
+Your candidate should be able to talk through each of these core concepts (from easiest to hardest):
+
+    Create a database index on the short_url field in the Links table so that lookups are faster. [+10 points]
+    Make the short_url the clustered index and primary key for the Links table [+20 points]
+    Store links created in the past 30 days in an in-memory cache for easier lookup [+50 points]
+    Create a background job worker + queue that will take the vistor header information and will persist it to the database later [+100 points]
+
+As you can see, even in a simple servie like a Link Shortener, there are a number of things you can do to drastically improve performance. Being able to talk through these simple patterns is what truly sets apart the boys from the men.
+
+I also like to see if they suggest alternate ways of storing the data. Do they say we should use a document-based storage system instead of a Database? Do they want to use the shiny new technology just for the sake of using it and because they just learned a buzzword like NoSQL or can they back it up with sound thinking? This exercise is a great platform to have those kind of discussions and get at the root of his/her thinking process.
+Step 5 – Test their knowledge on Software Patterns (optional)
+
+Finally, if you’ve gotten this far, I delve a bit deeper into how he or she would organize the software code. What parts of it would be a standalone library and what parts of it would go straight into the controllers.
+
+This is more to ramp down the conversation but the things I look for is whether they care enough to create a standalone library for hashing URLs, or whether they like to encapsulate the tracking code within the model or whether they prefer to do it all in the controller (and why).
+Other things I like to talk about (and In Conclusion)
+
+This exercise has proved to be way more effective than a lot of other styles I’ve employed while hiring in my career. It forces you to interact with each other, gives you a glimpse into their problem solving abilities, how he or she deals with pressure, how they deal with situations and concepts that are foreign and really puts the two of you “in the moment” as if you’re already on a team solving a problem.
+
+In addition to this, I also like to talk through and gauge how much user empathy they have. These days, people that can cross between frontend, backend and design are the true rockstars and exactly what we’re looking for, so I like to get a feel for whether they “just like to code requirements” or they can truly get proactive and help us build product.
+
+How do you interview engineers? Hate/Love this approach? Share your comments below or email me at tk@toutapp.com.
