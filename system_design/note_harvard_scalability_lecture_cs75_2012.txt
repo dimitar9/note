@@ -1,0 +1,18 @@
+1. host, choose host to consier?   data encrypted? ftp vs sftp, secured. 
+2. VPSes , between shared web host.  vmware, citric, multiple virtual machine within same machine illusion of seperated machine.
+   e.g. Dreamhost, GoDaddy, Linode, 
+3. Amazon.
+4. Vertical scaling. CPU: cores, L2 chache,.. Disk: PATA,SATA,SAS,RAID,  RAM
+5. Horizontal scaling.
+6. Load balancing: http request.  DNS, Software: ELB, HAProxy, LVS,  Hardware: Barracuda, Cisco, Citrix, F5
+7. RAID0: good for performance. no duplication.
+   RAID1: mirror.
+   RAID*: combines 0,1
+   RAID5: one out of 5 is redundancy. 
+   RAID6: any two drives can die.
+8. Sticky sessions: shared storage, cookies.
+9. caching.  html mysql memcached:memoery
+
+load balacing; DNS level, Web server level, DB level.
+Geo location replication.
+
