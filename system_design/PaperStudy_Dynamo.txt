@@ -67,5 +67,17 @@ D. System Architecture.
   2. all read/write are performed on N healty nodes. Not all N nodes for hashing ring.
   3.  hinted meta data in "contect" part. For example, NOde A Down, Node D back up. write will send to D with "hint" in contect.
       D will save this info in seperate Database. Then periodically check A. after A came back. Deliver info back to A and delete self one.
+  
+  handling permenant failure:relplica synchronizaion.
+  1. anti-entryopy protocol. (replica synchronization)
+  2. to detect inconsisitency: use Merkle tree. hash tree. Reduce amount of data being transfered.
       
-      
+  membership failure detection
+  a) ring membership
+     1. gossip protol, propagate membership change.
+  b) external discovery: seed. static configured to serve others. 
+  c) failure detection. A matinas a list that B or other nodes are NA. Will check perodically later. During
+     failure time, use b's mapped backup node.
+     
+  adding/removing storage nodes
+  1. add keys to new neighors, then remove keys from old neibors.
