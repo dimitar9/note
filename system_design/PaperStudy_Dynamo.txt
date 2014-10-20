@@ -37,7 +37,7 @@ D. System Architecture.
  1. get(key) put(key, context, value)
  2. apply MD5 on key to get 128-bit identifier.
  
- partitioning algorithm.
+ *** partitioning algorithm. (4.2) [comment: important. the one MAP to multiple concept is important]
  1. it must scale incrementally.: so, consistent hashing. (ring)
  2. basic consisten hashing has flaws. un-uniform data : 
     solution: one real node is assigned to multiple virtual nodes (tokens)
