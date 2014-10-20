@@ -52,3 +52,20 @@ D. System Architecture.
    "delete cart" may fail, customers need to do this again.
  3. use vector lock: to capture causuality of same object.
     vector lock is: a list of <node, counter> pairs
+ 4. size of vector lock. 10. To limit size.  LRU. potential problem. But it's okay in production. need more investigation.
+     see pic:
+     http://i60.tinypic.com/any9s8.png
+     
+  get() put() operation
+  1. two possible ways: routing, client-aware lib to redirect to destination node directly.
+  2. node handling r/w is called "coordinator"
+  3. preference list. top .
+  4. two configurable values: R,W  R: how many nodes need in quorum to perform read, R+W>N
+  
+  handling failure: hinted handoff
+  1. sloppy qurum: not strict quorum, to remedy server failure unavailability.
+  2. all read/write are performed on N healty nodes. Not all N nodes for hashing ring.
+  3.  hinted meta data in "contect" part. For example, NOde A Down, Node D back up. write will send to D with "hint" in contect.
+      D will save this info in seperate Database. Then periodically check A. after A came back. Deliver info back to A and delete self one.
+      
+      
