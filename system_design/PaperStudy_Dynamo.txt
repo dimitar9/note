@@ -45,8 +45,10 @@ D. System Architecture.
  replication:
  1. the coordinator replicates these keys at the N-1 clockwise successor nodes in the ring. 
   
- data versioning
+ data versioning  (4.4 *)
  1. some application accepts old version data. such as shop cart. it will reconsile later.
    In order to privide this, dynamo treat each operation as new and immutable version of data. 
  2. version branching. some case cannot reconsiled. But "add to cart" will not be lost. 
    "delete cart" may fail, customers need to do this again.
+ 3. use vector lock: to capture causuality of same object.
+    vector lock is: a list of <node, counter> pairs
