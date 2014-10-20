@@ -1,6 +1,52 @@
 Dynamo: Amazon's highly available key-value store.
 
-Abstract
+A. Abstract
 1. "always-on" expeirence. Dynamo sacrifices consisetnecy under certain failure senarios.
 2. Extenvise use of object versioning, application-assisted conflict resolution. 
 
+Introduction
+1. Dynamo uses a synthesis of well known techniques to achieve scalability and availability: 
+Data is partitioned and replicated
+using consistent hashing [10], and consistency is facilitated by object versioning [12]
+
+2. The consistency among replicas during updates is maintained by a quorum-like technique and a 
+decentralized replica synchronization protocol.
+
+Gossip based distributed failure detection and membership protocol.
+
+3. It demonstrates that an eventually-consistent storage system can be used in production 
+
+B. Background
+1. simple key/value interface
+
+system requirements:
+a. query model: key-value. small objects. smaller than 1mb.
+b. ACID properties: weaker C. (consistency)
+
+service level agreement.
+ 300ms for 99.9% of its requests for a peak client load of 500 requests /second
+ 
+design:
+  "always writeable” data store
+  “last write wins”. 
+  "tusted enviroment" no need to apply Byzantine protocol
+  "latency sensitive"
+
+D. System Architecture.
+ system interface: 
+ 1. get(key) put(key, context, value)
+ 2. apply MD5 on key to get 128-bit identifier.
+ 
+ partitioning algorithm.
+ 1. it must scale incrementally.: so, consistent hashing. (ring)
+ 2. basic consisten hashing has flaws. un-uniform data : 
+    solution: one real node is assigned to multiple virtual nodes (tokens)
+    
+ replication:
+ 1. the coordinator replicates these keys at the N-1 clockwise successor nodes in the ring. 
+  
+ data versioning
+ 1. some application accepts old version data. such as shop cart. it will reconsile later.
+   In order to privide this, dynamo treat each operation as new and immutable version of data. 
+ 2. version branching. some case cannot reconsiled. But "add to cart" will not be lost. 
+   "delete cart" may fail, customers need to do this again.
