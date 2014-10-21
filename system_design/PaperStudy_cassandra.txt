@@ -1,6 +1,10 @@
 Cassandra.
 
+
 very similar to Dynamo. Some improvements such as failure detector by usin Accural Failure detector.
 And for partitioning, it uses consisten hashing too, but with another approach to avoid ununiform: alleviate heavy loaded 
 node.
+
+a good chinese blog about Accurual failure detector:
+http://blog.csdn.net/liaoxiangui/article/details/6854495
 
