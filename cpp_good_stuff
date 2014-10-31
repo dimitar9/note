@@ -2,3 +2,22 @@ http://channel9.msdn.com/Events/GoingNative/GoingNative-2012?so
 
 cpu cache
 http://vimeo.com/97337258
+
+cpp notes:
+
+1. use map maitain shared_ptr
+  for example
+    shared_ptr a = new (A);
+    map[obj_1] = a;
+    
+    later delete it when closed
+    
+    if closed
+      map.erase[obj_1];
+      
+    don't do this way, it will cause crash.
+    
+    shared_ptr a = new(A);
+    map[obj_1] = a.get();
+    
+    
