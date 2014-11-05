@@ -91,4 +91,10 @@ requirement : diam (diamiter)is known
 FloodMax algorithm.
 4.1.3 improvment of previous algorithm. OptFloodMax.
 
+4.2 Breadth-First search
+4.2.2 SyncBFS algorithm.
+
+4.3 Shortest paths (for strong connected directed graph)
+   BellmanFord algorithm. O(n-1) time, O(n-1)|E| messages.
+
 
