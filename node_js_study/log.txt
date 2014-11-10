@@ -1,3 +1,7 @@
 first commit
 
 start with Practical Node.js book
+
+
+js book: js good parts 
+read to page 27 Function literal
