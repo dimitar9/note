@@ -9,7 +9,7 @@ read to page 27 Function literal
 
 Tips:
 
-1. Do Radio button in js.
+1. Do Radio button and extract data in node.js.
         http://stackoverflow.com/questions/19292999/how-to-get-the-selected-radio-button-value-inside-the-form-from-expressjs 
         form(method='post', action='/listJobs')
           each item in myJobNames
@@ -27,6 +27,25 @@ Tips:
         { jobNameRadio: 'on' } on
   Another good select item example: 
         http://www.w3.org/TR/WCAG20-TECHS/H84.html
+
+  Another example from Stackoverflow:
+        http://stackoverflow.com/questions/4295782/how-do-you-extract-post-data-in-node-js
+        HTML:
         
+        <form method="post" action="/">
+            <input type="text" name="user[name]">
+            <input type="text" name="user[email]">
+            <input type="submit" value="Submit">
+        </form>
+        Javascript:
+        
+        app.use(express.bodyParser());
+        
+        app.post('/', function(request, response){
+        
+            console.log(request.body.user.name);
+            console.log(request.body.user.email);
+        
+        })
         
         
