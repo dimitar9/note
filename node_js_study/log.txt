@@ -47,5 +47,6 @@ Tips:
             console.log(request.body.user.email);
         
         })
-        
-        
+  Good Tutorial by Frank Grimm.
+        http://blog.frankgrimm.net/2010/11/howto-access-http-message-body-post-data-in-node-js/
+        gist: https://gist.github.com/FrankGrimm/669233
