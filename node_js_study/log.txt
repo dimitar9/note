@@ -25,3 +25,8 @@ Tips:
         But in console.log, I am getting this.
         
         { jobNameRadio: 'on' } on
+  Another good select item example: 
+        http://www.w3.org/TR/WCAG20-TECHS/H84.html
+        
+        
+        
