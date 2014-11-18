@@ -50,3 +50,6 @@ Tips:
   Good Tutorial by Frank Grimm.
         http://blog.frankgrimm.net/2010/11/howto-access-http-message-body-post-data-in-node-js/
         gist: https://gist.github.com/FrankGrimm/669233
+
+2. Build twitter-like app
+        http://scotch.io/tutorials/javascript/build-a-real-time-twitter-stream-with-node-and-react-js
