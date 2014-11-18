@@ -5,3 +5,23 @@ start with Practical Node.js book
 
 js book: js good parts 
 read to page 27 Function literal
+
+
+Tips:
+
+1. Do Radio button in js.
+        http://stackoverflow.com/questions/19292999/how-to-get-the-selected-radio-button-value-inside-the-form-from-expressjs 
+        form(method='post', action='/listJobs')
+          each item in myJobNames
+            input(type='radio', name='jobNameRadio', value='#{item}')
+            | #{item}
+            br
+        My post handler,
+        
+        cur_Job = req.body.jobNameRadio;
+        req.session.cur_Job = cur_Job;
+        console.log(req.body);
+        console.log(req.session.cur_Job);
+        But in console.log, I am getting this.
+        
+        { jobNameRadio: 'on' } on
