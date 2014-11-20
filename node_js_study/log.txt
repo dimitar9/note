@@ -53,3 +53,7 @@ Tips:
 
 2. Build twitter-like app
         http://scotch.io/tutorials/javascript/build-a-real-time-twitter-stream-with-node-and-react-js
+
+3. Issue with mongolab heroku and mongodb 
+   check out this answer: same thing I have:
+   http://stackoverflow.com/questions/18076335/cant-connect-to-mongolab-with-node-js-on-heroku
