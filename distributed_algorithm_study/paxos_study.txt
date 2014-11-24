@@ -13,3 +13,7 @@ paxos made simple.
 
   (1) multiple acceptor.
     P1. An acceptor must accept the first proposal that it receives.
+        We can allow multiple proposals to be chosen, but we must guarantee
+that all chosen proposals have the same value.
+   P2. If a proposal with value v is chosen, then every higher-numbered proposal
+that is chosen has value v.
