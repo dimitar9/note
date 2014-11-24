@@ -6,3 +6,10 @@ paxos made simple.
   
   Roles:
   Proposers, Accepters, Learners.
+
+  We use the customary asynchronous, non-Byzantine model.
+  
+2.2 Choosing a value.
+
+  (1) multiple acceptor.
+    P1. An acceptor must accept the first proposal that it receives.
