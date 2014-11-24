@@ -1,0 +1,8 @@
+paxos made simple.
+2.1 The problem
+  1. Only one value has been proposed can be chosen.
+  2. only a single value can be chosen
+  3. the process never learns a value has been chosen unless it actually has been chosen.
+  
+  Roles:
+  Proposers, Accepters, Learners.
