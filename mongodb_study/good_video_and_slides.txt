@@ -1,0 +1,2 @@
+1. mongodb talk preparing-peak-holiday-season 
+  http://www.mongodb.com/presentations/webinar-preparing-peak-holiday-season-ensuring-seamless-customer-experience
