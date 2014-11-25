@@ -1,0 +1,4 @@
+https://www.arangodb.com/2012/09/04/bulk-inserts-mongodb-couchdb-arangodb
+
+My idea:
+write a benchmarch script to see how much time bulk operation can save.
