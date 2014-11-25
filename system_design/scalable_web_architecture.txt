@@ -1,0 +1,2 @@
+great link
+http://highscalability.com/blog/2014/11/24/a-flock-of-tasty-sources-on-how-to-start-learning-high-scala.html
