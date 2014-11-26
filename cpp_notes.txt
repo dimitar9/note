@@ -20,4 +20,5 @@ cpp notes:
     shared_ptr a = new(A);
     map[obj_1] = a.get();
     
-    
+
+2. cpp primier 5 reading notes http://blog.csdn.net/totuswhf/article/category/1878951/2
