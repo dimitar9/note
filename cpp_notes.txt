@@ -32,3 +32,17 @@ chapter 3:
     A vector is a class template.
     c++11 way: vector<string> articles = {"a", "an", "the"};
   3.5.1 Understanding Complicated Array Declarations
+    int (*Parray)[10] = &arr; //  Parray points to an array of ten ints
+    int (&arrRef)[10] = arr;  //  arrRef refers to an array of ten ints
+    
+    Reading the definition of Parray from right to left isn’t as helpful. Because the array dimension follows the name being declared, 
+    it can be easier to read array declarations from the inside out rather than from right to left. 
+    Reading from the inside out makes it much easier to understand the type of Parray. We start by observing that the parentheses 
+    around *Parray mean that Parray is a pointer. Looking right, we see that Parray points to an array of size 10. Looking left, 
+    we see that the elements in that array are ints. Thus, 
+    Parray is a pointer to an array of ten ints. Similarly, (&arrRef) says that arrRef is a reference. 
+    The type to which it refers is an array of size 10. That array holds elements of type int.
+    
+  Finished chapter 1,2,3
+  
+  skip chapters inbetween now. Start from chapter 12
