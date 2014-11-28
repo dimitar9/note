@@ -27,3 +27,8 @@ cpp notes:
 
 chapter2:
   const, reference, c++ "using" define const 
+chapter 3:
+  3.3 vector: 
+    A vector is a class template.
+    c++11 way: vector<string> articles = {"a", "an", "the"};
+  3.5.1 Understanding Complicated Array Declarations
