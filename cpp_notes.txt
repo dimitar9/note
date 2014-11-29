@@ -46,3 +46,5 @@ chapter 3:
   Finished chapter 1,2,3
   
   skip chapters inbetween now. Start from chapter 12
+  
+  Finished chapter 12. Allocator class is really weird.
