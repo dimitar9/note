@@ -1,0 +1,5 @@
+read book/
+spring mvc beginner guide:
+chpater 1Time for action – running the project
+
+I installed STS and created project
