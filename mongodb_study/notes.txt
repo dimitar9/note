@@ -1,3 +1,5 @@
 bookmark: http://docs.mongodb.org/manual/tutorial/iterate-a-cursor/
 
 http://docs.mongodb.org/manual/tutorial/perform-two-phase-commits/
+
+http://docs.mongodb.org/manual/tutorial/update-if-current/
