@@ -64,3 +64,14 @@ Lecture 2.2 Asynchronous & synchronous system
  7 Synchronous system: Execution partitioned into disjoint rounds.
    Round 1: Deliver all mesgs, Perform comput steps in all processes,
    Round 2: Deliver all mesgs, perform compute steps in all processes.
+   
+Lecture 2.3 Time Order of events in async system.
+1. Order of events.
+2. Causally order.   <H  called causal order. it is transitive.
+   two events , a and b, are concurrent if not a <h b and not b<H a
+3. Similarity of executions. 
+4. Computations. Computation theorem.
+5. Equivalence of executions. F~E : F and E are similar executions. As long as causality is perserved.
+6. Two important results:
+   Result1: There is no algorithm which can observe the ORDER of the sequence of events for all executions.
+   Result2: The computation therom dos not hold if the model is extended such that each process can read a local hardare clock.
