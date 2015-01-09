@@ -48,3 +48,19 @@ Lecture 2.1
 Lecture 2.2 Asynchronous & synchronous system
  1. Execution
  2. Applicability of events.
+   if e is an event applicable to configuration c, then app(e,c) gives the new configuration after the event e.
+ 3. Asynchronous model:
+    Our processes are deterministic. Non-determinism comes from asynchrony.
+ 4. Schedules (async modle):
+    a. A SCHEDULE is the sequence of events:
+      Message asynchrony determined by del(i,j,m);
+      Process speeds determined by comp(i)
+      All non-determinism embedded in schedule!
+    b. given the initial configuration, the schedule terrmines the whole execution.
+ 5. Admissible execution in the async model.
+    Admissible if : each process has infinit number of comp(i); each applicable comp(i) is eventually performed.
+                    each applicable del(i,j,m) is eventually performed.
+ 6. Lockstep execution.
+ 7 Synchronous system: Execution partitioned into disjoint rounds.
+   Round 1: Deliver all mesgs, Perform comput steps in all processes,
+   Round 2: Deliver all mesgs, perform compute steps in all processes.
