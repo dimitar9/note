@@ -1,5 +1,5 @@
 https://www.youtube.com/user/seifharidi/videos
-
+https://www.youtube.com/playlist?list=PL700757A5D4B3F368
 Finished Lecture 1. Unit 1.
 
 Lecture 1.1
@@ -24,4 +24,25 @@ Lecture 2.1
 2. MOdeling a node.
   a. a single node has a bunch of neihbors: can send and recv mesgs. can do local computations.
   b. Model node by STATE TRANSITION SYSTEM (STS): like a finite state macine, except need not be finite, no input.
-  
+3. State Transition System (informal)
+  a. a state transition system consists  of a set of states; rule for which state to go to from each state. (transition function/
+    binary relation); the set of starting states (initial states)
+  b. example,  
+     States {X0,X1,X2,X1'}
+     Transition function: {X0->X1, X1->X2, X2->X1'}
+     Initial states{X0}
+  c. transition functions.
+     State of note is triple  <s, I, O>  state, input buffer, output buffer.
+     f(si, Ii, Oi) ->  (Si+1, Ii_1, Oi+1)
+     Remove at one msg m from input buffer. 
+4. single node perspective:
+   a. wait for message.
+   b. upon received msg, do local computation. send some mesg
+   c. goto 1
+5. Distributed
+   Configuration, snapshot. state of each nodem p1, p2, p3
+   compute event: comp(i), delivery event (i,j,m)
+   
+Lecture 2.2 Asynchronous & synchronous system
+ 1. Execution
+ 2. Applicability of events.
