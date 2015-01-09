@@ -1,3 +1,7 @@
 https://www.youtube.com/user/seifharidi/videos
 
 Finished Lecture 1. Unit 1.
+
+Lecture 1.1
+ 1.Two general problem: cannot be solved, on unreliable link.
+ 2.atomic broadcast <=> consensus.
