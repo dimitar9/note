@@ -75,3 +75,13 @@ Lecture 2.3 Time Order of events in async system.
 6. Two important results:
    Result1: There is no algorithm which can observe the ORDER of the sequence of events for all executions.
    Result2: The computation therom dos not hold if the model is extended such that each process can read a local hardare clock.
+  
+Lecture 2.4 Logical clock.
+
+1. Causally order.
+2. Lamport clock.
+   a On each event update t:
+     t = max(t, tq) + 1 (delivery) when receive message with timestamp (tq, q)
+     t = t + 1 for every transtion (comp)
+   b. comparing two timestamps. 
+      (5, p5) < (7, p2) , (4, p2) < (4, p3)
