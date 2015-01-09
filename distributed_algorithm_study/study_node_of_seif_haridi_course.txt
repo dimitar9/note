@@ -8,4 +8,20 @@ Lecture 1.1
 Lecture 1.2 
  1. core problems: concensus, broadcast, leader election.
  
-Lecture 2.1
+Lecture 2.0 Formal modeling system.
+1. Modeling: different types of models: 
+   a. discrete event models:
+      Ofen described by state transition system: system evolves, moving from one state to another at discrete time steps.
+   b. continuous models
+      Often discribed by differential equations involving variables which can take real values.
+2. Granularity of models.
+   
+Lecture 2.1 
+1. What is distributed system? 
+   a. bunch of nodes/processes
+   b. sending messages over a network
+   c. to solve a common goal (algorithm)
+2. MOdeling a node.
+  a. a single node has a bunch of neihbors: can send and recv mesgs. can do local computations.
+  b. Model node by STATE TRANSITION SYSTEM (STS): like a finite state macine, except need not be finite, no input.
+  
