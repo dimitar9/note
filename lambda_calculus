@@ -3,3 +3,11 @@ http://www.mscs.dal.ca/~selinger/papers/lambdanotes.pdf
 
 Introduction to lambda calculus
 https://files.nyu.edu/cb125/public/Lambda/barendregt.94.pdf
+
+
+I study introduction to lambda calculus:
+
+Notes:
+1. Introduction. 
+   a. Entscheidungs problem:solved by Turing and Church.  (Decision problem)
+   b. reduction and functional programming.
