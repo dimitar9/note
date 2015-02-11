@@ -8,13 +8,16 @@
 
 
 
-
+====================
+log:
+Readong clujure programming, book. Feb11 2015
 
 
 
 
 
 ===================
+Tips:
 use lein
 
 lein repl
