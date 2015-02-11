@@ -16,3 +16,8 @@ Notes:
         F . A  or  FA
       abstraction:
         lambda x .M[x] denotes the function x -> M[x].
+   d. free and bound variables.
+       lambda x. yx    : x is bound and y is free variable.
+       Then,
+       yx(lambdax.x)[x:=N] === yN(lambda x.x)
+       
