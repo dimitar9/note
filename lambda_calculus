@@ -11,7 +11,7 @@ Notes:
 1. Introduction. 
    a. Entscheidungs problem:solved by Turing and Church.  (Decision problem)
    b. reduction and functional programming.
-   c. application and abstraction: 
+   c. application and abstraction: p9
       The first basic operation of the lambda-calculus is "application" 
         F . A  or  FA
       abstraction:
