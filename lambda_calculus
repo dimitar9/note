@@ -20,4 +20,6 @@ Notes:
        lambda x. yx    : x is bound and y is free variable.
        Then,
        yx(lambdax.x)[x:=N] === yN(lambda x.x)
-       
+   c. function of more arguments. Curring.
+
+chapter 2. Conversion
