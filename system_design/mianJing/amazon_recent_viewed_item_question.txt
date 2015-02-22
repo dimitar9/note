@@ -1,0 +1,20 @@
+whiteboard design pic is here: http://tinypic.com/r/2vltvu8/8
+
+question: design amazon-like recent viewed item feature.
+
+possible ways:
+
+1. Queue< Browse_history> queue.
+   Create table with fileds: Users, Queue...
+   
+   1) write db each query. (reliable)
+   2) write db after session expired ( scalable)
+   
+   CDN, reverse proxy, 
+   cache, redis, memcached.
+   
+2. Cassandra. user add log. 
+
+3. Coockies, ASIN + viewed date.
+
+4. Hybrid solution 1 + 3 
