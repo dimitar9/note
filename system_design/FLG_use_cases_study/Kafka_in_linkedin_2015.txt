@@ -1,0 +1,15 @@
+Kafka in  1/29/2015
+	-- use cases, ecosystem, future.
+link: https://engineering.linkedin.com/kafka/kafka-linkedin-current-and-future
+
+use cases:
+1. Monitoring. to dashboard. Also Apache Samza.
+2. Traditional messaging: search, content feed and relevance, and they publish processed data to Voldmort (online data servering stores.)
+3. Analytics: customer clicks, views data sent to Kafka, collected and push to Hadoop grid.
+4. As a building block (log) in various distributed applications/platforms. : Pinot, Espresso.
+
+Ecosystem:
+MirrorMaker, Rest interface, AVRO.
+
+Future: 2015
+Security, Quotas, Reliability, Core functinoality ...
