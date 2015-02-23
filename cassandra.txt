@@ -3,3 +3,6 @@
 2. cassandra docs : http://www.datastax.com/documentation/getting_started/doc/getting_started/gettingStartedCassandraIntro.html
 
 3. install cassandra: http://www.datastax.com/documentation/getting_started/doc/getting_started/gettingStartedInstallOpscDeb_t.html
+
+
+4. Tutorials by datastax: http://www.datastax.com/resources/tutorials 
