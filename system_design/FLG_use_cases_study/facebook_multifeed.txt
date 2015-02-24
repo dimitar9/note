@@ -1,0 +1,19 @@
+http://www.davehodson.com/facebook-architecture-and-scaling
+http://www.25hoursaday.com/weblog/2009/10/29/FacebookSeattleEngineeringRoadShowMikeShroepferOnEngineeringAtScaleAtFacebook.aspx
+
+http://tech.dchang.me/2012/10/30/facebook-multifeed/
+http://highscalability.com/blog/2012/1/23/facebook-timeline-brought-to-you-by-the-power-of-denormaliza.html
+
+Dare’s description of how the FB News feed is assembled via their “Multifeed” service is incredible:
+
+    Multifeed is a custom distributed system which takes the tens of thousands of updates from 
+    friends and picks the 45 that are either most relevant or most recent. Bob updates status to
+    DB and then Scribe pushes this to a Multifeed server which is a cache of the most recent 50 
+    items the user has performed. This caches data for every user in the system. When a user shows
+    up, the user hits an aggregator which takes the list of friends and then each leaf node does 
+    some filtering then gets back to the aggregator which then does some filtering and returns
+    story IDs. Then the aggregator fills out the data from memcache given the story ID.
+
+
+Memcached. 
+
