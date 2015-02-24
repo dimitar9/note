@@ -27,3 +27,7 @@ Short-term cache: Such as recent activities. It will change quickly, and easy to
 
 Facebook operations
 http://highscalability.com/blog/2011/5/17/facebook-an-example-canonical-architecture-for-scaling-billi.html
+
+
+Scale at facebook: 
+http://www.infoq.com/presentations/Scale-at-Facebook
