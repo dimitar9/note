@@ -17,3 +17,13 @@ Dare’s description of how the FB News feed is assembled via their “Multifeed
 
 Memcached. 
 
+Facebook Timeline：
+https://www.facebook.com/note.php?note_id=10150468255628920
+http://highscalability.com/blog/2012/1/23/facebook-timeline-brought-to-you-by-the-power-of-denormaliza.html
+
+Caching plays an important role in this product. 
+Long-term cache: Such as ranking of all stories for 2010. This won't change and the data is small. Can be cached for long time.
+Short-term cache: Such as recent activities. It will change quickly, and easy to computer later.
+
+Facebook operations
+http://highscalability.com/blog/2011/5/17/facebook-an-example-canonical-architecture-for-scaling-billi.html
