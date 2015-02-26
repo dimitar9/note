@@ -1,0 +1,393 @@
+国内找北美社招职位面试总结
+关键字: Google Facebook Amazon Linkedin
+发信站: BBS 未名空间站 (Thu Feb 26 02:42:06 2015, 美东)
+
+版中大多数面经都是针对北美new graduate的, 在此贡献一下本人国内找北美工作的一
+些经验吧, 也算是答谢mitbbs上分享面经的朋友对我的帮助. 更希望攒攒人品能够抽到
+h1b签证 :)
+
+
+[背景]
+国内4年工作经验. 硕士毕业后一直在某做存储的外企工作.
+14年7月份开始有出国打算并开始准备.
+
+
+[准备]
+在工作之余每天坚持至少刷3~4道算法题, 并关注各个公司的blog及github上的开源项
+目.
+
+
+1. 算法
+   Leetcode自然不必说, 必刷. 先是用了将近两个月的时间把leetcode刷了1.5遍, 然
+后每次电面和onsite面之前挑一些觉得做得不好的题再刷.
+ 
+   其次就是看geeksforgeeks上题. 这是个老印host的网站, 但是上面的题目分类明晰
+,有很多分类底下的题目非常好, 比如DP (印象最深的就是m个鸡蛋n层楼测在哪层楼鸡
+蛋会被摔碎的问题)和graph (印象最深的就是单源/多源最短/最长路径和欧拉环). 每
+天看一下还是能学到不少新鲜的知识的.
+ 
+   其他就没有了, career up和glass door也断断续续看了一些, 上面的设计题挺好的
+, 算法题感觉没有多大帮助.
+ 
+2. OOD
+   面向对象设计的面经在网上真是少之又少. 准确说来是题目不少, 但是几乎都没有
+解答. 所以我都是按照自己的理解和工作中的用到的一些设计方法来练习这种题目的.
+每周用CRC练习1~2道经典的OOD的题 (e.g. elevator, vendor machine, chess game,
+ATM, etc)
+  
+   虽然花了很多精力准备了OOD的题, 但是没有一家公司面过我这种类型的题 :(
+  
+3. 系统设计
+   主要是high scalability和high availability的web service的设计.关注了下面几
+个跟系统设计相关的resource:
+  
+    (1) HighScalability Website
+         这是我最开始看的网站, 也是我觉得最好的一个网站. 里面总结了很多real-
+life architectures, 尤其是"All Time Favorites"这个专栏下的文章都非常经典, 可
+以follow文章里的链接找到tech talk的slides或video.
+          
+         由于本人没有web service相关工作经验,所以一开始看起来非常吃力. 不过
+经过一段时间的"煎熬", 还是能够形成high level的design sense的, 尤其是能够知道
+在设计一个scalable的web时要注意哪些问题以及这些问题大概有哪些方法解决.
+          
+          
+    (2) 各个公司的blog及其在github上的open source projects
+         我看的最多的是Facebook和Linkedin的技术博客. 看HighScalability网站能
+够形成high level的design sense, 关注这些公司的博客尤其是其开源项目能够加深了
+解每个product的设计和细节.
+         其实到了一定时间后看这些技术博客和开源项目并不是出于面试的目的了,
+而是出于兴趣. 尤其是Facebook的博客, 有时候会详细介绍公司在技术上遇到了哪些问
+题和瓶颈, 曾经尝试了什么方法去解决以及为什么采用了现在的方法, 我觉得看看这些
+文章还是蛮有意思的.
+  
+    (3) Paper
+         看了大概有二十几篇论文, 详细了解了一些技术和产品的设计/实现/性能评
+测, 比如vector clock的应用, 改进的consistent hashing, HDFS, zookeeper的实现,
+openstack swift的architecture等.
+               
+[面试]
+
+投了很多公司, 但是只有FLAG理会了, 其他公司要么就是没有回音,要么就是简历直接
+被拒. 中间还穿插着面了一下国内的阿里云(拿到了offer, 但犹豫了一阵还是坚持以出
+国为目的吧).
+
+
+目前拿到了F家Infrastructure组和A家AWS组的offer, L家被拒, 狗狗第一次面试挂了,
+隔
+了半年HR又给了一次面试机会, 仍在进行中.
+
+
+算法难度: G > F = A > L
+系统设计难度: L > A > F > G
+系统设计在整个面试中的比例: L (70%) > A (60%) > F (40%) > G(20%)
+
+
+1. 狗家
+
+
+电面:
+(1) Given a string S and a string T, find all occurences of T in S.
+An occurence is found if the substring of S is the permuation of T.
+
+
+(2) You are given a sorted array of integers in range [0, 99], your task is
+to output a string that describes numbers that are missing in the array.
+
+
+For example:
+Given array is [0, 1, 2, 50, 52, 75]
+Output string is "3-49, 51, 53-74, 76-99"
+
+
+(3) Express a target integer as a sum of square numbers, using as few terms
+as possible.
+
+
+For example:
+14 = 9 + 4 + 1
+13 = 9 + 4
+12 = 4 + 4 + 4
+
+
+(4) You are given an array A. Each element is a tree node and the tree node
+is defined as:
+        typedef struct __TreeNode {
+                int                id; // the node's ID, e.g. 0xEEAD
+                int                parentIndex;  // parent node's ID, e.g.
+0x5EED
+                int     weight;       // the weight of the node
+        }TreeNode;
+       
+        Your task is to output the weight sum of each subtree. Should solve
+it in O(n) time complexity.
+
+
+onsite的部分题目可以在我之前的帖子中找到. Onsite是在Beijing的office.
+http://www.1point3acres.com/bbs/thread-111785-1-1.html
+
+
+2. F家
+
+
+电面一轮, strstr的两个变种, 主要考察能否将一些复杂的逻辑抽象成对象以简化代码.
+
+
+onsite是美国和英国的面试官来中国面的,我们那一波大概有八九十人, 我是一下午面
+完的4面, 春节回家的前一天又skype加面了一轮系统设计.
+
+
+算法题都是Leetcode和CC150上的题目的原题和变种. 变种题目稍加推理便可以得到答
+案.
+
+
+设计题有两个, 一个是针对search engine中的某个具体问题进行scalable的设计, 还
+有一个是multi-thread环境下Cache的设计, 后者的重点也是在scalable, 只不过是多
+核上的scalable, 而非多机器上的scalable. 具体题目就不透露啦 :)
+
+
+除此之外, 其中有一面对我现在工作的project进行了详细的讨论
+
+
+3. L家
+
+电面1:
+(1). OS related questions.
+
+
+(2). Mirror a tree in place
+
+
+(3). Design a data structure that has following interfaces:
+     - bool insert(T val)
+     - bool remove(T val)
+     - bool search(T val)
+     - T removeRandom()
+ 
+(4). Given an array A[], output another array B[], where B is the product of
+all the elements in A except A.
+     optimization: Could you do it without using divide operator?
+
+
+电面2:
+(1). OS related questions
+
+
+(2). Detail discussion about my current project
+
+
+3. //public interface InfluencerFinder {
+    /**
+     * Given a matrix of following relationships between N LinkedIn users (
+with ids from 0 to N-1):
+     * followingMatrix[j] == true iff user i is following user j
+     * thus followingMatrix[j] doesn't imply followingMatrix[j].
+     * Let's also agree that followingMatrix == false.
+     *
+     * An influencer is a user who is:
+     * - followed by everyone else and
+     * - not following anyone herself/himself
+     *
+     * This method should return the influencer's id in a given matrix of
+following relationships,
+     * or return -1 if there is no influencer in this group.
+     */
+//    int getInfluencer(boolean[][] followingMatrix);
+//}
+
+
+Onsite是通过skype进行的, 总共6面,其中4面是系统设计, 在白板上画框图.
+
+
+Round 1:
+1. Implement an iterator for Array<Integer>.
+   When you call next(), returns the next positive integer
+   Implement hasNext(), returns true if there is one positive integer
+  
+   For example:
+   (1,-4,0,5)
+   next() -> 1
+   next() -> 5
+   next() -> 6
+  
+2. Serialization and Deserialization of a binary tree with full codes
+
+
+Round 2:
+Implement a hash table with multi-thread access, including the following
+interfaces:
+(1) bool get(Key k, T &t)
+(2) void put(Key k, T t)
+(3) void rehash(int newSizeOfArray)
+
+
+Round 3:
+1. Design a key-value store deployed on a single machine. The API your key-
+value store provides should be:
+(1) bool get(Key k, char *data, int &dataLen)
+(2) void put(Key k, char *data, int dataLen)
+
+
+You are only provided with the following file API from OS:
+(1) create file
+(2) open file
+(3) close file
+(4) read file (fid, int offset, int readLen)
+(5) append file(fid, char *data, int dataLen) // append data to the end of a
+file
+
+
+2. We have following program:
+
+
+int main() {
+        char *buffer = new char[100];
+        printf("0x%x", buffer);
+        for(int i = 0; i < 100; ++i)
+                buffer = 'a' + rand() % 26;
+        sleep(10000); // sleep 10 seconds
+        delete [] buffer;
+        return 0;
+}
+
+
+Now We compile this code to one program, and execute two instances of the
+program concurrently. And we find the two program output the same buffer
+address "0xFFFF8900". Question is: does the write in the two programs
+interfere each other?
+
+
+Actually this is all about the details of how does virtual memory work, such
+as exception handling, MMU, how does inter-process communication works, etc.
+
+
+
+
+Round 4 :
+
+
+You are given a graph interface:
+
+
+int[] getConnections(int userID)
+In this interface, you can give a userID, then it returns all IDs of his
+friends.
+
+
+Now please implement the following functions:
+(1) bool is1stDegreeConnection(int srcUserID, int destUserID)
+    it returns whether destUserID is the friend of srcUserID
+
+
+(2) bool is2ndDegreeConnection(int srcUserID, int destUserID)
+    it returns whether destUserID is the friend of srcUserID's friends
+        Tried different algorithms and finally got the most optimized one.
+
+
+(3) bool is3rdDegreeConnection(int srcUserID, int destUserID)
+    it returns whether destUserID is the srcUserID's friends' friend
+        (3) is an open question, no need to write codes.
+       
+
+
+Round 5:
+
+
+You have thousands of web server and database machines in a datacenter, and
+each of them continuously generate real-time statistics data, such as CPU
+Utilization, Memory Usage, JVM statistics, etc.
+
+
+There are also two services. One is figure plotting service, who will plot
+figures for all the collected statistics data by some machine learning
+algorithm, and the other one is alerting service, who will detect abnormal
+behaviours of the machines and sending alert emails or SMS to the
+administrators.
+
+
+Please design this monitoring system, including describing how the
+statistics data are collected by the two services and what is the bottleneck
+in your monitoring system. The system should be with high scalability and
+availability. During this design, had a discussion about consistent hashing,
+Zookeeper and HDFS.
+
+
+Round 6:
+Hiring Manager Interview (30 minutes) and one short system design (20
+minutes) about the cooperation of old-interface machines and new-interface
+machines.
+
+
+
+
+4. A家
+
+电面1:
+(1) 10 minutes behavior questions
+(2) 10 minutes knowledge-based questions such as memory management, thread
+sync, data structure, C++, etc
+(3) Search the kth node from the last of a linked list.
+(4) word ladder II
+
+
+电面2:
+(1) 20 minutes behavior questions
+(2) 15 minutes discussion about block storage related to my work
+(3) Given the sbrk() function in Unix, implement a memory management module,
+which should basically provides malloc() and free() interfaces.
+
+
+Onsite interview 是通过 Jebber Video 进行的, 早上5点到10点共五轮.
+
+
+Round 1:
+
+
+(1) First 20 minutes all about behavior questions.
+
+
+(2) Search a target number in a right shifted sorted array, which is
+distributed in hundreds of machines in a datacenter.
+
+
+Round 2:
+
+
+1. LeetCode上word search的变种
+  
+2. 在1中我用到了trie树来加速搜索,于是实现trie树, 包括插入/查询操作.
+
+
+3. 在1和2的代码中如何对数据进行压缩以节省内存
+
+
+
+
+Round 3:
+
+
+(1) First 20 minutes all about behavior questions.
+
+
+(2) Fully discussion on my projects.
+
+
+(3) 针对我做过的两个项目, 推翻项目中的一些假设, 提出新的问题, 看如何设计新的
+方案解决.
+
+
+
+
+Round 4:
+
+
+这一轮是hiring manager, 所以问的都是behavior questions, 例如why Amazon, how
+to handle conficts, how to handle deadlines, any case you insist on
+something, etc. 最后问了一个小的设计题.
+
+
+Round 5:
+(1). First 20 minutes all about behavior questions.
+
+
+(2). 设计Flickr, 包括图片上传, newsfeed, 点赞, 评论等功能的设计和数据库的
+scheme. 其中还问到了会用AWS中的那些product去实现设计的系统.
