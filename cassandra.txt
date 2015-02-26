@@ -6,3 +6,5 @@
 
 
 4. Tutorials by datastax: http://www.datastax.com/resources/tutorials 
+
+5. http://planetcassandra.org/try-cassandra/# 
