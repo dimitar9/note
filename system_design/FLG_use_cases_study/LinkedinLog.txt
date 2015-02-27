@@ -1,0 +1,3 @@
+http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
+
+Translate : http://www.csdn.net/article/2014-07-23/2820811/5
