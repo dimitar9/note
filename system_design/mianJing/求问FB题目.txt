@@ -1,0 +1,572 @@
+求问FB题目
+关键字: Facebook
+发信站: BBS 未名空间站 (Thu Jan 22 06:52:27 2015, 美东)
+
+FB面经里面的，没想明白怎么做，望各位大牛赐教。
+
+1， 给一个string，比如UAXXBAUB，给一个pattern，比如AB，返回包含pattern的最短
+substring，结果是AUB,考虑pattern是有序的。
+      就是Minimum Window Substring的有序版，主要考虑的是找到window后shrink到
+底怎么做，有好几种情况。比如"UAXSSXSXAAUB", "XXA"，找到XSSXSXA之后shrink窗口
+，得把leftBound前进到第2个X。
+
+
+2， 给一个int array，有正有负， 给一个target number，找出这个array里有没有连
+续的几个数之和等于target number 要用O(n) time
+      感觉是DP，但是没什么头绪。
+
+
+3,  给一个字典，可以组合任意个单词，怎么找到最长的可能的palindom
+
+谢谢
+
+
+--
+※ 修改:·Logan91 於 Jan 22 07:46:45 2015 修改本文·[FROM: 183.]
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 183.]
+	
+http://www.dealam.com
+  	
+找丢网信用卡deal大全：热门酒店信用卡送70,000点，可换14晚免费住宿！首年免年费！
+北美省钱快报Dealmoon.com信用卡大全，开卡奖励+消费回馈，全家每年免费去旅游
+红参..肥仔参...岩刺参....海参天下只供野生海参
+	teedoo
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 2 ]
+
+发信人: teedoo (teedoo), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Thu Jan 22 09:22:34 2015, 美东)
+
+第2题可不可以这么做，首先用一个hashmap记录每一个位置i，从index 0 到 i所有数
+字之和，从头到尾维护一个sum变量，然后在每一个index，检查sum－n是不是已经出现
+过，假设在index j，前j个数和为k－n，在index i（i>j），前i个数的和为k，那么从
+j+1到i的和就是n了。
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 129.]
+ 
+	Pegasi
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 3 ]
+
+发信人: Pegasi (飞马座), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Thu Jan 22 10:10:18 2015, 美东)
+
+Hash cumsum
+
+[在  teedoo (teedoo) 的大作中提到：]
+：第2题可不可以这么做，首先用一个hashmap记录每一个位置i，从index 0 到 i所有数
+：字之和，从头到尾维护一个sum变量，然后在每一个index，检查sum－n是不是已经出
+现过，假设在index j，前j个数和为k－n，在index i（i>j），前i个数的和为k，
+那么从j+1到i的和就是n了。
+：...........
+
+--
+※ 来源:·iOS 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 66.]
+ 
+	cfdream
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 4 ]
+
+发信人: cfdream (gogogo), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Thu Jan 22 13:46:25 2015, 美东)
+
+写写自己的理解
+1. DP
+f(i,j)为母串s[0,...,i]匹配到子串p[0,...j]的最短substring的长度，则
+f(i,j) = f(i-1,j-1)+1, if s[i]==p[j]
+       = f(i-1,j)+1, if s[i]!=p[j]
+然后要用另外一个二维数组记录f(i,j)的前面是哪个操作，j-1或者j,i始终减1
+
+最后查找f(i,n)哪个最小，n为子串的长度，并且回溯找到起始的index，返回值
+
+2. 将(0,i)的和存在hashmap<int, vector<int> >，key为(0,i)的和，vector<int>记
+录具有相同和的下标。然后从头开始，对于i，如果(0,i)的和为sum, 找sum-x是否在
+hashmap中，如果在且vector中有小于i的下标，存在，否则i++;
+
+3. 能想到的就是建一个trie，然后brute force
+
+【 在 Logan91 (Logan) 的大作中提到: 】
+: FB面经里面的，没想明白怎么做，望各位大牛赐教。
+: 1， 给一个string，比如UAXXBAUB，给一个pattern，比如AB，返回包含pattern的最短
+: substring，结果是AUB,考虑pattern是有序的。
+:       就是Minimum Window Substring的有序版，主要考虑的是找到window后shrink到
+: 底怎么做，有好几种情况。比如"UAXSSXSXAAUB", "XXA"，找到XSSXSXA之后shrink窗口
+: ，得把leftBound前进到第2个X。
+: 2， 给一个int array，有正有负， 给一个target number，找出这个array里有没有连
+: 续的几个数之和等于target number 要用O(n) time
+:       感觉是DP，但是没什么头绪。
+: 3,  给一个字典，可以组合任意个单词，怎么找到最长的可能的palindom
+: ...................
+
+
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 104.]
+ 
+	kidzlike
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 5 ]
+
+发信人: kidzlike (kidzlike), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Thu Jan 22 15:14:21 2015, 美东)
+
+2 .
+Sum + hash
+
+--
+☆ 发自 iPhone 买买提 1.22.05
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 131.]
+ 
+	blaze
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 6 ]
+
+发信人: blaze (狂且), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Thu Jan 22 15:15:21 2015, 美东)
+
+1.  把无关的char忽视然后直接kmp。
+
+【 在 Logan91 (Logan) 的大作中提到: 】
+: FB面经里面的，没想明白怎么做，望各位大牛赐教。
+: 1， 给一个string，比如UAXXBAUB，给一个pattern，比如AB，返回包含pattern的最短
+: substring，结果是AUB,考虑pattern是有序的。
+:       就是Minimum Window Substring的有序版，主要考虑的是找到window后shrink到
+: 底怎么做，有好几种情况。比如"UAXSSXSXAAUB", "XXA"，找到XSSXSXA之后shrink窗口
+: ，得把leftBound前进到第2个X。
+: 2， 给一个int array，有正有负， 给一个target number，找出这个array里有没有连
+: 续的几个数之和等于target number 要用O(n) time
+:       感觉是DP，但是没什么头绪。
+: 3,  给一个字典，可以组合任意个单词，怎么找到最长的可能的palindom
+: ...................
+
+
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 12.]
+ 
+	dragon418
+形象投票:
+形象得分: 0 分
+	
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 7 ]
+
+发信人: dragon418 (T_Dog), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Thu Jan 22 23:13:33 2015, 美东)
+
+请问能具体解释一下在下面这个例子中KMP如何发挥作用么? 多谢.
+
+S = "ABBCCD"
+P = "ABCD"
+
+如何忽略无关的char然后用KMP搜索啊? 按照我的理解,S中所有的char都是相关的char,
+在S中是搜索不到"ABCD"这个子串的.
+
+
+【 在 blaze (狂且) 的大作中提到: 】
+: 1.  把无关的char忽视然后直接kmp。
+
+
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 152.]
+ 
+	ztabb
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 8 ]
+
+发信人: ztabb (holdon), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Fri Jan 23 01:30:55 2015, 美东)
+
+http://www.quora.com/Given-an-input-array-of-integers-of-size-n
+
+第一题有比这个答案更好的吗？
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 99.]
+ 
+	samuraisz
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 9 ]
+
+发信人: samuraisz (samurai_sz), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Fri Jan 23 02:59:02 2015, 美东)
+
+第三题是这样，每次碰到一个string，看其substring(0 - i) 是否是palindrome，如
+果是，再看substring(i)的 reverse是否存在在hashmap中，如果是同时满足这两个条
+件，存成一个pair结果。如果不满足，就直接存到hashmap里面。
+以上操作做完有一个bug，就是只能看短的palindrome段出现的比长的早。所以要把全
+部单词都reverse一下，再做一遍。然后再得到一堆pair。
+以上所有pair里面维护一个最大长度的就行了
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 107.]
+ 
+	IFloating
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 10 ]
+
+发信人: IFloating (Floating Freely), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Fri Jan 23 14:40:38 2015, 美东)
+
+第一题：
+public static String shortestString(String s, String p){   
+        String result = null;
+        if (s== null || p == null || p.length() >s.length()) return null;
+        if (s.length() ==0 || p.length() ==0) return "";
+        Map<Integer, Integer> indexMap = new HashMap<Integer, Integer>();
+        List<Integer> indexList = new ArrayList<Integer>();
+        int min = s.length() +1;
+       
+        for(int i =0 ;i < s.length(); i++){
+            for(Integer x: indexList){
+                int j = indexMap.get(x);
+                if ( j < p.length()-1 &&(p.charAt(j+1) == s.charAt(i))){
+                    indexMap.put(x, j+1);
+                    if( j  == p.length()-2 && i -x +1 < min){
+                        min = i-x +1;
+                        result = s.substring(x, i+1);
+                    }
+                }
+            }
+            if (s.charAt(i) == p.charAt(0)){
+                indexList.add(i);
+                indexMap.put(i, 0);
+            }           
+        }           
+        return result;
+    }
+【 在 Logan91 (Logan) 的大作中提到: 】
+: FB面经里面的，没想明白怎么做，望各位大牛赐教。
+: 1， 给一个string，比如UAXXBAUB，给一个pattern，比如AB，返回包含pattern的最短
+: substring，结果是AUB,考虑pattern是有序的。
+:       就是Minimum Window Substring的有序版，主要考虑的是找到window后shrink到
+: 底怎么做，有好几种情况。比如"UAXSSXSXAAUB", "XXA"，找到XSSXSXA之后shrink窗口
+: ，得把leftBound前进到第2个X。
+: 2， 给一个int array，有正有负， 给一个target number，找出这个array里有没有连
+: 续的几个数之和等于target number 要用O(n) time
+:       感觉是DP，但是没什么头绪。
+: 3,  给一个字典，可以组合任意个单词，怎么找到最长的可能的palindom
+: ...................
+
+
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 98.]
+ 
+	halis
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 11 ]
+
+发信人: halis (halis), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Sat Jan 24 16:33:26 2015, 美东)
+
+好方法，应该也是 O(nk)吧？ k是pattern的长度，n是s的长度。
+
+indexMap<i,j>记录的是从index i开始能够最远match到p的index j+1。
+
+
+【 在 IFloating (Floating Freely) 的大作中提到: 】
+: 第一题：
+: public static String shortestString(String s, String p){   
+:         String result = null;
+:         if (s== null || p == null || p.length() >s.length()) return null;
+:         if (s.length() ==0 || p.length() ==0) return "";
+:         Map<Integer, Integer> indexMap = new HashMap<Integer, Integer>();
+:         List<Integer> indexList = new ArrayList<Integer>();
+:         int min = s.length() +1;
+:        
+:         for(int i =0 ;i < s.length(); i++){
+: ...................
+
+
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 108.]
+ 
+	blaze
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 12 ]
+
+发信人: blaze (狂且), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Tue Jan 27 14:29:14 2015, 美东)
+
+KMP is not exactly accurate in this case.  What I really mean is that
+this is a standard regex matching problem, to its essence.  For
+instance, if you have a pattern XXA, then the regex would be
+
+var p = /.*X.*X.*A.*/;
+
+All you need to do is to figure out the deterministic finite state
+automata (DFSA) corresponding to this regex and apply it on S.  The
+construction of the DFA is bound to O(2^k) where k is the length of P.
+But after that the matching would be O(n) where n is the length of S.
+So the time complexity for this is O(min(n, 2^k)).  Practically, k is
+small, and the naive construction of the DFSA does not take as high as
+2^k.
+
+
+
+
+
+
+【 在 dragon418 (T_Dog) 的大作中提到: 】
+: 请问能具体解释一下在下面这个例子中KMP如何发挥作用么? 多谢.
+: S = "ABBCCD"
+: P = "ABCD"
+: 如何忽略无关的char然后用KMP搜索啊? 按照我的理解,S中所有的char都是相关的
+char,
+: 在S中是搜索不到"ABCD"这个子串的.
+
+
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 50.]
+ 
+	thegodfather
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 13 ]
+
+发信人: thegodfather (godfather), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Tue Jan 27 15:12:42 2015, 美东)
+
+这是电面题么？
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 152.]
+ 
+	tdscdma
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 14 ]
+
+发信人: tdscdma (tdscdma), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Tue Jan 27 18:34:20 2015, 美东)
+
+这个解法不对啊。
+
+首先，一个单词substring(0 - i) 可能不是palindrome, 但和另一个单词合在一起是
+palindrome。比如adcb, bcda.
+其次，题目是可以组合任意个单词，不止两个。也许所有字典里的单词合在
+一起是一个palindrome.
+【 在 samuraisz (samurai_sz) 的大作中提到: 】
+: 第三题是这样，每次碰到一个string，看其substring(0 - i) 是否是palindrome，如
+: 果是，再看substring(i)的 reverse是否存在在hashmap中，如果是同时满足这两个条
+: 件，存成一个pair结果。如果不满足，就直接存到hashmap里面。
+: 以上操作做完有一个bug，就是只能看短的palindrome段出现的比长的早。所以要把全
+: 部单词都reverse一下，再做一遍。然后再得到一堆pair。
+: 以上所有pair里面维护一个最大长度的就行了
+
+
+
+
+--
+※ 修改:·tdscdma 於 Jan 27 18:43:37 2015 修改本文·[FROM: 66.]
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 66.]
+ 
+	yuxrose
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 15 ]
+
+发信人: yuxrose (鱼香肉丝), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Tue Jan 27 23:22:50 2015, 美东)
+
+第一题好难。。
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 76.]
+ 
+	ztabb
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 16 ]
+
+发信人: ztabb (holdon), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Wed Jan 28 03:01:21 2015, 美东)
+
+你能把这个代码的思想说的详细点吗？谢谢！
+【 在 IFloating (Floating Freely) 的大作中提到: 】
+: 第一题：
+: public static String shortestString(String s, String p){   
+:         String result = null;
+:         if (s== null || p == null || p.length() >s.length()) return null;
+:         if (s.length() ==0 || p.length() ==0) return "";
+:         Map<Integer, Integer> indexMap = new HashMap<Integer, Integer>();
+:         List<Integer> indexList = new ArrayList<Integer>();
+:         int min = s.length() +1;
+:        
+:         for(int i =0 ;i < s.length(); i++){
+: ...................
+
+
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 99.]
+ 
+	RichyDING
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 17 ]
+
+发信人: RichyDING (RickyDING), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Wed Jan 28 10:03:44 2015, 美东)
+
+3 － 任意个单词 怎么做啊？
+
+【 在 Logan91 (Logan) 的大作中提到: 】
+: FB面经里面的，没想明白怎么做，望各位大牛赐教。
+: 1， 给一个string，比如UAXXBAUB，给一个pattern，比如AB，返回包含pattern的最短
+: substring，结果是AUB,考虑pattern是有序的。
+:       就是Minimum Window Substring的有序版，主要考虑的是找到window后shrink到
+: 底怎么做，有好几种情况。比如"UAXSSXSXAAUB", "XXA"，找到XSSXSXA之后shrink窗口
+: ，得把leftBound前进到第2个X。
+: 2， 给一个int array，有正有负， 给一个target number，找出这个array里有没有连
+: 续的几个数之和等于target number 要用O(n) time
+:       感觉是DP，但是没什么头绪。
+: 3,  给一个字典，可以组合任意个单词，怎么找到最长的可能的palindom
+: ...................
+
+
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 64.]
+ 
+	Gedusam
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 18 ]
+
+发信人: Gedusam (基督山), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Fri Feb 27 03:29:05 2015, 美东)
+
+第三题怎么解？
+谢谢！
+【 在 Logan91 (Logan) 的大作中提到: 】
+: FB面经里面的，没想明白怎么做，望各位大牛赐教。
+: 1， 给一个string，比如UAXXBAUB，给一个pattern，比如AB，返回包含pattern的最短
+: substring，结果是AUB,考虑pattern是有序的。
+:       就是Minimum Window Substring的有序版，主要考虑的是找到window后shrink到
+: 底怎么做，有好几种情况。比如"UAXSSXSXAAUB", "XXA"，找到XSSXSXA之后shrink窗口
+: ，得把leftBound前进到第2个X。
+: 2， 给一个int array，有正有负， 给一个target number，找出这个array里有没有连
+: 续的几个数之和等于target number 要用O(n) time
+:       感觉是DP，但是没什么头绪。
+: 3,  给一个字典，可以组合任意个单词，怎么找到最长的可能的palindom
+: ...................
+
+
+
+--
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 64.]
+ 
+	wqqafnd
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 19 ]
+
+发信人: wqqafnd (wqqafnd), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Fri Feb 27 07:23:54 2015, 美东)
+
+3题，是否还有限制每个单词只能用一次？否则，如果字典里有一个回文单词w，那么无
+限个w连接起来还是回文。
+不过即使加这个限制，这个题貌似也没有多项式时间的解法。
+
+
+--
+※ 修改:·wqqafnd 於 Feb 27 07:32:32 2015 修改本文·[FROM: 65.]
+※ 来源:·WWW 未名空间站 网址：mitbbs.com 移动：在应用商店搜索未名空间·[FROM: 65.]
+ 
+	bunnih
+进入未名形象秀
+	我的博客
+	
+	
+[回复] [回信给作者] [本篇全文] [本讨论区] [修改] [删除] [转寄] [转贴] [收藏] [举报] 		[ 20 ]
+
+发信人: bunnih (hamster), 信区: JobHunting
+标  题: Re: 求问FB题目
+发信站: BBS 未名空间站 (Sat Feb 28 00:54:28 2015, 美东)
+
+你这个最坏情况会达到n^2，比如在ABABABA....ABABC中找ABC
+
+其实只需要记录每个prefix最近一次出现的index，不需要把每个prefix所有出现的都
+存下来，这样可以O(nk)
+
+【 在 IFloating (Floating Freely) 的大作中提到: 】
+: 第一题：
+: public static String shortestString(String s, String p){   
+:         String result = null;
+:         if (s== null || p == null || p.length() >s.length()) return null;
+:         if (s.length() ==0 || p.length() ==0) return "";
+:         Map<Integer, Integer> indexMap = new HashMap<Integer, Integer>();
+:         List<Integer> indexList = new ArrayList<Integer>();
+:         int min = s.length() +1;
+:        
+:         for(int i =0 ;i < s.length(); i++){
+: ...................
+
+
