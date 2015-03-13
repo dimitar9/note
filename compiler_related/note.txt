@@ -1,0 +1,2 @@
+1. implement lang in js:
+  http://lisperator.net/pltut/real-samples/error-handling
