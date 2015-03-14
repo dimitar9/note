@@ -1,2 +1,6 @@
 1. implement lang in js:
   http://lisperator.net/pltut/real-samples/error-handling
+
+
+2. learnt compiler course
+04-02 DFA ,NFA
