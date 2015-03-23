@@ -1,0 +1,5 @@
+paper:
+http://static.googleusercontent.com/media/research.google.com/en/us/archive/bigtable-osdi06.pdf
+
+Good webpage about bigtable:
+http://www.cs.rutgers.edu/~pxk/417/notes/content/bigtable.html
