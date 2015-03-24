@@ -3,3 +3,22 @@ http://static.googleusercontent.com/media/research.google.com/en/us/archive/bigt
 
 Good webpage about bigtable:
 http://www.cs.rutgers.edu/~pxk/417/notes/content/bigtable.html
+
+Paper
+
+abstract:
+Bittable is a distributed storage system for managing structured data that is designed 
+to scale to a very large size: petabytes of data across thousands of commodity servers.
+
+2. Data Model
+a bigtable is a sparse, distributed persistent multi-dimensional sorted map. 
+The map is indexed by a row key, column key, and a timestamp.
+each value in the map is an uninterpreted array of bytes.
+
+Rows: the row keys in a table are arbitrary strings up to 64kb.
+
+Column families.
+
+Timestamps. each cell in a bigtable can contain multiple versions of the same data; 
+  these versions are indexed by timestamp.
+  
