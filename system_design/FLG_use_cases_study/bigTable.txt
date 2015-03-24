@@ -22,3 +22,6 @@ Column families.
 Timestamps. each cell in a bigtable can contain multiple versions of the same data; 
   these versions are indexed by timestamp.
   
+2 versions garbage collection: keep last n versions, keep last n days data.
+
+3. API 
