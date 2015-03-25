@@ -1,1 +1,8 @@
 http://docs.oracle.com/cd/E19683-01/806-6867/index.html
+
+Chapter 4. -- Using Mutual Exclusion locks
+
+1. pthread_mutex_lock(&m1)
+   pthread_mutex_lock(&m2)
+   
+   Using locking hierachies: to avoid deadlock.
