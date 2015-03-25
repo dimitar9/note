@@ -3,4 +3,4 @@
 
 
 2. learnt compiler course
-04-02 DFA ,NFA
+   Finished 04-03 
