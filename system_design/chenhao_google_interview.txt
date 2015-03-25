@@ -3,3 +3,9 @@
    
 2. Tell the 1 billionth user, he is lucky. do not sort
 3. 1 million number. return all numbers that addtion is less than taget, for example 100.
+
+
+Amazon interview, Hao.
+1. Airport deisgn.
+2. LRU.
+3. Merkel tree---(how to do diff on big chunk of data.)
