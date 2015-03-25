@@ -9,3 +9,57 @@ Chapter 4. -- Using Mutual Exclusion locks
    b) Or, use pthread_mutex_trylock() 
 2 . Use linked list to make sure lock order.
    or circular list.
+   
+3. rwlock  pthread_rwlock. For producer-consumer problem see code:
+main() {
+    int zfd;
+    buffer_t *buffer;
+    pthread_mutexattr_t mattr;
+    pthread_condattr_t cvattr_less, cvattr_more;
+
+    zfd = open("/dev/zero", O_RDWR);
+    buffer = (buffer_t *)mmap(NULL, sizeof(buffer_t),
+        PROT_READ|PROT_WRITE, MAP_SHARED, zfd, 0);
+    buffer->occupied = buffer->nextin = buffer->nextout = 0;
+
+    pthread_mutex_attr_init(&mattr);
+    pthread_mutexattr_setpshared(&mattr,
+        PTHREAD_PROCESS_SHARED);
+
+    pthread_mutex_init(&buffer->lock, &mattr);
+    pthread_condattr_init(&cvattr_less);
+    pthread_condattr_setpshared(&cvattr_less, PTHREAD_PROCESS_SHARED);
+    pthread_cond_init(&buffer->less, &cvattr_less);
+    pthread_condattr_init(&cvattr_more);
+    pthread_condattr_setpshared(&cvattr_more,   
+        PTHREAD_PROCESS_SHARED);
+    pthread_cond_init(&buffer->more, &cvattr_more);
+
+    if (fork() == 0)
+        consumer_driver(buffer);
+    else
+        producer_driver(buffer);
+}
+
+void producer_driver(buffer_t *b) {
+    int item;
+
+    while (1) {
+        item = getchar();
+        if (item == EOF) {
+            producer(b, `\0');
+            break;
+        } else
+            producer(b, (char)item);
+    }
+}
+
+void consumer_driver(buffer_t *b) {
+    char item;
+
+    while (1) {
+        if ((item = consumer(b)) == '\0')
+            break;
+        putchar(item);
+    }
+}
