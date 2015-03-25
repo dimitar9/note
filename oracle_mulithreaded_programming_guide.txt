@@ -5,4 +5,5 @@ Chapter 4. -- Using Mutual Exclusion locks
 1. pthread_mutex_lock(&m1)
    pthread_mutex_lock(&m2)
    
-   Using locking hierachies: to avoid deadlock.
+   a) Using locking hierachies: to avoid deadlock.
+   b) Or, use pthread_mutex_trylock() 
