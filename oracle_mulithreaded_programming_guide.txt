@@ -7,3 +7,5 @@ Chapter 4. -- Using Mutual Exclusion locks
    
    a) Using locking hierachies: to avoid deadlock.
    b) Or, use pthread_mutex_trylock() 
+2 . Use linked list to make sure lock order.
+   or circular list.
