@@ -9,7 +9,7 @@ Amazon interview, Hao.
 1. Airport deisgn. 
 2. LRU. http://dongfeiwww.com/test/2014/07/15/lru-cache/
 3. Merkel tree---(how to do diff on big chunk of data.)
-
+  http://www.slideshare.net/quipo/modern-algorithms-and-data-structures-1-bloom-filters-merkle-trees
 
 
 Parking lot design 
