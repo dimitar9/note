@@ -6,6 +6,12 @@
 
 
 Amazon interview, Hao.
-1. Airport deisgn.
-2. LRU.
+1. Airport deisgn. 
+2. LRU. http://dongfeiwww.com/test/2014/07/15/lru-cache/
 3. Merkel tree---(how to do diff on big chunk of data.)
+
+
+
+Parking lot design 
+http://dongfeiwww.com/code/2014/09/27/parkinglot/ 
+http://www.delbertbao.net/2011/12/06/object-oriented-design-part-1/
