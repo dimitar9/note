@@ -1,2 +1,5 @@
 Good blog: has DS, algorithm, and OOP:
   http://mattcb.blogspot.com/2013/01/design-parking-lot.html
+
+Good OO design principles:
+http://www.cs.utsa.edu/~cs3443/notes/designPrinciples/designPrinciples.html
