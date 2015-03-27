@@ -1,0 +1,2 @@
+Good blog: has DS, algorithm, and OOP:
+  http://mattcb.blogspot.com/2013/01/design-parking-lot.html
