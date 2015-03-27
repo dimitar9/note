@@ -3,3 +3,7 @@ Good blog: has DS, algorithm, and OOP:
 
 Good OO design principles:
 http://www.cs.utsa.edu/~cs3443/notes/designPrinciples/designPrinciples.html
+
+
+Elevator:
+http://www.angelfire.com/trek/software/elevator.html
