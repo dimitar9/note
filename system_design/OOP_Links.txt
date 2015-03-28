@@ -7,3 +7,6 @@ http://www.cs.utsa.edu/~cs3443/notes/designPrinciples/designPrinciples.html
 
 Elevator:
 http://www.angelfire.com/trek/software/elevator.html
+
+design parkinglot with design pattern
+https://www.zybuluo.com/smilence/note/159
