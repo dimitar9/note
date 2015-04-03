@@ -1,0 +1,251 @@
+liy (liy), 信区: JobHunting
+标  题: 面经 ＋ 总结
+发信站: BBS 未名空间站 (Thu Apr  2 01:22:11 2015, 美东)
+
+前言
+楼主最近集中面了5家，略有体验。准备过程中从坛子里受益匪浅，希望在此分享面试
+经历回馈本版。本来想总结的有条理些，但是又懒又不想太说教所以就以流水账的形式
+出现，想到哪里说到哪里，比较混乱您就当看故事了。觉得有用的希望能对您以后面试
+有帮助，觉得没用的请您一笑而过。
+
+面经在最后以独立部分列出以便查阅。由于签了NDA并出于尊重面试官的考虑，此部分
+不分公司放出 （电面onsite也混合）。
+
+
+背景
+MS毕业后工作7年,最近在马鬃工作. 进马鬃之前在本地小公司厮混也不知本版的高大上
+，进马鬃之后偶然间知道这片天地，奋起刷题一年 （有小孩＋工作忙＋自己也有懈怠
+）终于做完一遍LC。虽然回首一看有40%左右跟新题一样（完全没印象）但是感觉能力
+有所提高，正赶上N家定了onsite遂开始找兄弟们内推，有幸两周半之内安排好另外4家
+，聚一周一起面。
+公司：F， L， G， I （Intuit） 和 N（Netflix）。
+注：楼主至今还没收到offer所以就不谈了。至于以后，如果能有，也不会报去向以及
+具体数字，避免争议。多包涵哈。
+
+我的准备之也谈刷题
+跟些老朋友聊，刷题刷的是什么？（不是寂寞）刷的是感觉，是能力，是套路，但就不
+是题。所以刷题不论遍数，刷题不比速度。有些人说一定要刷2-3遍或者必须多少分钟
+无错写出，感觉实在有点离谱。
+新毕业的或者刚转行的，对于有些基础只是不牢靠的，确实需要至少扎实的刷一遍来巩
+固加深一下。但是如果基础不错的（考上研究生博士生的或者本科认真学的都算），刷
+题就是刷种感觉：跟日常工作不同的问题，不同的工具，不同的环境。甚至有时候思维
+方式处理方法也略有不同。所以这种感觉和套路要刷出来，做些题看些面经就有感觉的
+。具体多少题因人而异，我当初的感觉是大概40个随机的LC左右就有明显提高了。
+当然我不是说不要做题，但是每个人时间是有限的，平衡优化时间才是最佳选择；更不
+要说我LC都没刷3遍就别去丢人现眼了。
+还有做题多容易有误区，千万别被题做了。题变了会不？该问的问题问了吗？这点尤其
+重要，一个题你反复做都快成条件反射了，可是面试官出来之后你知道人家问的就是那
+个题吗？你毫无交流5分钟内秒杀算什么？RED FLAG， 完全没交流的高危人种。举个例
+子，我被问道经典的 isValidNumber().经过5分钟各种交流后发现只需要考虑一些有限
+的情况而且让用regex，然后就没有然后了。要是啥都不问上来就按LC标准写，恭喜你
+，中招了。
+最后，还是因人而异的，刷题质量。我喜欢一个题刷充分，看看别人怎么做的，有啥更
+好的方法，trade off在哪里，有没有类推性，是否unit test friendly.这么搞可能很
+慢，但还是那句话，不用所有题都刷，刷的是个能力。
+
+我的准备之系统设计
+此段仅限社招。
+由于本人懒惰从来没留意除工作之外的系统设计，工作之内的有些也没有深挖，所以系
+统设计属于抱佛脚的。如果可以重来，可能还是那么懒，也好不了太多。但是至少会留
+意一些tech blog对一些流行的名词也要查个大概。
+特别鸣谢@iq350，虽然没有把他总结的常见设计题看完（其实就看了一个tinyurl)，但
+是理论部分全部打印看了，并且关键概念不理解的也仔细理解了下。他的总结如下：
+http://www.mitbbs.com/article/JobHunting/32899043_0.html
+https://www.evernote.com/shard/s576/sh/%207e58b450-1abe-43a8-bf82-
+fbf07f1db13c/049802174415b418a2e65f75b744ab72
+再次特别感谢。看的过程中对工作中有些事情也有醍醐灌顶的感觉，相见恨晚。
+版上还有个其他的老帖子也是系统设计，我没看，有时间的可以看看 http://www.mitbbs.com/article/JobHunting/32777529_0.html
+
+准备之technical communication
+尤其是社招，一定会深入问你过去项目，可以从不同角度：你自己说，或者我挑一方面
+问（如metrics, bug, troubleshooting...). 准备方法无非是认真工作。比如在马鬃
+时楼主需要有时给新人讲自己负责的项目，所以相当于练过。当然准备时一定要想好一
+个过去的项目，从不同角度过多遍，想明白想透彻。有条件的找个朋友帮下。
+
+准备之最重要并最容易遗漏的
+产品！你为什么要来我们公司？你用产品的感受？你最喜欢哪方面？你觉得哪里可以改
+进？
+如果你真喜欢一个公司，你想去工作，你会对这些有了解的。你可以只想找个工作但是
+上面这些问题就要有意识的去准备。建议一家公司至少花一整天专门看产品（包括公司
+及其文化的介绍）想这些问题。
+N家是第二天据了楼主的，其实就technical面试环节N家是感觉最好而且铁过的，但是
+最后VP engineer 45分钟面试15分钟纠结于楼主为毛不看电视为毛不用NETFLIX，于是
+跪的没话说。
+
+面试之scheduling
+时间有限的（主要是社招），想把面试组织到一起的，可以看看楼主这次的时间线。
+首先内推很重要，L家一兄弟内推后只过了一轮就onsite了。G家兄弟内推后G高大上了
+一下，直接onsite（感动的内牛满面啊）。F家recuiter自己找到我的，虽然基本同时
+开始，明显比另外两家慢半周到1周，临走前搭上最后一班车。
+一般来说，要留至少2-3周时间（即使有内推）。楼主这次谷歌内推后1周才有信但是直
+接onsite，L家内推后第二天就联系但是电面要等几天，一切定下来（onsite）基本是
+内推之后两周。F家从骚扰到确定onsite用了近3周（卡到临走前一天），这还是提前3
+周就说我3周后就开始面了。
+当然以上都是直接说我说楼主3周后在湾区，所以都是加速的流程。
+
+关于连续面试
+贪多嚼不烂，本来楼主想5天5家，后来兄弟建议分开。所以推了INTUIT的onsite，周三
+休息。回想起来十分值得。建议不要连面3家＋，一定要有break。
+
+面试之格式
+这个应该还是因人而异，以下为楼主个案。
+N家
+电面两轮，一轮director一轮senior，没有问编程题，全是Q&A
+onsite8轮，前5轮是HR＋4轮technical，全45分钟。半小时休息，第一部分好的可进入
+第二部分。第二部分一个HR大头然后俩VP engineer，又是各45分钟。
+建议中间30分钟充分休息。楼主傻了，以为后面没啥好问的了（technical感觉真不错
+），开始整理面经了。结果被VP一顿折磨，脑仁都快抽了。问的全是tricky的business
+问题。
+G
+5轮45分钟 ＋ 饭，两轮technical communication，一轮system design，两轮coding
+。话说G家很晦涩，提前不说哪轮是啥也不告诉你名单，所以除了coding那三轮真心不
+知道啥是啥。能有所感觉但不确定，因为都尼玛design了，其中两个涉及到
+distributed system。
+F
+4轮45分钟 ＋ 饭 。两轮coding，一轮architecture，一轮technical communication
+。话说这个TC本来说就是动嘴的没想到后半程出了个coding，所以其实两轮半coding。
+赞一下FB的面试流程，最后来个人专门解答你30分钟问题，很人性化。FB没有提前告诉
+轮次和名单但是到现场后告诉了 。
+L
+5轮1小时＋饭。 2 coding ＋ 1 technical communication ＋ 1 hosting manager＋
+1 system design。有人说L家题固定，确实如此，有题库的。但是做出题并不一定表示
+你能力强，做题过程很重要。个人感觉L家考察的最全面充分，整个过程也比较累。建
+议中午喝个红牛。（因为早上有个recruiting tour，所以全部流程7个小时）。
+面试感受大赞L家，进门有tour不说（对于从马鬃出来的苦逼来说这个tour简直人间仙
+境长见识），面试屋子里面白板写的很好看的欢迎你的祝福，还有greeting card，
+goodie包， personalized L家地图。整个人立马兴奋了有没有（楼主真的没被雇主好
+好对待过）。
+
+面经
+各位久等了。
+1.
+/**
+Implement stairs(N) that prints all the ways to climb up a N-step-stairs   
+                                                                     where
+one can either take a single step or double step.                          
+                                                                        We'
+ll use 1 to represent a single step, and 2 to represent a double step.
+
+stairs(3)
+111
+12
+21
+
+There might be two requirements:
+1. print
+2. collect solutions in a list
+**/
+
+
+2.isValidNumber() 简易版
+https://leetcode.com/problems/valid-number/
+
+3. First non repeated character in string. Follow up is one pass solution.
+http://www.geeksforgeeks.org/given-a-string-find-its-first-non-
+
+4. LRU.
+https://leetcode.com/problems/lru-cache/
+
+5. Letter combination of phone book
+https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+
+6.
+public interface PointsOnAPlane {
+
+    /**
+     * Stores a given point in an internal data structure
+     */
+    void addPoint(Point point);
+
+    /**
+     * For given 'center' (which isn't necessarily the origin)
+     * point returns a subset of stored points that are closer
+     * to the center than others.
+     *
+     * E.g.
+     * Stored:
+     * (0, 1)
+     * (0, 2)
+     * (0, 3)
+     * (0, 4)
+     * (0, 5)
+     *
+     * findNearest(new Point(7, 3), 3) -> (0, 2), (0, 3), (0, 4)
+     */
+    Collection<Point> findNearest(Point center, int n);
+
+    class Point {
+        final int x;
+        final int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+}
+
+7. 3Sum
+https://leetcode.com/problems/3sum/
+
+8..
+/**
+* Given two words as Strings, determine if they are isomorphic. Two words
+are called isomorphic
+* if the letters in one word can be remapped to get the second word.
+Remapping a letter means replacing all
+* occurrences of it with another letter while the ordering of the letters
+remains unchanged. No two letters
+* may map to the same letter, but a letter may map to itself.
+*
+* Example:
+*   given "foo", "app"; returns true
+*     we can map 'f' -> 'a' and 'o' -> 'p'
+*
+*   given "foo", "boa"; returns false
+*     we can map 'f' -> 'b', 'o' -> 'o', we can't map 'o' -> 'a'
+*
+*   given "bar", "foo"; returns false
+*     we can't map both 'a' and 'r' to 'o'
+*
+*   given "turtle", "tletur"; returns true
+*     we can map 't' -> 't', 'u' -> 'l', 'r' -> 'e', 'l' -> 'u', 'e' ->'r'
+*
+*   given "ab", "ca"; returns true
+*     we can map 'a' -> 'c', 'b' -> 'a'
+*/
+
+9. Lowest common ancestor of binary tree
+http://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree
+
+10. Given array containing 3 repeated and unsorted letters m, l, h, do in
+place sort so that l's are on the left, m's in the middle and h's on the
+right.
+
+11. Max points on a line
+https://leetcode.com/problems/max-points-on-a-line/
+
+12. A simple DP problem that I haven't seen. Really straight forward like a
+sequence alignment.
+
+13. Given positive integer n, return the list of squares that sum up to n.
+Note that length of the returned list should be the shorted of all such
+lists.
+E.g. 5 => 4, 1
+6 => 4, 1, 1
+8 => 4, 4
+11 => 1, 1, 9
+12 -> 4, 4, 4
+
+14. Binary tree in order traversal into a doubly circular linked list (
+return is a list that represents in order traversal)
+
+15. Design rate limiter
+
+16. Design Tiny URL API
+
+17. Design news Feed API
+
+Other design problems I couldn't recall clearly but topics involved:
+inverted index, consistent hashing, consistency level and partitioning (CAP)
+, and map-reduce.
