@@ -1,2 +1,4 @@
 http://www.cocos2d-x.org/wiki/Getting_Started_Cocos2d-js
 learnt to tutorial 4.
+
+http://bbs.html5china.com/thread-4509-1-1.html
