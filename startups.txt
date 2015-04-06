@@ -1,0 +1,19 @@
+给出一个2015年独角兽列表：
+
+--firm, #staff, valuation, last-round/time
+--SoFi, 150, $1.3b, $200m/Jan15
+--Slack Technologies,  69 , $2.7b, $180m/Mar 15
+--Instacart，130, $1.9b, $220m/Dec14
+--Stripe, 147, $3.6b, $190m/Dec14
+--Dropbox，1000， $10b, $500m/Apr14
+--Square 1027, $6b, $150m/Oct14
+--Reddit,40,$1/2b?, 50m/Sep14
+--Imgur, 35,$1/3b?, $40m/Apr14
+--Credit Karma,  SoMa, 204，$1B
+--Lookout, 275, $1b, $150/Aug 14
+--Airbnb, 2065, $20b, $1b/Mar 15
+--Revel Syst, 143,1/2b?, $100m/ Nov14
+--Lyft, 350, $10b, $250m/Apr14
+--Grand Round, 95, 1/4b?, $40m/Jun14
+--Loyal,109,1/5b?, $30m/Jul14
+--Zenefits, 100, $0.5b, $66M/Jun 14
