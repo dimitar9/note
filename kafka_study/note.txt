@@ -1,0 +1,2 @@
+http://kafka.apache.org/documentation.html#gettingStarted
+4.3 Efficiency
