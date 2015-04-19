@@ -1,2 +1,65 @@
 http://kafka.apache.org/documentation.html#gettingStarted
 4.3 Efficiency
+
+
+
+    4. Design
+        4.1 Motivation
+        4.2 Persistence
+            Don't fear filesystem.
+            pagecache centric design
+            
+        4.3 Efficiency
+            sendfile() system call.
+            zerocopy. Avoid kernel to application layer, app to network interface(NIC), NIC to network.
+              kernel to NIC directly.
+            
+            end to end compression. Kafka supports GZIP and Snappy compression protocols.
+        
+        4.4 The Producer
+           1. load balancing. id
+           2. Asynchronous send, batch
+           
+        4.5 The Consumer
+            Push vs. pull
+            Consumer Position: use integer number to keep meta.Not to use ACK scheme. Easy and simple.
+            Offline Data Load
+            
+            
+        4.6 Message Delivery Semantics
+        4.7 Replication
+        4.8 Log Compaction 
+    5. Implementation
+        5.1 API Design
+        5.2 Network Layer
+        5.3 Messages
+        5.4 Message format
+        5.5 Log
+        5.6 Distribution 
+    6. Operations
+        6.1 Basic Kafka Operations
+            Adding and removing topics
+            Modifying topics
+            Graceful shutdown
+            Balancing leadership
+            Checking consumer position
+            Mirroring data between clusters
+            Expanding your cluster
+            Decommissioning brokers
+            Increasing replication factor 
+        6.2 Datacenters
+        6.3 Important Configs
+            Important Server Configs
+            Important Client Configs
+            A Production Server Configs 
+        6.4 Java Version
+        6.5 Hardware and OS
+            OS
+            Disks and Filesystems
+            Application vs OS Flush Management
+            Linux Flush Behavior
+            Ext4 Notes 
+        6.6 Monitoring
+        6.7 ZooKeeper
+            Stable Version
+            Operationalization 
