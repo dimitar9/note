@@ -28,6 +28,8 @@ http://kafka.apache.org/documentation.html#gettingStarted
             
         4.6 Message Delivery Semantics
         4.7 Replication
+            Replicated Logs: Quorums, ISRs, and State Machines (Oh my!)
+            
         4.8 Log Compaction 
     5. Implementation
         5.1 API Design
