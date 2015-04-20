@@ -1,0 +1,11 @@
+http://stackoverflow.com/questions/5834808/designing-a-web-crawler
+
+paper:
+http://webpages.uncc.edu/sakella/courses/cloud09/papers/Mercator.pdf
+http://research.microsoft.com/pubs/102936/eds-webcrawlerarchitecture.pdf
+http://cis.poly.edu/suel/papers/crawl.pdf
+http://ijcaonline.net/volume15/number7/pxc3872629.pdf
+
+blog:
+http://flexaired.blogspot.com/2011/09/design-web-crawler.html
+
