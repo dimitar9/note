@@ -1,5 +1,5 @@
 http://kafka.apache.org/documentation.html#gettingStarted
-4.3 Efficiency
+4.8 Log Compaction
 
 
 
