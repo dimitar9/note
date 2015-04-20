@@ -1,0 +1,6 @@
+IRIS
+Mobile-First Infrastructure for Messenger
+https://code.facebook.com/posts/820258981365363/building-mobile-first-infrastructure-for-messenger 
+
+LSI: Facebook’s Iris System
+https://medium.com/@systemizer/lsi-facebooks-iris-system-37c7dcea9dd9
