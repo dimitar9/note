@@ -9,3 +9,15 @@ http://ijcaonline.net/volume15/number7/pxc3872629.pdf
 blog:
 http://flexaired.blogspot.com/2011/09/design-web-crawler.html
 
+
+
+Web crawler:
+1) 10 billion pages. 4 weeks for refresh, need to process 4000 pages per second
+2) partition: by hostname. minimize network communication.
+3) set-membership test. In memory? on-disk? disk seek 10ms.
+4) frontier set. yet to be downloaded URLs.
+    FIFO queue? Priority Queue? popularity of webpages are different.. Expensive disk IO.
+    solution: 2 stages:
+    front-end: prioritize URLs.
+    back-end. enforce pliteness policy 
+    both are composed of a number of parallel FIFO queues.
