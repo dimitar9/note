@@ -1,0 +1,2 @@
+http://www.quora.com/What-are-best-practices-for-building-something-like-a-News-Feed
+http://www.quora.com/What-are-the-scaling-issues-to-keep-in-mind-while-developing-a-social-network-feed
