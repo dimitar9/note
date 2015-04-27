@@ -1,0 +1,4 @@
+1. Twitter new Trend system: https://blog.twitter.com/2015/building-a-new-trends-experience
+2. Twitter Summingbird: https://blog.twitter.com/2013/streaming-mapreduce-with-summingbird
+3. Twitter Manhattan: https://blog.twitter.com/2014/manhattan-our-real-time-multi-tenant-distributed-database-for-twitter-scale
+4. Twitter URL fetcher, SpiderDuck: https://blog.twitter.com/2011/spiderduck-twitters-real-time-url-fetcher
