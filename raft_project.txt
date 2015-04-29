@@ -2,3 +2,8 @@ Working on this one:https://github.com/peterbourgon/raft
 TO test it:
 go to /home/paul/go/src/github.com/peterbourgon/raft and run
 $ go test -v
+
+
+
+C raft willem
+study: test_server.c
