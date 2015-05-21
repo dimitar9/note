@@ -1,1 +1,5 @@
 http://zookeeper.apache.org/doc/trunk/javaExample.html
+
+book
+chapter 2:
+Different Modes for Znodes
