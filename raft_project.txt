@@ -7,3 +7,7 @@ $ go test -v
 
 C raft willem
 study: test_server.c
+
+
+raft video lecture:
+https://www.youtube.com/watch?v=YbZ3zDzDnrw
