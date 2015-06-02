@@ -1,1 +1,8 @@
 http://tech.blog.aknin.name/category/my-projects/pythons-innards/
+
+
+cpython internal: pep https://www.python.org/dev/peps/pep-0339/
+
+Eli's blog python internal , add new statement to pythno : http://eli.thegreenplace.net/2010/06/30/python-internals-adding-a-new-statement-to-python/
+
+python ast: http://eli.thegreenplace.net/2009/11/28/python-internals-working-with-python-asts
