@@ -4,3 +4,6 @@
 
 2. learnt compiler course
    Finished 04-03 
+
+
+3. Good compiler course with slides. : http://classes.engineering.wustl.edu/cse431s/notes/ 
