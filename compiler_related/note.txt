@@ -7,3 +7,14 @@
 
 
 3. Good compiler course with slides. : http://classes.engineering.wustl.edu/cse431s/notes/ 
+
+
+4. AST:
+http://mariusbancila.ro/blog/2009/02/03/evaluating-expressions-part-1/ 
+-- this one has part2 and part3.
+
+
+https://www.lrde.epita.fr/~tiger/lecture-notes/handouts-4/ccmp/ast-handout-4.pdf
+
+Parsing Expressions by Recursive Descent
+https://www.engr.mun.ca/~theo/Misc/exp_parsing.htm
