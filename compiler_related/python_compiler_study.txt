@@ -1,0 +1,6 @@
+http://parsingintro.sourceforge.net/#contents_item_8.1
+
+1. cpython. download from github., build it with --with-pydebug on. 
+   run code with -d. You will see dfa states and tokens.
+   
+2. addToken function: PyParser_AddToken in parser.c
