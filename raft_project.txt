@@ -11,3 +11,10 @@ study: test_server.c
 
 raft video lecture:
 https://www.youtube.com/watch?v=YbZ3zDzDnrw
+
+
+
+java raft.
+start working on this.
+
+allengeorge/libraft https://github.com/allengeorge/libraft
