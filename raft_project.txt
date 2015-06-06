@@ -19,5 +19,8 @@ start working on this.
 
 allengeorge/libraft https://github.com/allengeorge/libraft
 
-best raft in ruby
+best raft in ruby ??
 https://github.com/harryw/raft
+
+best raft in ruby
+Yora.
