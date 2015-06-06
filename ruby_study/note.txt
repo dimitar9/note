@@ -1,0 +1,4 @@
+分享给同是新手的 Rubyists，简单说明了些 Ruby 基础知识 https://ruby-china.org/topics/25565
+元编程 基础方法整理 https://ruby-china.org/topics/25691
+元编程 进一步理解 metaclass https://ruby-china.org/topics/25707 
+ruby 中一些重要的钩子方法 https://ruby-china.org/topics/25397
