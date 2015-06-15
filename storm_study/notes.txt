@@ -1,3 +1,4 @@
 1. Guaranteeing algorithm https://storm.apache.org/documentation/Guaranteeing-message-processing.html
 2. transactional topologies: https://storm.apache.org/documentation/Transactional-topologies.html
 3. storm design pattern. http://hortonworks.com/blog/apache-storm-design-pattern-micro-batching/
+4. how spotify scale storm : https://labs.spotify.com/2015/01/05/how-spotify-scales-apache-storm/ 
