@@ -1,0 +1,72 @@
+	SPELL_CPP_BACKEND source code architecture
+
+	1. Class SPELLframeManager  <===== initialized by SPELLinterpreter class in prepareObjects() function.
+	(SPELLframeManager.C)
+
+SPELLframeManager provides mechanism to manipulate the procedure execution. Such as go-to
+	
+	Important fields:
+
+(1) PyCodeObject*  m_code;  //python bytecode object
+	(2) PyFrameObject*  m_initialFram //Python frame, the first one in the stack.
+	(3) PyFrameObject* m_currentFrame;
+	(4) PyObject* m_definitions. // list of spell definitions filtered for warmstart.
+	(5) SPELLastAnalyzer m_ast; // holds the ast analyzer.
+	...
+	
+	
+	Import methods:
+	(1) createInitialFrame(): use createFrame(filename, m_code) to get initial frame from python bytecode object: m_code
+	
+	(2) reset() : reset stored run-time info from warmStart mode. Clears breakpoints, execution traces. Recompile and clear error codes.
+	
+	(3) execute(): use PyEval_EvalFrame(frame) to evaluate frame by frame.   Frame's type is PyFrameObject. 
+     To get next one use: frame = frame->_back;
+    
+    to understand python frame: check here: http://farmdev.com/src/secrets/framehack/index.html Frame Hack
+	
+	(4) canSkip() check if current line can be skipped, by using AST functions. Such as m_ast.isSimpleLine() , Read ast class later.
+	(5) goNextLine()
+	
+	2. Class SPELLbreakPoint. 
+	 break points have 2 types: permanent and temporary.
+	 important fields:
+	
+	(1) BreakpointList:    vector<unsigned int>
+	(2) BreakPointMap:  map<string, BreakpintList>
+
+	3. classeSPELLbytecode : used by executor to find information about the procedure source code lines.
+	
+	Important fileds:
+	
+	(1) Vector<BLine_> m_lines;
+	(2) Bline_:  int lineno; int offset; int opcode; bool executable; bool keepWithNext; bool returnConst;
+
+Note: opcode are basic python operations, it has around 100 of them. Such as:
+ 0: STOP_CODE
+	 1: POP_TOP
+	 2: ROT_TOW
+	 11: UNARY_NEGATIVE
+	12: UNARY_NOT
+	23: BINARY_ADD
+	24: BINARY_SUBTRACT
+	72: PRINT_NEWLINE 
+	132: CALL_FUNCTION
+	 
+	
+	Important functions:
+	(1) analyze() 
+	
+	  PHASE 1 //update previous line information if needed.
+	 a) detect 2 -line binary add. Such as   : a +\ 
+                                                                        b
+	    need to pop() last line, set 'keepWithNext' flag to true and push it back again.
+	 b) check for return statement. If so, set previous one flag 'returnConst' to true.
+ 
+PHASE 2 Build and store next Bline information.
+	  set call depth.
+	
+	PHASE 3 Additional information for Try-blocks. Last addr, Last line.
+	
+	4. Class SPELLcallstack
+	5. Class SPELLAnalyzer
