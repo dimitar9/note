@@ -27,3 +27,9 @@ Tips:
 use lein
 
 lein repl
+
+
+
+===============================
+clojure data strucutre.
+http://macromancy.com/
