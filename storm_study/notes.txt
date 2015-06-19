@@ -2,3 +2,7 @@
 2. transactional topologies: https://storm.apache.org/documentation/Transactional-topologies.html
 3. storm design pattern. http://hortonworks.com/blog/apache-storm-design-pattern-micro-batching/
 4. how spotify scale storm : https://labs.spotify.com/2015/01/05/how-spotify-scales-apache-storm/ 
+
+
+udacity:
+https://www.udacity.com/course/viewer#!/c-ud381/l-3104628625/m-3375798989 to watch lesson2 video 4
