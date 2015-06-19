@@ -17,6 +17,9 @@ study :
 http://www.braveclojure.com/do-things/#3_2__Function_Calls__Macro_Calls__and_Special_Forms
 3.3.5 all functions are created equal
 Mar 22nd
+
+Living clojure.
+Finished chapter 4.
      
 
 ===================
