@@ -23,4 +23,4 @@ best raft in ruby ??
 https://github.com/harryw/raft
 
 best raft in ruby
-Yora.
+Yora. Yora has to use ruby 1.9 syntax.
