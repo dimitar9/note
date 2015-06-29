@@ -4,3 +4,7 @@ http://www.tutorialspoint.com/guava/guava_caching_utilities.htm
 JavaCachingwithGuava.pdf
 http://www.baeldung.com/guava-cache
 https://guava-libraries.googlecode.com/files/JavaCachingwithGuava.pdf
+
+
+memcached design vs redis:
+http://key-value-stories.blogspot.com/2015/02/memcached-internals-design.html
