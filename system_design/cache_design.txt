@@ -3,3 +3,4 @@ http://www.javaworld.com/article/2075440/core-java/develop-a-generic-caching-ser
 http://www.tutorialspoint.com/guava/guava_caching_utilities.htm
 JavaCachingwithGuava.pdf
 http://www.baeldung.com/guava-cache
+https://guava-libraries.googlecode.com/files/JavaCachingwithGuava.pdf
