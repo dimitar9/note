@@ -19,6 +19,20 @@ start working on this.
 
 allengeorge/libraft https://github.com/allengeorge/libraft
 
+1. reading source code of this proeject.
+RaftAlgorithm.java onRequestVote line 1258
+
+
+
+
+
+
+
+
+
+
+
+
 best raft in ruby ??
 https://github.com/harryw/raft
 
