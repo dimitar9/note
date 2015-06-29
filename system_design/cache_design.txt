@@ -11,3 +11,7 @@ http://key-value-stories.blogspot.com/2015/02/memcached-internals-design.html
 
 memcached internals.
 https://www.adayinthelifeof.nl/2011/02/06/memcache-internals/
+
+
+cache, LRU code, concurrent:
+http://www.careercup.com/question?id=17230678
