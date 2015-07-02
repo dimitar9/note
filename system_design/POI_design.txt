@@ -1,6 +1,7 @@
 point of interests design.
 
-1. k-d tree. check wikik
+1. k-d tree. check wikik  
+  https://courses.cs.washington.edu/courses/cse373/02au/lectures/lecture22l.pdf
 2. geo hashing  check wiki
 
 
