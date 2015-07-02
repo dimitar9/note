@@ -1,0 +1,11 @@
+point of interests design.
+
+1. k-d tree. check wikik
+2. geo hashing  check wiki
+
+
+
+Google doc collab design.
+https://neil.fraser.name/writing/sync/
+
+Differential Synchronization
