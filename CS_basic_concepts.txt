@@ -6,3 +6,10 @@ http://ssfnet.org/Exchange/tcp/tcpTutorialNotes.html
 
 tcp flow control:
 http://www.maths.adelaide.edu.au/matthew.roughan/Papers/tcptute.pdf
+
+
+
+Operating system:
+virtual memory:
+http://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/9_VirtualMemory.html
+http://www.tutorialspoint.com/operating_system/os_virtual_memory.htm 
