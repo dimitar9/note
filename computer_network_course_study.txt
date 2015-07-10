@@ -1,1 +1,8 @@
 https://courses.cs.washington.edu/courses/cse461/14sp/calendar/calendar.html
+
+
+TCP tutorial:
+http://ssfnet.org/Exchange/tcp/tcpTutorialNotes.html
+
+tcp flow control:
+http://www.maths.adelaide.edu.au/matthew.roughan/Papers/tcptute.pdf
