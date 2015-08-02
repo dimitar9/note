@@ -1,0 +1,5 @@
+1. Deep learning and nerual network:http://neuralnetworksanddeeplearning.com/index.html
+
+2. linear regression: http://alexhwoods.com/2015/07/19/guide-to-linear-regression/
+
+3. KNN: http://alexhwoods.com/2015/07/12/k-nearest-neighbors-in-scikit-learn/
