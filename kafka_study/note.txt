@@ -2,6 +2,9 @@ http://kafka.apache.org/documentation.html#gettingStarted
 0.8 java api doc:
 https://kafka.apache.org/08/api.html
 
+kafka mail list users
+http://mail-archives.apache.org/mod_mbox/kafka-users/
+
 4.8 Log Compaction
 
 
