@@ -5,6 +5,10 @@ https://kafka.apache.org/08/api.html
 kafka mail list users
 http://mail-archives.apache.org/mod_mbox/kafka-users/
 
+everything-about-kafka-part:
+http://www.shayne.me/blog/2015/2015-06-16-everything-about-kafka-part-1/
+
+
 4.8 Log Compaction
 
 
