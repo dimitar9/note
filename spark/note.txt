@@ -112,3 +112,7 @@ Cloudera + Mesos + MapReduce + Spark + Chronos - is it possible? Are there simil
 
 Spark + CHD
 Running Spark Applications
+
+
+
+http://0x0fff.com/spark-dataframes-are-faster-arent-they/
