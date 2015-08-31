@@ -1,0 +1,2 @@
+http://apigee.com/about/resources/webcasts/restful-api-design-s
+http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#requirements
