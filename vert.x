@@ -6,6 +6,4 @@ http://vertx.io/docs/vertx-core/java/
 
 bookmark:  
 
-Oct 17 1:14  http://vertx.io/docs/vertx-core/java/: Verticles
-
-Vert.x comes with a simple, scalable, actor-like deployment 
+Oct 17 1:38  http://vertx.io/docs/vertx-core/java/: Standard verticles are assigned an event loop 
