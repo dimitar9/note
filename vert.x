@@ -6,4 +6,4 @@ http://vertx.io/docs/vertx-core/java/
 
 bookmark:  
 
-Oct 17 1:38  http://vertx.io/docs/vertx-core/java/: Standard verticles are assigned an event loop 
+Oct 17 1:38  http://vertx.io/docs/vertx-core/java/: Deploying verticles programmatically
