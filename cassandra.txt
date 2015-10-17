@@ -8,3 +8,7 @@
 4. Tutorials by datastax: http://www.datastax.com/resources/tutorials 
 
 5. http://planetcassandra.org/try-cassandra/# 
+
+
+6. https://academy.datastax.com/demos/brief-introduction-apache-cassandra 
+   start learn this
