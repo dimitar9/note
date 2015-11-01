@@ -183,3 +183,8 @@ root@debian:/mnt/test#
 	 * mapping->a_ops->readpage() function for the actual low-level stuff. ->
     ext4_readpages()
     
+    
+30. git command to show only ext4 log in one line with author and date:
+ git log --pretty=format:'%h %ad %s | %an' --date=short   -- fs/ext4
+ or
+ git log --pretty=oneline -- fs/ext4
