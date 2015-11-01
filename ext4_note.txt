@@ -188,3 +188,5 @@ root@debian:/mnt/test#
  git log --pretty=format:'%h %ad %s | %an' --date=short   -- fs/ext4
  or
  git log --pretty=oneline -- fs/ext4
+ 
+ 31. ext4 git tree
