@@ -189,4 +189,8 @@ root@debian:/mnt/test#
  or
  git log --pretty=oneline -- fs/ext4
  
- 31. ext4 git tree
+31. ext4 git tree
+ http://git.kernel.org/cgit/linux/kernel/git/tytso/ext4.git/log/?h=dev
+ 
+32. 2015 ext4 new feature :enctyption ext4 crypto
+https://lwn.net/Articles/639427/
