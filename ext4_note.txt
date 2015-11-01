@@ -194,3 +194,10 @@ root@debian:/mnt/test#
  
 32. 2015 ext4 new feature :enctyption ext4 crypto
 https://lwn.net/Articles/639427/
+initial patch:
+http://thread.gmane.org/gmane.comp.file-systems.ext4/48206
+article:
+https://lwn.net/Articles/639427/
+
+comment blog:
+http://blog.quarkslab.com/a-glimpse-of-ext4-filesystem-level-encryption.html
