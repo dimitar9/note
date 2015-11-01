@@ -203,3 +203,5 @@ https://lwn.net/Articles/639427/
 
 comment blog:
 http://blog.quarkslab.com/a-glimpse-of-ext4-filesystem-level-encryption.html
+user space tool e4crypt
+https://git.kernel.org/cgit/fs/ext2/e2fsprogs.git/tree/misc/e4crypt.c?h=next&id=74f2c4aa18f231830c29cdbd278674628956d20d
