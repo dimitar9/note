@@ -208,3 +208,7 @@ https://git.kernel.org/cgit/fs/ext2/e2fsprogs.git/tree/misc/e4crypt.c?h=next&id=
 
 xfstests-ext4
 https://git.kernel.org/cgit/fs/ext2/xfstests-bld.git/tree/README
+
+33. if kvmxfstests hang, use ted tso's rootfs image.
+http://marc.info/?l=linux-ext4&m=144580848415559&w=2
+https://www.kernel.org/pub/linux/kernel/people/tytso/kvm-xfstests/
