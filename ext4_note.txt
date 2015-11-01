@@ -196,6 +196,8 @@ root@debian:/mnt/test#
 https://lwn.net/Articles/639427/
 initial patch:
 http://thread.gmane.org/gmane.comp.file-systems.ext4/48206
+http://marc.info/?l=linux-ext4&m=142801360603286&w=2
+
 article:
 https://lwn.net/Articles/639427/
 
