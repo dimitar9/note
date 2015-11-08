@@ -9,7 +9,7 @@ http://ijcaonline.net/volume15/number7/pxc3872629.pdf
 blog:
 http://flexaired.blogspot.com/2011/09/design-web-crawler.html
 https://www.semantics3.com/blog/2012/09/03/how-we-built-our-almost-distributed-web-crawler/
-http://www.slideshare.net/poonamkenkre/web-crawler-14590800
+http://www.slideshare.net/poonamkenkre/web-crawler-14590800   *** good one
 
 
 Web crawler:
