@@ -1,0 +1,3 @@
+https://neil.fraser.name/writing/sync/ 
+
+http://www.codecommit.com/blog/java/understanding-and-applying-operational-transformation 
