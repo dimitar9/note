@@ -17,3 +17,433 @@
 --Grand Round, 95, 1/4b?, $40m/Jun14
 --Loyal,109,1/5b?, $30m/Jul14
 --Zenefits, 100, $0.5b, $66M/Jun 14
+
+优质 pre-IPO startup list
+发信站: BBS 未名空间站 (Mon Nov  9 02:32:40 2015, 美东)
+
+来自于: https://blog.wealthfront.com/2016-career-launching-companies-list/
+
+一共包含了136个优质 pre-ipo (mid size)的公司, 这些公司大都已经大到可以
+sponsor签证, 但还处于高速发展期, 如果做得好, 未来n年内ipo就可能会上市. 如果
+喜欢startup(非螺丝钉)氛围,但又想一定稳定性的童鞋,不妨可以尝试看看.
+
+这个list对公司的要求是:
+
+- 20m到300m的年收入
+- 未来四年的预计yoy增长超过50%
+
+* 去年的list里有8个公司已经上市, 4个被收购.
+
+为什么应该选择med-sized company: https://blog.wealthfront.com/hot-mid-size-
+silicon-valley-companies/
+
+1ST DIBS • NEW YORK, NY
+Online marketplace for high-end items
+
+ACRONIS • BOSTON, MA
+Storage management solutions for mission-critical applications
+
+ACT-ON SOFTWARE • PORTLAND, OR
+Cloud-based integrated marketing platform
+
+ACTIFIO • BOSTON, MA
+Enterprise copy data virtualization platform
+
+AFFIRMED NETWORKS • BOSTON, MA
+Mobile network solutions
+
+ALIEN VAULT • SAN MATEO, CA
+Threat management platform
+
+ANAPLAN • SAN FRANCSICO, CA
+Financial planning and modeling software
+
+APP ANNIE • SAN FRANCISCO, CA
+Business intelligence solutions
+
+APPDYNAMICS • SAN FRANCSICO, CA
+Application performance management solutions for highly distributed
+applications
+
+APPTIO • SEATTLE, WA
+SaaS-based Technology Business Management solutions for the IT  eld
+
+ASSUREX HEALTH • MASON, OH
+Medication recommendation software
+
+AVALARA • SEATTLE, WA
+Sales tax compliance solutions
+
+AVVO • SEATTLE, WA
+Legal marketplace, directory, and question-and-answer forum
+
+BIRCHBOX • NEW YORK, NY
+Discovery commerce platform for beauty products
+
+BIRST • SAN FRANCISCO, CA
+Cloud business intelligence and analytics
+
+BIT9 • BOSTON, MA
+Endpoint and server security
+
+BLUE APRON • NEW YORK, NY
+Grocery delivery service company
+
+BLUE JEANS NETWORK • MOUNTAIN VIEW, CA
+Video conferencing services
+
+BONOBOS • NEW YORK, NY
+E-commerce driven clothing brand
+
+BUZZFEED • NEW YORK, NY
+Social news and entertainment
+
+CARBON 3D • CHAPEL HILL, NC
+3D manufacturing
+
+CHARTBOOST • SAN FRANCISCO, CA
+Platform for game developers to market their products
+
+CHECKR • SAN FRANCISCO, CA
+Professional background checks
+
+CIPHERCLOUD • SAN JOSE, CA
+Cloud information protection solutions for enterprises
+
+CLOUDBEES • SAN FRANCISCO, CA
+Continuous deployment software
+
+CLOUDFLARE • SAN FRANCISCO, CA
+Content delivery network and distributed domain name server service
+
+CODE42 SOFTWARE • MINNEAPOLIS, MN
+Management, backup, storage and protection of digital content
+
+CREDIT KARMA • SAN FRANCISCO, CA
+Free credit reports
+
+CROWDSTRIKE • IRVINE, CA
+Threat analysis and prevention
+
+DATASTAX • SANTA CLARA, CA
+Distributed database technology built on Cassandra
+
+DEEM • SAN FRANCISCO, CA
+Commerce-as-a-service
+
+DELPHIX • SAN FRANCISCO, CA
+Software to provision, manage, and refresh databases
+
+DIGITAL OCEAN • NEW YORK, NY
+Cloud hosting service for developers
+
+DOCUSIGN • SAN FRANCISCO, CA
+E-signature technology for signing documents online
+
+DOMO • AMERICAN FORK, UT
+Executive business intelligence platform
+
+DOUGH, INC • CHICAGO, IL
+Options trading platform
+
+DRAWBRIDGE • SAN MATEO, CA
+Anonymous cross-device communication platform
+
+DROBO • SAN JOSE, CA
+External storage devices
+
+DUO SECURITY • ANN ARBOR, MI
+Cloud-based two-factor authentication
+
+ELASTIC • MOUNTAIN VIEW, CA
+Advanced open source search and analytics engine
+
+ELEVATE • FORT WORTH, TX
+Online credit solutions
+
+EVENTBRITE • SAN FRANCISCO, CA
+Online events marketplace
+
+EVERNOTE • REDWOOD CITY, CA
+Cross-device personal digital workspace
+
+EXTRAHOP • SEATTLE, WA
+Real-time operational intelligence
+
+FANATICS • JACKSONVILLE, FL
+Online retailer of o cially licensed merchandise
+
+FLIPBOARD • PALO ALTO, CA
+Digital social magazine for mobile
+
+FUNDING CIRCLE • SAN FRANCISCO, CA
+Online marketplace for business loans
+
+GIGYA • MOUNTAIN VIEW, CA
+Software to consolidate and manage consumer identity and behavior data
+
+GITHUB • SAN FRANCISCO, CA
+Git repository and social nework for engineers
+
+GLASSDOOR • MILL VALLEY, CA
+Job, salary, and bene t review platform for job seekers
+
+GOFUNDME • SAN DIEGO, CA
+Crowd-funding platform for life events
+
+GRAND ROUNDS • SAN FRANCISCO, CA
+Outcomes management platform
+
+GUSTO • SAN FRANCISCO, CA
+Small company payroll and bene ts
+
+HEALTH CATALYST • SALT LAKE CITY, UT
+Organizes health-related data
+
+HIREVUE • SALT LAKE CITY, UT
+Recruiting productivity software
+
+HOOTSUITE • VANCOUVER, CANADA
+Enterprise social media relationship platform
+
+HOTELTONIGHT • SAN FRANCISCO, CA
+Mobile hotel same-day booking application
+
+HOUZZ • PALO ALTO, CA
+Online platform for home interior design
+
+HUDL • LINCOLN, NE
+Sports video analysis and coaching tools
+
+IEX • NEW YORK, NY
+Transparent securities exchange
+
+INFLECTION • REDWOOD CITY, CA
+Big data platform for  nding public documents
+
+INSIDE SALES • SALT LAKE CITY, UT
+Sales acceleration platform
+
+INSTACART • SAN FRANCISCO, CA
+Grocery delivery service
+
+INTENT MEDIA • NEW YORK, NY
+Advertising platform for e-commerce sites
+
+IPSY • SAN MATEO, CA
+Beauty products sampling service
+
+IQMS • PASO ROBLES, CA
+Enterprise resource planning software
+
+JANA • BOSTON, MA
+App discovery service
+
+JASPER WIRELESS • MOUNTAIN VIEW, CA
+Solutions to enable operational automation for mobile operators
+
+JET.COM • JERSEY CITY, NJ
+Online commerce
+                     
+KABAM • SAN FRANCISCO, CA
+Mobile gaming company developing free-to-play core games
+
+LATTICE ENGINES • SAN MATEO, CA
+Cloud-based, data-driven applications for marketing and sales activities
+
+LOOKOUT • SAN FRANCISCO, CA
+Mobile protection applications
+
+LUMOSITY • SAN FRANCISCO, CA
+Online brain training programs
+
+MAPR TECHNOLOGIES • SAN JOSE, CA
+Enterprise-grade, big data platform
+
+MARKLOGIC • SAN CARLOS, CA
+Software solutions for handling big data applications
+
+MEDALLIA • PALO ALTO, CA
+SaaS-based customer experience management systems
+
+METASWITCH NETWORKS • SAN FRANCISCO, CA
+Technologies that migrate communication networks to open architectures
+
+MINTED • SAN FRANCISCO, CA
+Crowdsourced graphic designs and content
+
+MIXPANEL • SAN FRANCISCO, CA
+Mobile behavior analytics platform
+
+MONGODB • NEW YORK, NY
+NoSQL and big data database
+
+NAMELY • NEW YORK, NY
+HR, payroll, and bene ts platform
+
+NASTYGAL • LOS ANGELES, CA
+Online fashion destination that sells vintage clothing, shoes and
+accessories
+
+NERDWALLET • SAN FRANCISCO, CA
+Personal  nance content site
+
+NEXTDOOR • SAN FRANCISCO, CA
+Neighborhood based social network
+
+OKTA • SAN FRANCISCO, CA
+Identity management service for the enterprise
+
+ONE MEDICAL GROUP • SAN FRANCISCO, CA
+Employee wellness assessment and physician primary care services
+
+ONESOURCE VIRTUAL • IRVING, TX
+Implementation and delivery of Workday services
+
+OPTIMIZELY • SAN FRANCISCO, CA
+Software platform enabling A/B and multivariate testing
+
+PINTEREST • SAN FRANCISCO, CA
+Social bookmarking site that visually showcases user interests
+
+PLEX SYSTEMS • DETROIT, MI
+Cloud-based enterprise resource planning technology
+
+POND5 • NEW YORK, NY
+Hub to buy and sell media
+
+POPSUGAR • SAN FRANCISCO, CA
+Content publication network specializing in entertainment, fashion,
+parenting,  tness and food
+
+POSTMATES • SAN FRANCISCO, CA
+Urban delivery service
+
+PRODEGE • LOS ANGELES, CA
+Internet media properties
+
+PUPPET LABS • PORTLAND, OR
+Information technology automation software
+
+QUALTRICS • PROVO, UT
+SaaS insight and survey platform
+
+QUANTCAST • SAN FRANCISCO, CA
+Digital advertising company for marketers
+
+RAISE.COM • CHICAGO, IL
+Gift cards marketplace
+
+REDFIN • SEATTLE, WA
+Real estate search and brokerage services
+
+RENT THE RUNWAY • NEW YORK, NY
+Designer dresses and accessory rentals
+
+REPUTATION.COM • REDWOOD CITY, CA
+Enterprise reputation management
+
+SEATGEEK • NEW YORK, NY
+Event ticket marketplace
+
+SEGMENT • SAN FRANCISCO, CA
+API for customer data
+
+SENDGRID • DENVER, CO
+Cloud-based enterprise email delivery service
+                     
+SIMPLISAFE HOME SECURITY • BOSTON, MA
+Wireless home security systems
+
+SIMPLIVITY • BOSTON, MA
+IT infrastructure platform
+
+SLACK • SAN FRANCISCO, CA
+Enterprise communications software
+
+SNAPCHAT • LOS ANGELES, CA
+Photo and video messaging app
+
+SOFI • SAN FRANCISCO, CA
+Student loan marketplace
+
+SOUNDCLOUD • SAN FRANCISCO, CA
+Online audio distribution platform for musicians and listeners
+
+SQUARESPACE • NEW YORK, NY
+Consumer focused online publishing tools
+
+STITCH FIX • SAN FRANCISCO, CA
+Personal styling platform
+
+STRIPE • SAN FRANCISCO, CA
+APIs and tools enabling businesses to accept online payments
+
+SUMO LOGIC • REDWOOD CITY, CA
+Cloud-based log management and analytics
+
+TANIUM • EMERYVILLE, CA
+Enterprise security and systems management solution
+
+TEESPRING • SAN FRANCISCO, CA
+Commerce platform for entrepreneurs
+
+TENABLE NETWORK SECURITY • BALTIMORE, MD
+Uni ed security monitoring solutions for enterprise networks
+
+THINK FINANCE • DALLAS, TX
+Online  nancial products for underbanked consumers
+
+THINKINGPHONES • BOSTON, MA
+Uni ed communications services
+
+THREDUP • SAN FRANCISCO, CA
+Online consignment shop
+
+THUMBTACK • SAN FRANCISCO, CA
+Online marketplace for home-related services
+
+TILT • SAN FRANCISCO, CA
+Group-funding platform for non-pro t organizations and activities
+
+TUNEIN • PALO ALTO, CA
+Audio streaming service for online radio, talkshows, and news
+
+TWILIO • SAN FRANCISCO, CA
+Voice, VoIP and SMS APIs
+
+UPWORK • SAN FRANCISCO, CA
+Online sta ng marketplace connecting freelancers with jobs
+
+USERTESTING.COM • SAN FRANCISCO, CA
+Web testing service
+
+VISUAL SUPPLY • OAKLAND, CA
+Photography apps and tools
+
+VOX MEDIA • WASHINGTON, D.C.
+Online publisher focused on sports, personal technology and gaming
+
+WARBY PARKER • NEW YORK, NY
+Online eyewear retailer
+
+WEEBLY • SAN FRANCISCO, CA
+Website and online store creation tools
+
+WISH • SAN FRANCISCO, CA
+Mobile commerce platform
+
+WORDPRESS • HOUSTON, TX
+Content management platform for blogs and websites
+
+YAPSTONE • WALNUT CREEK, CA
+Electronic payments for online marketplaces
+
+ZENEFITS • SAN FRANCISCO, CA
+Enterprise platform for company HR needs
+
+ZSCALER • SAN JOSE, CA
+Cloud-delivered security services
+
+ZUORA • FOSTER CITY, CA
+Enterprise subscription billing and management
