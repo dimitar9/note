@@ -1,0 +1,344 @@
+ TinyURL - URL Shorten service
+【案例实战】 Design a tinyurl system
+by Shirley (感谢CC整理)， 12/9/2015
+
+今天开始进入第四阶段的【案例广度分析】，本阶段将cover一共6类12种案例，案例皆选自高频设计题库。今天要分析的案例是TinyURL。
+
+
+1．What is TinyURL?
+
+tinyurl is a URL service that users enter a long URL and then the service return a shorter and unique url such as "http://tiny.me/5ie0V2". The highlight part can be any string with 6 letters containing [0-9, a-z, A-Z]. That is, 62^6 ~= 56.8 billions unique strings.
+
+举个例子 - 拿我们的blog地址来说，通过使用Google的短链接服务，该链接会被缩短为如下的13个字符长度的url：
+
+
+
+Tinyurl最初由Twitter提出，其目的是为了减少推文中的字数限制。其后相继被广泛应用于社交网络之中，并在该原始功能的基础上加入了安全、数据统计等功能。
+
+
+2．SNAKE分析
+
+接下来我们进入此案例的SNAKE分析环节 -
+
+Crack a design in 5 steps
+
+ • Scenario: case/interface
+
+ • Necessary: constrain/hypothesis
+
+ • Application: service/algorithm
+
+ • Kilobit: data
+
+ • Evolve
+
+1．Scenario － 做场景／接口分析
+
+tinyURL的基本功能简单来说就是：
+1.     给定长url 生成短url
+2.     输入短url返回原始长url
+3.     url的安全访问控制
+4.     url的点击统计
+其中1，2是短链接系统的主要功能。接下来我们将从主要功能开始进行后面的分析。
+
+2．Necessary: constrain/hypothesis
+
+2．1 Daily Active User
+首先要确定的是日活用户，对于这个有个简单的原则，Google Facebook这类的日活为0.1b，其他的都按1m来估算。
+·         Daily active user = 1 million
+
+2．2 QPS
+接下来按照功能来进行qps的分析。tinyURL的两大功能是：
+·         Long to Short
+·         Short to Long
+
+其中，Long to Short问题可以被转化为Insert问题，也就是针对长url产生出一个短url后，再将这一对url存起来；Short to long可以被转化为Lookup问题。
+
+
+从使用频率来看，Short to Long 功能的使用频率将大大高于Long to Short功能。也就是多读少写。基于此，我们假设每个使用tiny URL服务的用户，有100%的概率会使用Short to Long功能，而只有有1%的概率使用Long to short功能。
+
+基于如上假设，两个功能的qps计算如下：
+
+·         Insert （Long to Short）
+# query per day: 1m * 1%(function usage) * 10 (function freq) = 0.1m
+# query per year: 0.1 m * 365 = 36.5 m
+# query per sec: 0.1 m/86400 = 1.2
+·         Lookup
+#query per day: 1m * 100%(function usage) * 3 (function freq) = 3 m
+#query per sec: 3m/86400 = 35
+
+也就是说插入功能的qps只有1.2次/s，这个数字非常小。相比之下，查询功能的qps是插入功能的30倍左右
+
+
+3．Application: service/algorithm
+
+接下来是第三步：  Application: service/algorithm。也就是本案例最核心的部分
+
+·           针对算法设计问题，一般会有三种方法：
+1.     Hash：简单的设计一个哈希函数，针对原long url算出一个short url
+2.     increase id：采用递增的方式，存在一个全局的ID,每新来一个url，将ID加一，将将这个ID作为原始URL的全局标识，然后由这个ID生成对应的tinyURL
+3.     random id：在一个范围里随机产生id，如果该id已经存在则重试直到为新id为止，然后由这个ID生成对应的tinyURL
+
+第一种方法并不可取，将问题复杂化了，而且string to string的哈希算法难以设计。感兴趣的可以阅读：暴雪hash算法；
+
+第二种方法的优点是：可以无限扩展，并且不会重复；缺点是：如何保存全局ID,如果保存到文件中，在高并发情况下这个将成为系统瓶颈所在，当然也可保存在memcache中。第二种方法还有个安全性的缺点，如果ID生成对应的tinyURL的算法过于简单，则容易被人套出以前被map过的长url。（举个例子，auto increase id）；
+
+第三种方法的优点是能解决第二种方法的安全性隐患，针对每个长链接随机发号而不是直接递增。但是缺点是：随机id产生的冲突是不可控的，一旦产生新id需要查表再决定是否需要try again。
+
+*关于第二种与第三种方法的利弊分析
+根据查到的资料来看，业界第二种第三种都有使用到。针对第二种方法提到的安全性隐患，解决办法是用 Feistel cipher 来对increment id进行变形，产生伪随机字符排列。
+*根据知乎回答：http://www.zhihu.com/question/29270034/answer/46592308的统计来看，第二种应该是使用较多的。
+*再引用一篇stackoverflow的的回答：
+http://stackoverflow.com/questions/10299901/how-do-sites-like-goo-gl-or-jsfiddle-generate-their-url-codes/10302978 这里也是建议使用第二种递增id。
+
+接下来针对后两种解法，贴上伪代码
+class Shortener {
+map<string,string> mLongToShort
+map<string,string> mShortToLong
+string Insert( string longURL )
+If( mLongToShort.Find( longURL ) == NULL )
+string shortURL = GenerateShortURL();
+mLongToShort.put( longURL, shortURL);
+mShortToLong.put(shortURL, longURL);
+Return shortURL;
+};
+
+这里的关键函数是GenerateShortURL（），用来产生id并map为短url。
+
+这个函数的内部设计可以引申出第2与第3种解法：
+·           可以将其设计为自增id，实现也很简单：
+String GenerateShortURL() {
+    return convertIdToString(mLongToShort.size());
+}
+
+·           或者使用random(0, range)来产生随机id：
+接下来需要做的就是将id转换为String（也就是短url） 。
+这一步有个小小的计算（详情见下），短url的字符选取有两种方式，一种纯数字，一种数字与字符的组合。如果要满足每年产生36.5m的url，对比之下，纯数字需要的长度至少为8，数字字母组合的最小长度仅为5。这里我们选取后者，可以用更短的字符表示同样数量的组合。
+
+o    yearly URL: 36.5m
+o    usable characters:
+§  number only:  [0-9] = 10
+§  number&letter: [0-9a-zA-Z] = 10+26+26=62
+o    encoding length:
+§  Log_10(36.5m) = 7.6 = 8
+§  Log_62(36.5m) = 4.2 = 5
+o    example:
+§  goo.gl/36500000;
+§  goo.gl/1gs7k
+
+由于上一步产生的id是十进制的，下一步我们将要把id convert成62进制的能用数字及字母表示的string。代码如下：
+
+string GenerateShortURL( string longURL )
+Return ConvertTo62( LongToShort.size() );
+
+string ConvertTo62(int number)
+char Encode[62] = {‘0’,…,’9’, ’a’, …,’z’, …, ’A’,…,’Z’};
+string ret = "";
+While(number)
+ret = Encode[ number%62 ] + ret;
+number/=62;
+Return ret;
+
+
+4. Kilobit
+
+4.1 Memory
+这里我们假设每个长链接平均由100个字符组成，短链接的id需要4byte。每个url有State code来标记其状态（如正常、超时、无法访问等）。综上得出每年新url所需的存储空间为118GB。计算如下：
+
+·         Average size of longURL = 100 bytes
+·         Average size of shortURL = 4 bytes (int)
+·         State = 4 byte
+·         Daily new URL = 3,000,000 * 108 = 324MB
+·         Yearly new URL = 324*365 = 118GB 
+
+4.2 Storage - 数据的存储
+
+1． 存在一台机器上
+ We can have a database which contains three columns: id (auto increment), actual url, and shorten url.
+
+2． 存在多台机器上
+假设用户量及流量极速增长，单台机器已无法满足需求，we need to distributed data onto multiple servers。
+
+2.1 Distributed Database
+We can use Distributed Database. But maintenance for such a db would be much more complicated (replicate data across servers, sync among servers to get a unique id, etc.).
+
+2.2 Distributed Key-Value Datastore
+Alternatively, we can use Distributed Key-Value Datastore.
+Some distributed datastore (e.g. Amazon's Dynamo) uses Consistent Hashing to hash servers and inputs into integers and locate the corresponding server using the hash value of the input. We can apply base conversion algorithm on the hash value of the input.
+
+The basic process can be:
+Insert
+1.     Hash an input long url into a single integer;
+2.     Locate a server on the ring and store the key--longUrl on the server;
+3.     Compute the shorten url using base conversion (from 10-base to 62-base) and return it to the user.
+Lookup
+1.     Convert the shorten url back to the key using base conversion (from 62-base to 10-base);
+2.     Locate the server containing that key and return the longUrl.
+
+
+5．Evolve
+最后到了最关键的环节－Evolve，也就是讨论得非常火爆的话题
+Ø  从用户角度而言的系统进化：
+o   Better: constrains
+o   Boarder: New use cases 
+o   Deeper: more details
+Ø  从服务端角度而言：
+o   Performance
+o   Scalability
+o   Robustness
+性能、扩展、安全是很值得思考的话题，也是最可能的follow up。
+
+
+问题1：new use case扩展－how to implement time-limited service?
+刚刚第四步提到的state在这里就有用武之地了，超时的就清空
+
+问题2：Performance扩展－how to improve the performance?
+针对算法性能的问题，Feistel cipher的话需要进行3轮的迭代计算，这个方便没有做太深的研究，也许会存在更优的算法。刚刚查到一个相似的算法：Substitution-permutation network，也涉及到多轮迭代计算。
+
+问题3：Scalability扩展 - -假设peak qps暴增到了1 million/sec，怎么解决？
+
+一般来说，这种激增的需求是能预先知道的，所以可以提前部署好架构。如果实在不知道就用aws。 ：）
+
+1、可以增加server数量，配合load balancer来解决
+2、可以通过实现cache来做到（比如LRU）
+3、也可以使用Message queue+异步式操作解决
+4、还有个Rate limiter（也在这阶段的案例库中）
+In computer networks, rate limiting is used to control the rate of traffic sent or received by a network interface controller。假如server最高只能接受50w/s的qps，一旦冲击到了100w，服务器崩溃就可能挂掉。Rate Limiter会把超过50w／s的请求全拒绝掉。
+5、 “全内存”方式
+如果数据查询都要进入硬盘查询的话，速度会很慢，此处提到的全内存方式，提倡将映射数据存到内存中，这样查询速度就会变快很多。有以下两种方式：
+1、先写硬盘，再写内存（牺牲性能，获得一致性）
+2、先写内存，返回，再写硬盘（保证性能，暂时不保证一致，但可以最终获得一致性，用准确度换取性能）
+可以用redis/memcache，轻量级的请求memcache就够了，复杂/重级服务用redis。
+
+
+
+
+
+最后特别提一下九章张无忌老师的解决方法，是第一种方法。他提到了部署多台nginx在servers前面（替换掉一台接待员的设计模式），用来handle高冲击量。假设每台nginx能handle 10w/s，之后有5台server，做到每两个nginx连一台server即可，部署如下：
+
+
+请求在发到server前可以batch一下，一般来谋一段时间内可以累积出针对同一url的多个访问请求。
+
+Nginx (pronounced "engine x") is a web server with a strong focus on high concurrency, performance and low memory usage. It can also act as a reverse proxy server for HTTP,HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer and an HTTP cache. 在这里可以理解成load balancer。
+
+问题4：安全性扩展
+1）怎么防范攻击（ddos）？
+(tbc)
+
+2）能不能提升Feistel ciphier的加密性能或别的算法？
+
+
+针对算法安全性的问题，Feistel cipher的话需要进行3轮的迭代计算，这个方面没有做太深的研究，也许多迭代几次能更加安全。刚刚查到一个相似的算法：Substitution-permutation network，也涉及到多轮迭代计算。
+
+
+问题5：这种网站靠什么盈利？
+（松霄）原来公司我老板是bit.ly创始人，我问他个性化URL的点子，他说主要是易于做访问统计然后卖结果
+（Shirley）http://bit.ly 现在都是有revenue 的网站。任何使用他们service 的 网站链接都会被纪录下来。所以这些short url 网站都能够非常灵敏的发现哪些内容链接正在社交网站上崛起，这对于第三方投放广告或者是内容挖掘都是非常有帮助的。所以，这些长链接对于这些公司来说是非常重要的财产。
+
+顺便提一下tinyURL网站的盈利点—数据分析 的实现方式
+
+
+
+上面是google analysis的界面。这些按时段、地区、浏览器做的数据统计，都是基于访问该链接的请求日志（log）进行分析得出来的。
+
+
+这里先建立预设的bucket，然后每收到一条新访问请求，就将其存到相应的bucket里面，这样就能实现查看实时的访问数据了。
+
+扩展就到这里啦，简单的一个tinyURL功能设计可以引申出很多的延伸性思考。
+
+
+3、其他课间讨论问题汇总
+
+1、（Yang）看起来configure这些机器很麻烦呀。ngix和web之间是什么关系呢
+Nginx is a web server. It can also act as a reverse proxy server, as well as a load balancer and an HTTP cache.
+
+2、（Yang）从browser到tinyURL还有DNS之间是怎么个过程？
+（吴作栋）查询：Client - DNS - Client - TinyUrl server - Client - DNS - Client - Requested page？如果有缓存，DNS的步骤可以省略
+（邹蓉）用户访问短网址时的过程，简单说来：
+（1）、浏览器访问短网址http://goo.gl/u1w7jW，经过DNS解析会指向到http://goo.gl的服务器。
+（2）、服务器根据短网址中的ID字段查找数据库，返回原始网址。
+（3）、重定向到上面返回的原始网址。
+细致分析请参考——现代浏览器的工作原理：
+https://github.com/skyline75489/what-happens-when-zh_CN
+
+
+3、（Yang）所以只要是goo.gl开头的网址，都会被指向Google的tinyURL服务？
+（吴作栋）感觉是的
+4、（Yang）所以tinyURL要在DNS处提前注册自己的域名了？
+
+（吴作栋）：我觉得应该吧，否则无法解析ip地址，也就无从通信了
+
+
+
+4、Reference
+1． API
+
+    URL Shortener API
+
+2. Id Generation Algorithm
+
+    短 URL 系统是怎么设计的？
+    tinyURL的设计方案与实现
+    How do sites like goo.gl or jsfiddle generate their URL codes?
+
+
+3. 后期扩展
+
+    System Design for Big Data-tinyurl
+    TinyURL深度分析
+    系统设计面试小tips
+    系统设计典型问题的思考
+    Web攻防系列教程之 漫谈短链接安全
+
+5、Brainstorming讨论记录
+
+·   问题：给出一个长URL，怎么产生一个unique的短URL？
+
+1. Random id
+Lun：我猜random一个字符串+ Hashset
+Shirley: @lun 同学提到了random字符串，这个想法非常好，但是怎么处理conflict呢？
+Ethan: 按照某种算法 产生一个不容易被猜出来的。再run一次就好了吧。除非特别背 要不run了几次 应该有unique的了。hashset有点费空间貌似~
+
+2. increase id
+Lun: 用单调递增生成, 这样就不重复了
+Ethan: 那不就可能发现规律被猜出来吧, 万一这个单调递增算法被发现。。。
+Shirley: ＠lun 这个想法也很好，能避免空间浪费（但是会牺牲些安全性，能够被黑客爬到已经产生过的链接）
+Lun: 所以有trade off
+
+3. 分布式server/security
+吴作栋: tinyurl的server会不会有多个？
+Lun: 你是说每个Server自己递增会重复？
+Shirley: 根据需求来定，server可以有多个。如果server有多个的话，怎么解决同时递增产生id的问题呢？
+吴作栋: @Shirley 随机生成的黑客会爬不到么？
+Shirley: 随机生成的话 对于黑客来说爬到有效链接的概率就很小了
+吴作栋: @Shirley 为啥呢？不都是存一张表里吗？
+Shirley: 举个例子，比如我们的id从0开始递增，今天的第一个id是0，最后一个id是10000，
+Lun: @吴作栋 可以每台机器负责一块递增区域
+吴作栋: 黑客只要获得这张表的权限就可以拿到全部信息呀？
+Ethan: 那样的话 万一某一台机器挂了 那片区域就木有了  黑客就容易知道区域, 之后再修复之后, 那片区域 就GG了
+吴作栋: @lun 具体怎样实现呢？
+Lun: 只是我的想法了  gg的话用一台主机管理  然后还有备用Server如果每台机器同时从同一点递增的话同步还需要通信我觉得挺麻烦
+Ethan: 是啊 所以 range大的话 其实随机是最好的
+吴作栋: @lun @Ethan 备用server应该能解决down机的问题
+Ethan: 省空间 安全性高
+Shirley: @吴作栋 个人理解，多台server是为了分流增加效率，如果数据都存在一张表里，当某一台在写的时候其他都要进行等待。也像@🃏Ethan🎲 所说，如果存放表的机器挂掉了，整个服务就会瘫痪
+Ethan: 同意Shirley 而且 down机 之后的主要问题不是能不能恢复 是 这片区域被暴露了！
+吴作栋: @Shirley 意思是全局只有一张表吗
+Shirley: ＠lun 刚刚提到很重要的一点－“每台机器同时从同一点递增”，只要每台机器的起始点不一样，就可以解决这个问题了
+Ethan: 理论上 lun的方法 可行
+吴作栋: @Shirley 呃，如果只有一张表就不存在这个问题。
+Ethan: 通过server不同 range不同 确定 肯定不会重复
+吴作栋: @Shirley @lun 不同起始点应该可行。不知道现实中是多表还是单表，以及假设是多表用的是啥策略
+Ethan: 类似于大哥管小弟的bigtable？
+Shirley: 这个要看CAP的取舍了，如果一张表可以保证一致性，但是性能下降。如果多张表可以保证性能增加，但是中途不一定一致，但可以最终获得一致性。
+
+
+Other
+
+- 有10亿个url，一个服务上存不下，需要多台服务器，怎么设计实现
+二次哈希， 根据ak78ss这样的值映射到不同机器上，hash或者字母序层次下去
+
+- 让你来设计这样一个服务，最大的问题是什么?
+查询速度、响应时间、还有过期的url在浪费存储空间
+
+(tbc...)
