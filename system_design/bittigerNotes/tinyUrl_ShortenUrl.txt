@@ -1,3 +1,4 @@
+http://systemdesigns.blogspot.com/2015/12/tinyurl-url-shorten-app.html?view=sidebar
  TinyURL - URL Shorten service
 【案例实战】 Design a tinyurl system
 by Shirley (感谢CC整理)， 12/9/2015
