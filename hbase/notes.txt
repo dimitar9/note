@@ -1,1 +1,32 @@
+1. Region split
+    HBase How region split works:
+    https://hortonworks.com/blog/apache-hbase-region-splitting-and-merging/
+    https://community.hortonworks.com/articles/74442/how-region-split-works-in-hbase.html
 
+
+
+    Short Description:
+
+    Article explains a region split in HBase through the following sequence of events.
+
+
+    Article
+
+    1. A region is decided to be split when store file size goes above *hbase.hregion.max.filesize* **or according to defined region split policy.
+    2. At this point this region is divided into two by region server.
+    3. Region server creates two reference files for these two daughter regions.
+    4. These reference files are stored in a new directory called *splits* under parent directory.
+    5. Exactly at this point, parent region is marked as closed or offline so no client tries to read or write to it.
+    6. Now region server creates two new directories in splits directory for these daughter regions.
+    7. If steps till 6 are completed successfully, Region server moves both daughter region directories under table directory.
+    8. The META table is now informed of the creation of two new regions, along with an update in the entry of parent region that it has now been split and is offline. (OFFLINE=true , SPLIT=true)
+    9. The reference files are very small files containing only the key at which the split happened and also whether it represents top half or bottom half of the parent region.
+    10. There is a class called “HalfHFileReader”which then utilizes these two reference files to read the original data file of parent region and also to decide as which half of the file has to be read.
+    11. Both regions are now brought online by region server and start serving requests to clients.
+    12. As soon as the daughter regions come online, a compaction is scheduled which rewrites the HFile of parent region into two HFiles independent for both daughter regions.
+    13. As this process in step 12 completes, both the HFiles cleanly replace their respective reference files. The compaction activity happens under .tmp directory of daughter regions.
+    14. With the successful completion till step 13, the parent region is now removed from META and all its files and directories marked for deletion.
+    15. Finally Master server is informed by this Region server about two new regions getting born. Master now decides the fate of the two regions as to let them run on same region server or have them travel to another one.
+
+
+2. Region merge.   merge by using region encoded name. 
