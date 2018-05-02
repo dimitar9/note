@@ -35,3 +35,5 @@
 
 3. Repair overlap regions:
    http://hbase.apache.org/0.94/book/apbs04.html
+
+4. Hbase OTSDB salting.
